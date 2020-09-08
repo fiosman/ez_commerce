@@ -20,4 +20,24 @@ RSpec.describe Api::UsersController, type: :controller do
       end
     end
   end
+
+  describe "PATCH #update" do
+    before(:each) { User.create(username: "bobbyjones", password: "iamthepassword") }
+    context "with valid params" do
+      it "renders the show template, return 200 status code and updates user" do
+        patch :update, params: { user: { id: User.last.id, username: "jason", password: "nolongerpassword" } }, format: :json
+        expect(response).to have_http_status(200)
+        expect(response).to render_template(:show)
+        expect(User.last.username).to eq("jason")
+      end
+    end
+
+    context "with invalid params" do
+      it "returns a 401 status code and does not update user" do
+        patch :update, params: { user: { id: User.last.id, username: "", password: "iamthepassword" } }, format: :json
+        expect(response).to have_http_status(401)
+        expect(User.last.username).to eq("bobbyjones")
+      end
+    end
+  end
 end
