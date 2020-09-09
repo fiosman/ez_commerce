@@ -5,6 +5,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import SessionForm from "../components/session_form/session_form";
+import { signUpUser, updateUser } from "../util/session_api_util";
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
@@ -12,3 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(document.createElement("div"))
   );
 });
+
+window.signUpUser = signUpUser;
+window.updateUser = updateUser;
