@@ -4,10 +4,11 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
+import SessionForm from "../components/session_form/session_form";
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
-    <h1>Welcome to ezCommerce </h1>,
+    <SessionForm />,
     document.body.appendChild(document.createElement("div"))
   );
 });
