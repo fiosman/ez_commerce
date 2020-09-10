@@ -11,11 +11,13 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
     e.preventDefault();
   }
 
-  handleInput() {}
+  handleInput(e) {
+    this.setState({ [e.target.name]: e.target.value });
+  }
 
   render() {
     return (
