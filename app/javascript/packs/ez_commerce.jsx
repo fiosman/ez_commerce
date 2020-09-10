@@ -6,6 +6,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import SessionForm from "../components/session_form/session_form";
 import { signUpUser, updateUser } from "../util/session_api_util";
+import { update, signup } from "../actions/session_actions";
+import { configureStore } from "../store/store";
 
 document.addEventListener("DOMContentLoaded", () => {
   ReactDOM.render(
@@ -14,5 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-window.signUpUser = signUpUser;
-window.updateUser = updateUser;
+window.signup = signup;
+window.update = update;
+window.store = configureStore;
