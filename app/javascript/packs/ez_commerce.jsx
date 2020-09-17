@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.getState = store.getState;
 
   ReactDOM.render(
-    <Root />,
+    <Root store={store} />,
     document.body.appendChild(document.createElement("div"))
   );
 });
