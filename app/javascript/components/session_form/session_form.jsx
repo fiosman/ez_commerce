@@ -13,15 +13,19 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    return this.props.processForm(this.state);
   }
 
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
-  render() {
+  formHeader() {
+    const headerStatus =
+      this.props.formType === "signup" ? "Sign up" : "Sign in";
     return (
       <form>
+        <h2>{headerStatus}</h2>
         <label>
           Username:
           <input
@@ -44,6 +48,20 @@ class SessionForm extends React.Component {
 
         <button onClick={this.handleSubmit}>Submit</button>
       </form>
+    );
+  }
+
+  displayErrors() {
+    console.log(this.props.errors.session);
+  }
+
+  render() {
+    return (
+      <div>
+        <p>{this.props.navLink}</p>
+        {this.formHeader()}
+        {this.displayErrors()}
+      </div>
     );
   }
 }
