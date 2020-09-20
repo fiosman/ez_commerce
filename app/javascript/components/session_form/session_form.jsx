@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    return this.props.processForm(this.state);
+    this.props.processForm(this.state).then(() => this.props.history.push("/"));
   }
 
   handleInput(e) {
@@ -61,9 +61,9 @@ class SessionForm extends React.Component {
     );
   }
 
-  componentDidMount() {
-    console.log("TeST");
-  }
+  // componentDidMount() {
+  //   console.log("TeST");
+  // }
 
   render() {
     return (
