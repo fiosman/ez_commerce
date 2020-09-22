@@ -1,5 +1,5 @@
 import React from "react";
-
+import { withRouter } from "react-router-dom";
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -11,42 +11,42 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.processForm(this.state).then(() => this.props.history.push("/"));
+  handleInput(e) {
+    const currInput = e.target.name;
+
+    return this.setState({ [currInput]: e.target.value });
   }
 
-  handleInput(e) {
-    this.setState({ [e.target.name]: e.target.value });
+  handleSubmit(e) {
+    e.preventDefault();
+    this.props.processForm(this.state).then(() => this.props.history.push(`/`));
   }
 
   formHeader() {
-    const headerStatus =
-      this.props.formType === "signup" ? "Sign up" : "Sign in";
+    const typeValue = this.props.formType === "login" ? "Login" : "Sign up";
+
     return (
       <form>
-        <h2>{headerStatus}</h2>
+        <h2>{typeValue}</h2>
         <label>
           Username:
           <input
-            type="text"
             name="username"
+            type="text"
             onChange={this.handleInput}
             value={this.state.username}
-          ></input>
+          />
         </label>
-
         <label>
           Password:
           <input
-            type="password"
             name="password"
+            type="password"
             onChange={this.handleInput}
             value={this.state.password}
-          ></input>
+          />
         </label>
-
-        <button onClick={this.handleSubmit}>{headerStatus}</button>
+        <button onClick={this.handleSubmit}>{typeValue}</button>
       </form>
     );
   }
@@ -61,10 +61,6 @@ class SessionForm extends React.Component {
     );
   }
 
-  // componentDidMount() {
-  //   console.log("TeST");
-  // }
-
   render() {
     const errors = this.props.errors ? this.displayErrors() : "";
     return (
@@ -77,4 +73,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);

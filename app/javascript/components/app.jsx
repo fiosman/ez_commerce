@@ -8,11 +8,11 @@ const App = () => (
   <div>
     <header>
       <h1>EzCommerce</h1>
-      <Route path="/" exact component={GreetingContainer} />
     </header>
     <Switch>
       <Route path="/login" exact component={LoginFormContainer} />
       <Route path="/signup" exact component={SignupFormContainer} />
+      <Route path="/" exact component={GreetingContainer} />
     </Switch>
   </div>
 );

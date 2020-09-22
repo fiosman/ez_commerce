@@ -22,30 +22,22 @@ export const receiveErrors = (errors) => ({
   errors,
 });
 
-export const signup = (user) => (dispatch) => {
-  return signupUser(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
-  );
-};
+export const signup = (user) => (dispatch) =>
+  signupUser(user)
+    .then((user) => dispatch(receiveCurrentUser(user)))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)));
 
-export const update = (user) => (dispatch) => {
-  return updateUser(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(reciveErrors(err.responseJSON))
-  );
-};
+export const update = (user) => (dispatch) =>
+  updateUser(user)
+    .then((user) => dispatch(receiveCurrentUser(user)))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)));
 
-export const login = (user) => (dispatch) => {
-  return loginUser(user).then(
-    (user) => dispatch(receiveCurrentUser(user)),
-    (err) => dispatch(receiveErrors(err.responseJSON))
-  );
-};
+export const login = (user) => (dispatch) =>
+  loginUser(user)
+    .then((user) => dispatch(receiveCurrentUser(user)))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)));
 
-export const logout = () => (dispatch) => {
-  return logoutUser().then(
-    () => dispatch(logoutCurrentUser()),
-    (err) => dispatch(receiveErrors(err.responseJSON))
-  );
-};
+export const logout = () => (dispatch) =>
+  logoutUser()
+    .then(() => dispatch(logoutCurrentUser()))
+    .fail((err) => dispatch(receiveErrors(err.responseJSON)));

@@ -13,6 +13,7 @@ const Greeting = ({ currentUser, logout }) => {
   } else {
     status = (
       <section>
+        <p>This is the main page lol</p>
         <Link to="/signup">Sign up</Link>
         <Link to="/login">Log in</Link>
       </section>
