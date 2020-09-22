@@ -4,6 +4,7 @@ class CreateProducts < ActiveRecord::Migration[6.0]
       t.integer :category_id, null: false
       t.text :body, null: false
       t.decimal :price, null: false
+
       t.timestamps
     end
   end
