@@ -46,7 +46,7 @@ class SessionForm extends React.Component {
           ></input>
         </label>
 
-        <button onClick={this.handleSubmit}>Submit</button>
+        <button onClick={this.handleSubmit}>{headerStatus}</button>
       </form>
     );
   }
@@ -66,11 +66,12 @@ class SessionForm extends React.Component {
   // }
 
   render() {
+    const errors = this.props.errors ? this.displayErrors() : "";
     return (
       <div>
-        <p>{this.props.navLink}</p>
+        {this.props.navLink}
         {this.formHeader()}
-        {this.displayErrors()}
+        {errors}
       </div>
     );
   }
