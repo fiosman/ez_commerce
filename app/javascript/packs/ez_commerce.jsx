@@ -4,20 +4,31 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import SessionForm from "../components/session_form/session_form";
 import { signUpUser, updateUser } from "../util/session_api_util";
 import { update, signup, login, logout } from "../actions/session_actions";
 import configureStore from "../store/store";
 import Root from "../components/root";
 
 document.addEventListener("DOMContentLoaded", () => {
-  const store = configureStore();
-  window.signup = signup;
-  window.update = update;
-  window.login = login;
-  window.logout = logout;
-  window.dispatch = store.dispatch;
-  window.getState = store.getState;
+  let store;
+  // window.signup = signup;
+  // window.update = update;
+  // window.login = login;
+  // window.logout = logout;
+  // window.dispatch = store.dispatch;
+  // window.getState = store.getState;
+
+  if (window.currentUser) {
+    store = configureStore({
+      entities: {
+        users: { [window.currentUser.id]: window.currentUser },
+      },
+      session: { id: window.currentUser.id },
+    });
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
 
   ReactDOM.render(
     <Root store={store} />,
