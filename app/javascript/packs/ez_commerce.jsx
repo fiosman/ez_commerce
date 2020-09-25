@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
+  // window.getState = store.getState();
+
   ReactDOM.render(
     <Root store={store} />,
     document.body.appendChild(document.createElement("div"))
