@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_21_033435) do
+ActiveRecord::Schema.define(version: 2020_09_26_031311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_21_033435) do
   create_table "products", force: :cascade do |t|
     t.integer "category_id", null: false
     t.text "body", null: false
-    t.decimal "price", null: false
+    t.decimal "price", precision: 8, scale: 2, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -32,5 +32,4 @@ ActiveRecord::Schema.define(version: 2020_09_21_033435) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
   end
-
 end
