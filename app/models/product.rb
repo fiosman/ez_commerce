@@ -11,8 +11,4 @@
 #
 class Product < ApplicationRecord
   validates_presence_of :body, :price, :category_id
-
-  def cost
-    self.price.to_f
-  end
 end
