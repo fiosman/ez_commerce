@@ -11,4 +11,5 @@
 #
 class Product < ApplicationRecord
   validates_presence_of :body, :price, :category_id
+  belongs_to :category
 end
