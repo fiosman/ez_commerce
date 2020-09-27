@@ -1,15 +1,15 @@
 import React from "react";
+import ProductForm from "../product/product_form";
 
-class AdminDash extends React.Component {
-  constructor(props) {}
-
-  render() {
-    return (
-      <div>
-        <h2>Admin Dashboard</h2>
-      </div>
-    );
-  }
-}
+const AdminDash = (props) => (
+  <div>
+    <section>
+      <h2>Admin Dashboard</h2>
+    </section>
+    <section>
+      <ProductForm />
+    </section>
+  </div>
+);
 
 export default AdminDash;

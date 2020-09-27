@@ -13,9 +13,13 @@ class ProductForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleInput() {}
+  handleInput(e) {
+    return this.setState({ [e.target.name]: e.target.value });
+  }
 
-  handleSubmit() {}
+  handleSubmit(e) {
+    e.preventDefault();
+  }
 
   render() {
     return (
@@ -31,14 +35,20 @@ class ProductForm extends React.Component {
           />
         </label>
         <label>
-          <input />
-        </label>
-        <label>
-          Choose a category
+          Price
           <input
             type="text"
             name="price"
             value={this.state.price}
+            onChange={this.handleInput}
+          />
+        </label>
+        <label>
+          Choose a category
+          <input
+            type="number"
+            name="category_id"
+            value={this.state.category_id}
             onChange={this.handleInput}
           />
         </label>
