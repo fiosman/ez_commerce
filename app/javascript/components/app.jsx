@@ -11,6 +11,7 @@ const App = () => (
       <h1>EzCommerce</h1>
     </header>
     <Switch>
+      <Route path="/admin" exact component={AdminDashContainer} />
       <AuthRoute path="/login" exact component={LoginFormContainer} />
       <AuthRoute path="/signup" exact component={SignupFormContainer} />
       <Route path="/" exact component={GreetingContainer} />
