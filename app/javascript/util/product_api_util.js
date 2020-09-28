@@ -12,9 +12,9 @@ export const updateProduct = (product) =>
     data: { product },
   });
 
-export const deleteProduct = (product) =>
+export const deleteProduct = (productId) =>
   $.ajax({
-    url: `/api/products/${product.id}`,
+    url: `/api/products/${productId}`,
     method: "DELETE",
   });
 
