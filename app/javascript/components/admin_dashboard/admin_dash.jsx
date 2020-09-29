@@ -1,5 +1,5 @@
 import React from "react";
-import ProductForm from "../product/product_form";
+import ProductFormContainer from "../product/product_form_container";
 
 const AdminDash = (props) => (
   <div>
@@ -7,7 +7,7 @@ const AdminDash = (props) => (
       <h2>Admin Dashboard</h2>
     </section>
     <section>
-      <ProductForm />
+      <ProductFormContainer />
     </section>
   </div>
 );

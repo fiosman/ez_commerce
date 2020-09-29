@@ -32,7 +32,7 @@ export const receiveProduct = (product) => ({
 export const addProduct = (product) => (dispatch) =>
   createProduct(product)
     .then((product) => dispatch(receiveProduct(product)))
-    .catch((err) => dispatch(receiveProductErrors(err)));
+    .catch((err) => dispatch(receiveProductErrors(err.responseJSON)));
 
 export const fetchProducts = () => (dispatch) =>
   getProducts().then((products) => dispatch(receiveProducts(products)));

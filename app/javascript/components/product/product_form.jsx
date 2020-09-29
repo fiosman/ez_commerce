@@ -19,6 +19,7 @@ class ProductForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
+    this.props.addProduct(this.state);
   }
 
   render() {
