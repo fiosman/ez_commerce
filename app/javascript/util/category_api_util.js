@@ -10,3 +10,9 @@ export const deleteCategory = (categoryId) =>
     method: "DELETE",
     url: `/api/category/${categoryId}`,
   });
+
+export const getCategories = () =>
+  $.ajax({
+    method: "GET",
+    url: "/api/categories",
+  });

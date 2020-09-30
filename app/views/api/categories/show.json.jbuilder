@@ -1,1 +1,1 @@
-json.extract! @category, :id, :tagging
+json.partial! "api/categories/category", category: @category

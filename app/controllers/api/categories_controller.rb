@@ -20,6 +20,11 @@ class Api::CategoriesController < ApplicationController
     end
   end
 
+  def index
+    @categories = Category.all
+    render :show
+  end
+
   private
 
   def category_params
