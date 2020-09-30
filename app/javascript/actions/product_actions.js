@@ -19,9 +19,8 @@ export const receiveProductErrors = (errors) => ({
   errors,
 });
 
-export const removeProductErrors = (errors) => ({
+export const removeProductErrors = () => ({
   type: REMOVE_PRODUCT_ERRORS,
-  errors,
 });
 
 export const receiveProduct = (product) => ({

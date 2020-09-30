@@ -12,5 +12,8 @@
 #  index_categories_on_tagging  (tagging) UNIQUE
 #
 class Category < ApplicationRecord
+  validates_presence_of :tagging
+  validates_uniqueness_of :tagging
+
   has_many :products
 end
