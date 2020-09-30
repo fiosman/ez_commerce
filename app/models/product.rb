@@ -11,5 +11,8 @@
 #
 class Product < ApplicationRecord
   validates_presence_of :body, :price, :category_id
+  validates :price, numericality: { only_decimal: true }
+  validates :category_id, numericality: { only_integer: true }
+
   belongs_to :category
 end
