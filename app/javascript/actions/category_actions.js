@@ -19,24 +19,24 @@ export const receiveCategories = (categories) => ({
 });
 
 export const receiveCategoryErrors = (errors) => ({
-  type: RECEIVE_CATEGORY,
+  type: RECEIVE_CATEGORY_ERRORS,
   errors,
 });
 
 export const removeCategoryErrors = () => ({
-  type: RECEIVE_CATEGORY,
+  type: REMOVE_CATEGORY_ERRORS,
   category,
 });
 
 export const addCategory = (category) => (dispatch) =>
   createCategory(category)
     .then((category) => dispatch(receiveCategory(category)))
-    .catch((errors) => dispatch(receiveCategoryErrors(errors)));
+    .catch((errors) => dispatch(receiveCategoryErrors(errors.responseJSON)));
 
 export const removeCategory = (categoryId) => (dispatch) =>
   deleteCategory(categoryId).catch((errors) =>
-    dispatch(receiveCategoryErrors(errors))
+    dispatch(receiveCategoryErrors(errors.responseJSON))
   );
 
-export const fetchCategories = () => (dispatch) =>
+export const getCategories = () => (dispatch) =>
   getCategories().then((categories) => dispatch(receiveCategories(categories)));

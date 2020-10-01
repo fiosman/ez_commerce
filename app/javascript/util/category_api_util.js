@@ -1,14 +1,14 @@
 export const createCategory = (category) =>
   $.ajax({
     method: "POST",
-    url: "/api/category",
+    url: "/api/categories",
     data: { category },
   });
 
 export const deleteCategory = (categoryId) =>
   $.ajax({
     method: "DELETE",
-    url: `/api/category/${categoryId}`,
+    url: `/api/categories/${categoryId}`,
   });
 
 export const getCategories = () =>

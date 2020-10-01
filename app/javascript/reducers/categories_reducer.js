@@ -1,7 +1,7 @@
 import {
   RECEIVE_CATEGORY,
   RECEIVE_CATEGORIES,
-} from "../actions/product_actions";
+} from "../actions/category_actions";
 
 const categoriesReducer = (state = {}, action) => {
   Object.freeze(state);

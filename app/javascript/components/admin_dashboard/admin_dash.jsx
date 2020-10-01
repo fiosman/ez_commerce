@@ -1,6 +1,6 @@
 import React from "react";
 import ProductFormContainer from "../product/product_form_container";
-
+import CategoryFormContainer from "../category/category_form_container";
 const AdminDash = (props) => (
   <div>
     <section>
@@ -8,6 +8,7 @@ const AdminDash = (props) => (
     </section>
     <section>
       <ProductFormContainer />
+      <CategoryFormContainer />
     </section>
   </div>
 );

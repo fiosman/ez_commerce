@@ -5,7 +5,7 @@ class Api::CategoriesController < ApplicationController
     if @category.save
       render :show
     else
-      render json: @category.errors.full_messsages, status: 422
+      render json: @category.errors.full_messages, status: 422
     end
   end
 

@@ -1,1 +1,1 @@
-json.extract! :category, :id, :tagging
+json.extract! category, :id, :tagging
