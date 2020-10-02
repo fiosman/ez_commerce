@@ -22,7 +22,7 @@ class Api::CategoriesController < ApplicationController
 
   def index
     @categories = Category.all
-    render :show
+    render :index
   end
 
   private

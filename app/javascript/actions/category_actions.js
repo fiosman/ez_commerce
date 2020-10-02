@@ -5,7 +5,7 @@ export const REMOVE_CATEGORY_ERRORS = "REMOVE_CATEGORY_ERRORS";
 import {
   createCategory,
   deleteCategory,
-  fetchCategories,
+  getCategories,
 } from "../util/category_api_util";
 
 export const receiveCategory = (category) => ({
@@ -38,5 +38,5 @@ export const removeCategory = (categoryId) => (dispatch) =>
     dispatch(receiveCategoryErrors(errors.responseJSON))
   );
 
-export const getCategories = () => (dispatch) =>
+export const fetchCategories = () => (dispatch) =>
   getCategories().then((categories) => dispatch(receiveCategories(categories)));
