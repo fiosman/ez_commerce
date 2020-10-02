@@ -1,5 +1,4 @@
 import React from "react";
-
 class ProductForm extends React.Component {
   constructor(props) {
     super(props);
@@ -14,6 +13,7 @@ class ProductForm extends React.Component {
   }
 
   handleInput(e) {
+    console.log(this.state);
     return this.setState({ [e.target.name]: e.target.value });
   }
 
@@ -23,6 +23,7 @@ class ProductForm extends React.Component {
   }
 
   render() {
+    const categories = this.props.categories;
     return (
       <form>
         <h2>Add a product!</h2>
@@ -46,12 +47,22 @@ class ProductForm extends React.Component {
         </label>
         <label>
           Choose a category
-          <input
-            type="number"
-            name="category_id"
+          <select
+            placeholder="WHAT"
             value={this.state.category_id}
             onChange={this.handleInput}
-          />
+            name="category_id"
+          >
+            {categories.map((category, idx) => {
+              const categoryId = category[Object.keys(category)[0]].id;
+              const categoryTag = category[Object.keys(category)[0]].tagging;
+              return (
+                <option key={idx} value={categoryId}>
+                  {categoryTag}
+                </option>
+              );
+            })}
+          </select>
         </label>
 
         <button onClick={this.handleSubmit}>Submit</button>

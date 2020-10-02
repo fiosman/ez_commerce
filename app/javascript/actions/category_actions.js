@@ -38,5 +38,5 @@ export const removeCategory = (categoryId) => (dispatch) =>
     dispatch(receiveCategoryErrors(errors.responseJSON))
   );
 
-export const fetchCategories = () => (dispatch) =>
+export const pullCategories = () => (dispatch) =>
   getCategories().then((categories) => dispatch(receiveCategories(categories)));
