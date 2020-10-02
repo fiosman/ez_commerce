@@ -18,11 +18,23 @@ class ProductForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    return this.props.addCategory(this.state);
+    return this.props
+      .addCategory(this.state)
+      .then(() => this.props.clearErrors());
+  }
+
+  displayErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, idx) => {
+          return <li key={idx}>{error}</li>;
+        })}
+      </ul>
+    );
   }
 
   render() {
-    return (
+    const form = (
       <div>
         <form>
           <h2>Add a category!</h2>
@@ -33,6 +45,15 @@ class ProductForm extends React.Component {
           <button onClick={this.handleSubmit}>Submit</button>
         </form>
       </div>
+    );
+
+    const errors = this.props.errors.length > 0 ? this.displayErrors() : "";
+
+    return (
+      <section>
+        {errors}
+        {form}
+      </section>
     );
   }
 }

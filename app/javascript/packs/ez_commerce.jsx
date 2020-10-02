@@ -6,6 +6,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import configureStore from "../store/store";
 import Root from "../components/root";
+import { addProduct } from "../actions/product_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -22,7 +23,9 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  window.getState = store.getState();
+  // window.dispatch = store.dispatch;
+
+  // window.getState = store.getState();
 
   ReactDOM.render(
     <Root store={store} />,

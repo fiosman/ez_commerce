@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import ProductForm from "../product/product_form";
-import { addProduct } from "../../actions/product_actions";
+import { addProduct, removeProductErrors } from "../../actions/product_actions";
 import { selectAllCategories } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
@@ -10,6 +10,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   addProduct: (product) => dispatch(addProduct(product)),
+  clearErrors: () => dispatch(removeProductErrors()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductForm);

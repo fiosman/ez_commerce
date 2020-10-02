@@ -30,19 +30,31 @@ export const removeSessionErrors = () => ({
 export const signup = (user) => (dispatch) =>
   signupUser(user)
     .then((user) => dispatch(receiveCurrentUser(user)))
-    .fail((err) => dispatch(receiveSessionErrors(err.responseJSON)));
+    .catch((err) => {
+      dispatch(receiveSessionErrors(err.responseJSON));
+      throw err;
+    });
 
 export const update = (user) => (dispatch) =>
   updateUser(user)
     .then((user) => dispatch(receiveCurrentUser(user)))
-    .fail((err) => dispatch(receiveSessionErrors(err.responseJSON)));
+    .catch((err) => {
+      dispatch(receiveSessionErrors(err.responseJSON));
+      throw err;
+    });
 
 export const login = (user) => (dispatch) =>
   loginUser(user)
     .then((user) => dispatch(receiveCurrentUser(user)))
-    .fail((err) => dispatch(receiveSessionErrors(err.responseJSON)));
+    .fail((err) => {
+      dispatch(receiveSessionErrors(err.responseJSON));
+      throw err;
+    });
 
 export const logout = () => (dispatch) =>
   logoutUser()
     .then(() => dispatch(logoutCurrentUser()))
-    .fail((err) => dispatch(receiveSessionErrors(err.responseJSON)));
+    .fail((err) => {
+      dispatch(receiveSessionErrors(err.responseJSON));
+      throw err;
+    });
