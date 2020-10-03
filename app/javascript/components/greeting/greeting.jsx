@@ -13,10 +13,6 @@ class Greeting extends React.Component {
     this.props.logout().then(() => this.props.history.push("/"));
   }
 
-  componentDidMount() {
-    console.log(this.props);
-  }
-
   render() {
     let status;
     if (this.props.currentUser) {

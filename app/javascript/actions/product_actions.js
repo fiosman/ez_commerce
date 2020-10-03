@@ -2,6 +2,9 @@ export const RECEIVE_PRODUCT_ERRORS = "RECEIVE_PRODUCT_ERRORS";
 export const REMOVE_PRODUCT_ERRORS = "REMOVE_PRODUCT_ERRORS";
 export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
+export const STARAT_LOADING_SINGLE_PRODUCT = "START_LOADING_SINGLE_PRODUCT";
+export const START_LOADING_ALL_PRODUCTS = "START_LOADING_ALL_PRODUCTS";
+
 import {
   createProduct,
   updateProduct,
@@ -28,6 +31,14 @@ export const receiveProduct = (product) => ({
   product,
 });
 
+export const startLoadingSingleProduct = () => ({
+  type: START_LOADING_SINGLE_PRODUCT,
+});
+
+export const startLoadingAllProducts = () => ({
+  type: START_LOADING_ALL_PRODUCTS,
+});
+
 export const addProduct = (product) => (dispatch) =>
   createProduct(product)
     .then((product) => dispatch(receiveProduct(product)))
@@ -36,5 +47,7 @@ export const addProduct = (product) => (dispatch) =>
       throw err;
     });
 
-export const fetchProducts = () => (dispatch) =>
+export const fetchProducts = () => (dispatch) => {
+  dispatch(startLoadingAllProducts());
   getProducts().then((products) => dispatch(receiveProducts(products)));
+};

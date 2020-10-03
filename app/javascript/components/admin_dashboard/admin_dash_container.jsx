@@ -10,6 +10,8 @@ import {
 const mapStateToProps = (state) => ({
   products: selectAllProducts(state),
   categories: selectAllCategories(state),
+  loadingCategories: state.loading.categories,
+  loadingProducts: state.loading.products,
 });
 const mapDispatchToProps = (dispatch) => ({
   getAllProducts: () => dispatch(fetchProducts()),
