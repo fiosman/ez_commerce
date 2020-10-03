@@ -4,6 +4,8 @@ export const RECEIVE_CATEGORY_ERRORS = "RECEIVE_CATEGORY_ERRORS";
 export const REMOVE_CATEGORY_ERRORS = "REMOVE_CATEGORY_ERRORS";
 export const START_LOADING_SINGLE_CATEGORY = "START_LOADING_SINGLE_CATEGORY";
 export const START_LOADING_ALL_CATEGORIES = "START_LOADING_ALL_CATEGORIES";
+export const REMOVE_CATEGORY = "REMOVE_CATEGORY";
+
 import {
   createCategory,
   deleteCategory,
@@ -37,6 +39,10 @@ export const startLoadingAllCategories = () => ({
   type: START_LOADING_ALL_CATEGORIES,
 });
 
+export const removeCategory = () => ({
+  type: REMOVE_CATEGORY,
+});
+
 export const addCategory = (category) => (dispatch) =>
   createCategory(category)
     .then((category) => dispatch(receiveCategory(category)))
@@ -46,10 +52,7 @@ export const addCategory = (category) => (dispatch) =>
     });
 
 export const removeCategory = (categoryId) => (dispatch) =>
-  deleteCategory(categoryId).catch((err) => {
-    dispatch(receiveCategoryErrors(err.responseJSON));
-    throw err;
-  });
+  deleteCategory(categoryId).then(() => dispatch(dispatch(removeCategory())));
 
 export const pullCategories = () => (dispatch) => {
   dispatch(startLoadingAllCategories());

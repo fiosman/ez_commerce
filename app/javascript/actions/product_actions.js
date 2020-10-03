@@ -4,6 +4,7 @@ export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
 export const STARAT_LOADING_SINGLE_PRODUCT = "START_LOADING_SINGLE_PRODUCT";
 export const START_LOADING_ALL_PRODUCTS = "START_LOADING_ALL_PRODUCTS";
+export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 
 import {
   createProduct,
@@ -39,6 +40,10 @@ export const startLoadingAllProducts = () => ({
   type: START_LOADING_ALL_PRODUCTS,
 });
 
+export const removeProduct = () => ({
+  type: REMOVE_PRODUCT,
+});
+
 export const addProduct = (product) => (dispatch) =>
   createProduct(product)
     .then((product) => dispatch(receiveProduct(product)))
@@ -51,3 +56,6 @@ export const fetchProducts = () => (dispatch) => {
   dispatch(startLoadingAllProducts());
   getProducts().then((products) => dispatch(receiveProducts(products)));
 };
+
+export const removeProduct = (productId) => (dispatch) =>
+  deleteProduct(productId).then(() => dispatch(removeProduct()));

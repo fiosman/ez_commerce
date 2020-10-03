@@ -10,6 +10,11 @@ const InventoryIndexItem = (props) => {
       <td>{category}</td>
       <td>{createdAt}</td>
       <td>{updatedAt}</td>
+      <td>
+        <button>Delete Product</button>
+        <button>Delete Category</button>
+        <button>Update Product</button>
+      </td>
     </tr>
   );
 };

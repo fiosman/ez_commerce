@@ -16,6 +16,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAllProducts: () => dispatch(fetchProducts()),
   getAllCategories: () => dispatch(pullCategories()),
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminDash);
