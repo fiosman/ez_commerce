@@ -39,8 +39,9 @@ export const startLoadingAllCategories = () => ({
   type: START_LOADING_ALL_CATEGORIES,
 });
 
-export const removeCategory = () => ({
+export const wipeCategory = (categoryId) => ({
   type: REMOVE_CATEGORY,
+  categoryId,
 });
 
 export const addCategory = (category) => (dispatch) =>
@@ -52,7 +53,9 @@ export const addCategory = (category) => (dispatch) =>
     });
 
 export const removeCategory = (categoryId) => (dispatch) =>
-  deleteCategory(categoryId).then(() => dispatch(dispatch(removeCategory())));
+  deleteCategory(categoryId).then((category) =>
+    dispatch(wipeCategory(category.id))
+  );
 
 export const pullCategories = () => (dispatch) => {
   dispatch(startLoadingAllCategories());

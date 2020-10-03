@@ -7,6 +7,8 @@ import ReactDOM from "react-dom";
 import configureStore from "../store/store";
 import Root from "../components/root";
 import { addProduct } from "../actions/product_actions";
+import { removeProduct } from "../actions/product_actions";
+import { removeCategory } from "../actions/category_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -23,10 +25,13 @@ document.addEventListener("DOMContentLoaded", () => {
     store = configureStore();
   }
 
-  // window.dispatch = store.dispatch;
+  window.dispatch = store.dispatch;
 
-  // window.getState = store.getState();
+  window.getState = store.getState();
 
+  window.removeProduct = removeProduct;
+  window.removeCategory = removeCategory;
+  
   ReactDOM.render(
     <Root store={store} />,
     document.body.appendChild(document.createElement("div"))

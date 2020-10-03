@@ -40,8 +40,9 @@ export const startLoadingAllProducts = () => ({
   type: START_LOADING_ALL_PRODUCTS,
 });
 
-export const removeProduct = () => ({
+export const wipeProduct = (productId) => ({
   type: REMOVE_PRODUCT,
+  productId,
 });
 
 export const addProduct = (product) => (dispatch) =>
@@ -58,4 +59,4 @@ export const fetchProducts = () => (dispatch) => {
 };
 
 export const removeProduct = (productId) => (dispatch) =>
-  deleteProduct(productId).then(() => dispatch(removeProduct()));
+  deleteProduct(productId).then((product) => dispatch(wipeProduct(product.id)));

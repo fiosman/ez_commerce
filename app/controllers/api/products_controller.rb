@@ -30,11 +30,11 @@ class Api::ProductsController < ApplicationController
   end
 
   def destroy
-    @product = Product.find(params[:product][:id])
+    @product = Product.find(params[:id])
 
     if @product
       @product.destroy
-      render json: {}
+      render :show
     else
       render json: ["Something went wrong here..."]
     end
