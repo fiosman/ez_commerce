@@ -3,6 +3,7 @@ class ProductForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      title: "",
       category_id: "",
       body: "",
       price: "",
@@ -40,7 +41,16 @@ class ProductForm extends React.Component {
       <form>
         <h2>Add a product!</h2>
         <label>
-          Product Description
+          Title
+          <input
+            type="text"
+            name="title"
+            value={this.state.name}
+            onChange={this.handleInput}
+          />
+        </label>
+        <label>
+          Description
           <input
             type="text"
             name="body"
