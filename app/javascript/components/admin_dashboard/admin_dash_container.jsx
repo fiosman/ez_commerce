@@ -1,7 +1,7 @@
 import AdminDash from "./admin_dash";
-import { fetchProducts } from "../../actions/product_actions";
+import { fetchProducts, removeProduct } from "../../actions/product_actions";
 import { connect } from "react-redux";
-import { pullCategories } from "../../actions/category_actions";
+import { pullCategories, removeCategory } from "../../actions/category_actions";
 import {
   selectAllProducts,
   selectAllCategories,
@@ -16,7 +16,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAllProducts: () => dispatch(fetchProducts()),
   getAllCategories: () => dispatch(pullCategories()),
-  
+  deleteProduct: (productId) => dispatch(removeProduct(productId)),
+  deleteCategory: (categoryId) => dispatch(removeCategory(categoryId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(AdminDash);

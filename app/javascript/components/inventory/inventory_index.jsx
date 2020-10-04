@@ -16,15 +16,23 @@ class InventoryIndex extends React.Component {
     });
 
     return this.props.products.map((product, idx) => {
+      console.log(product, categories[product.category_id]);
       const productProps = {
         id: product.id,
         title: product.title,
         price: product.price,
-        category: categories[product.category_id].tagging,
+        category: categories[product.category_id],
         createdAt: product.created_at,
-        updatedat: product.updated_at,
+        updatedAt: product.updated_at,
       };
-      return <InventoryIndexItem key={idx} {...productProps} />;
+      return (
+        <InventoryIndexItem
+          key={idx}
+          {...productProps}
+          deleteProduct={this.props.deleteProduct}
+          deleteCategory={this.props.deleteCategory}
+        />
+      );
     });
   }
 

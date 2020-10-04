@@ -19,6 +19,8 @@ class AdminDash extends React.Component {
       loadingProducts,
       products,
       categories,
+      deleteProduct,
+      deleteCategory,
     } = this.props;
 
     if (loadingCategories || loadingProducts) {
@@ -34,7 +36,12 @@ class AdminDash extends React.Component {
         <section>
           <ProductFormContainer />
           <CategoryFormContainer />
-          <InventoryIndex categories={categories} products={products} />
+          <InventoryIndex
+            categories={categories}
+            products={products}
+            deleteProduct={deleteProduct}
+            deleteCategory={deleteCategory}
+          />
         </section>
       </div>
     );
