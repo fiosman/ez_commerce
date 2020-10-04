@@ -60,3 +60,11 @@ export const fetchProducts = () => (dispatch) => {
 
 export const removeProduct = (productId) => (dispatch) =>
   deleteProduct(productId).then((product) => dispatch(wipeProduct(product.id)));
+
+export const modifyProduct = (product) => (dispatch) =>
+  updateProduct(product)
+    .then((product) => dispatch(receiveProduct(product)))
+    .catch((err) => {
+      dispatch(receiveProductErrors(err.responseJSON));
+      throw err;
+    });

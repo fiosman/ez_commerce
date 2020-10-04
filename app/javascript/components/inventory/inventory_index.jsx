@@ -16,7 +16,6 @@ class InventoryIndex extends React.Component {
     });
 
     return this.props.products.map((product, idx) => {
-      console.log(product, categories[product.category_id]);
       const productProps = {
         id: product.id,
         title: product.title,

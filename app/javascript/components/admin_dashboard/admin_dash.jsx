@@ -34,7 +34,7 @@ class AdminDash extends React.Component {
           <GreetingContainer />
         </section>
         <section>
-          <ProductFormContainer />
+          <ProductFormContainer formType={"signup"} />
           <CategoryFormContainer />
           <InventoryIndex
             categories={categories}
