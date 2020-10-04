@@ -15,5 +15,5 @@ class Category < ApplicationRecord
   validates_presence_of :tagging
   validates_uniqueness_of :tagging
 
-  has_many :products
+  has_many :products, dependent: :destroy
 end

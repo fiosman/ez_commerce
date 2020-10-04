@@ -14,8 +14,7 @@ class ProductForm extends React.Component {
   }
 
   handleInput(e) {
-    console.log(this.state);
-    return this.setState({ [e.target.name]: e.target.value });
+    this.setState({ [e.target.name]: e.target.value });
   }
 
   handleSubmit(e) {
@@ -36,9 +35,15 @@ class ProductForm extends React.Component {
   }
 
   render() {
-    const categories = this.props.categories;
+    let options = this.props.categories.map((category, idx) => {
+      return (
+        <option key={idx} value={category.id}>
+          {category.tagging}
+        </option>
+      );
+    });
     const form = (
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h2>Add a product!</h2>
         <label>
           Title
@@ -70,24 +75,15 @@ class ProductForm extends React.Component {
         <label>
           Choose a category
           <select
-            placeholder="WHAT"
             value={this.state.category_id}
             onChange={this.handleInput}
             name="category_id"
           >
-            {categories.map((category, idx) => {
-              const categoryId = category[Object.keys(category)[0]].id;
-              const categoryTag = category[Object.keys(category)[0]].tagging;
-              return (
-                <option key={idx} value={categoryId}>
-                  {categoryTag}
-                </option>
-              );
-            })}
+            <option default>Select</option>
+            {options}
           </select>
         </label>
-
-        <button onClick={this.handleSubmit}>Submit</button>
+        <input type="submit" value="Submit" />
       </form>
     );
 

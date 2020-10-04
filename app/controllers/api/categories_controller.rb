@@ -10,11 +10,11 @@ class Api::CategoriesController < ApplicationController
   end
 
   def destroy
-    @category = Category.find(params[:category][:id])
+    @category = Category.find(params[:id])
 
     if @category
       @category.destroy
-      render json: {}
+      render :show
     else
       render json: ["Uh oh, something went wrong here!"], status: 401
     end

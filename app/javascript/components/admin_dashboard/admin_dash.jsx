@@ -14,16 +14,15 @@ class AdminDash extends React.Component {
   }
 
   render() {
-    console.log(this.props.categories);
     const {
-      products,
-      categories,
       loadingCategories,
       loadingProducts,
+      products,
+      categories,
     } = this.props;
 
     if (loadingCategories || loadingProducts) {
-      return <div>WAAAAAA</div>;
+      return <div>Loading...</div>;
     }
 
     return (
@@ -35,7 +34,7 @@ class AdminDash extends React.Component {
         <section>
           <ProductFormContainer />
           <CategoryFormContainer />
-          <InventoryIndex products={products} categories={categories} />
+          <InventoryIndex categories={categories} products={products} />
         </section>
       </div>
     );

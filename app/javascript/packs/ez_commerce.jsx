@@ -9,6 +9,7 @@ import Root from "../components/root";
 import { addProduct } from "../actions/product_actions";
 import { removeProduct } from "../actions/product_actions";
 import { removeCategory } from "../actions/category_actions";
+import { selectAllCategories } from "../reducers/selectors";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -31,7 +32,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.removeProduct = removeProduct;
   window.removeCategory = removeCategory;
-  
+  window.selectAllCategories = selectAllCategories;
+
   ReactDOM.render(
     <Root store={store} />,
     document.body.appendChild(document.createElement("div"))
