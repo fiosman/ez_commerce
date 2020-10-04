@@ -22,8 +22,8 @@ class InventoryIndex extends React.Component {
         title: product.title,
         price: product.price,
         category: categories[product.category_id],
-        createdAt: product.created_at,
-        updatedAt: product.updated_at,
+        createdAt: new Date(product.created_at).toLocaleString(),
+        updatedAt: new Date(product.updated_at).toLocaleString(),
       };
       return (
         <InventoryIndexItem
