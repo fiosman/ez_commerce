@@ -35,6 +35,7 @@ class ProductForm extends React.Component {
   }
 
   render() {
+    console.log(this.props);
     let options = this.props.categories.map((category, idx) => {
       return (
         <option key={idx} value={category.id}>
