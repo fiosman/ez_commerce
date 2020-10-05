@@ -1,6 +1,6 @@
 import React from "react";
 import InventoryIndexItem from "./inventory_index_item";
-
+import AdminNavBar from "../admin_dashboard/admin_nav_bar";
 class InventoryIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -38,6 +38,7 @@ class InventoryIndex extends React.Component {
   render() {
     return (
       <div>
+        <AdminNavBar />
         <h1>Store Inventory</h1>
         <table>
           <thead>

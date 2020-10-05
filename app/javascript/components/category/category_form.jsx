@@ -1,4 +1,5 @@
 import React from "react";
+import AdminNavBar from "../admin_dashboard/admin_nav_bar";
 
 class ProductForm extends React.Component {
   constructor(props) {
@@ -51,6 +52,7 @@ class ProductForm extends React.Component {
 
     return (
       <section>
+        <AdminNavBar />
         {errors}
         {form}
       </section>

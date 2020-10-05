@@ -1,4 +1,5 @@
 import React from "react";
+import AdminNavBar from "../admin_dashboard/admin_nav_bar";
 class ProductForm extends React.Component {
   constructor(props) {
     super(props);
@@ -19,9 +20,28 @@ class ProductForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    return this.props
-      .addProduct(this.state)
-      .then(() => this.props.clearErrors());
+
+    if (this.props.formType === "new") {
+      return this.props
+        .addProduct(this.state)
+        .then(() => this.props.clearErrors());
+    } else if (this.props.formType === "update") {
+      return this.props
+        .updateProduct(Object.assign({ id: this.props.product.id }, this.state))
+        .then(() => this.props.clearErrors());
+    }
+  }
+
+  componentDidMount() {
+    if (this.props.formType === "update") {
+      const { title, body, category_id, price } = this.props.product;
+      return this.setState({
+        title,
+        body,
+        category_id,
+        price,
+      });
+    }
   }
 
   displayErrors() {
@@ -35,7 +55,6 @@ class ProductForm extends React.Component {
   }
 
   render() {
-    console.log(this.props);
     let options = this.props.categories.map((category, idx) => {
       return (
         <option key={idx} value={category.id}>
@@ -43,15 +62,18 @@ class ProductForm extends React.Component {
         </option>
       );
     });
+
+    const formHeader =
+      this.props.formType === "new" ? "Add Product" : "Edit Product";
     const form = (
       <form onSubmit={this.handleSubmit}>
-        <h2>Add a product!</h2>
+        <h2>{formHeader}</h2>
         <label>
           Title
           <input
             type="text"
             name="title"
-            value={this.state.name}
+            value={this.state.title}
             onChange={this.handleInput}
           />
         </label>
@@ -92,6 +114,7 @@ class ProductForm extends React.Component {
 
     return (
       <section>
+        <AdminNavBar />
         {errors}
         {form}
       </section>

@@ -1,22 +1,21 @@
 import { connect } from "react-redux";
-import ProductForm from "../product/product_form";
 import {
-  addProduct,
-  removeProductErrors,
   modifyProduct,
+  removeProductErrors,
 } from "../../actions/product_actions";
 import { selectAllCategories } from "../../reducers/selectors";
+import ProductForm from "./product_form";
 
-const mapStateToProps = (state, { formType }) => ({
+const mapStateToProps = (state, ownProps) => ({
   errors: state.errors.product,
   categories: selectAllCategories(state),
-  formType,
+  formType: "update",
+  product: state.entities.products[ownProps.match.params.productId],
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addProduct: (product) => dispatch(addProduct(product)),
-  clearErrors: () => dispatch(removeProductErrors()),
   updateProduct: (product) => dispatch(modifyProduct(product)),
+  clearErrors: () => dispatch(removeProductErrors()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductForm);

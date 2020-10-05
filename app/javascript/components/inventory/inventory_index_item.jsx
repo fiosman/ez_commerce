@@ -1,34 +1,45 @@
 import React from "react";
-import { removeCategory } from "../../actions/category_actions";
+import { withRouter } from "react-router";
+class InventoryIndexItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleUpdate = this.handleUpdate.bind(this);
+  }
 
-const InventoryIndexItem = (props) => {
-  const {
-    id,
-    price,
-    title,
-    createdAt,
-    category,
-    updatedAt,
-    deleteProduct,
-    deleteCategory,
-  } = props;
-  return (
-    <tr>
-      <td>{id}</td>
-      <td>{title}</td>
-      <td>{price}</td>
-      <td>{category.tagging}</td>
-      <td>{createdAt}</td>
-      <td>{updatedAt}</td>
-      <td>
-        <button onClick={deleteProduct.bind(this, id)}>Delete Product</button>
-        <button onClick={deleteCategory.bind(this, category.id)}>
-          Delete Category
-        </button>
-        <button>Update Product</button>
-      </td>
-    </tr>
-  );
-};
+  render() {
+    const {
+      id,
+      price,
+      title,
+      createdAt,
+      category,
+      updatedAt,
+      deleteProduct,
+      deleteCategory,
+    } = this.props;
+    return (
+      <tr>
+        <td>{id}</td>
+        <td>{title}</td>
+        <td>{price}</td>
+        <td>{category.tagging}</td>
+        <td>{createdAt}</td>
+        <td>{updatedAt}</td>
+        <td>
+          <button onClick={deleteProduct.bind(this, id)}>Delete Product</button>
+          <button onClick={deleteCategory.bind(this, category.id)}>
+            Delete Category
+          </button>
+          <button
+            name="update"
+            onClick={() => this.props.history.push(`/admin/product/${id}/edit`)}
+          >
+            Update Product
+          </button>
+        </td>
+      </tr>
+    );
+  }
+}
 
-export default InventoryIndexItem;
+export default withRouter(InventoryIndexItem);
