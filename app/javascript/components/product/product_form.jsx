@@ -33,6 +33,7 @@ class ProductForm extends React.Component {
   }
 
   componentDidMount() {
+    // console.log(this.props);
     if (this.props.formType === "update") {
       const { title, body, category_id, price } = this.props.product;
       return this.setState({

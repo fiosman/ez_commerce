@@ -3,7 +3,6 @@ import { withRouter } from "react-router";
 class InventoryIndexItem extends React.Component {
   constructor(props) {
     super(props);
-    this.handleUpdate = this.handleUpdate.bind(this);
   }
 
   render() {

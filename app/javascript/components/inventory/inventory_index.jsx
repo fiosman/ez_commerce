@@ -8,7 +8,6 @@ class InventoryIndex extends React.Component {
 
   renderTableData() {
     const props = this.props.categories;
-
     let categories = {};
 
     props.forEach((ele) => {
