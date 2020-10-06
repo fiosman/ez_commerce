@@ -2,7 +2,9 @@ export const createProduct = (product) =>
   $.ajax({
     url: "/api/products",
     method: "POST",
-    data: { product },
+    data: product,
+    contentType: false,
+    processData: false,
   });
 
 export const updateProduct = (product) =>

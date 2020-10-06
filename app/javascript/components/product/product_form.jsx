@@ -6,24 +6,36 @@ class ProductForm extends React.Component {
     this.state = {
       title: "",
       category_id: "",
+      imageFile: null,
       body: "",
       price: "",
     };
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleFile = this.handleFile.bind(this);
   }
 
   handleInput(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
 
+  handleFile(e) {
+    this.setState({ imageFile: e.currentTarget.files[0] });
+  }
+
   handleSubmit(e) {
     e.preventDefault();
+    const formData = new FormData();
+    formData.append("product[title]", this.state.title);
+    formData.append("product[category_id]", this.state.category_id);
+    formData.append("product[image]", this.state.imageFile);
+    formData.append("product[body]", this.state.body);
+    formData.append("product[price]", this.state.price);
 
     if (this.props.formType === "new") {
       return this.props
-        .addProduct(this.state)
+        .addProduct(formData)
         .then(() => this.props.clearErrors());
     } else if (this.props.formType === "update") {
       return this.props
@@ -33,7 +45,6 @@ class ProductForm extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.props);
     if (this.props.formType === "update") {
       const { title, body, category_id, price } = this.props.product;
       return this.setState({
@@ -106,6 +117,7 @@ class ProductForm extends React.Component {
             <option default>Select</option>
             {options}
           </select>
+          <input type="file" onChange={this.handleFile} />
         </label>
         <input type="submit" value="Submit" />
       </form>
