@@ -16,4 +16,5 @@ class Product < ApplicationRecord
   validates_numericality_of :category_id, only_integer: true
 
   belongs_to :category
+  has_one_attached :image
 end
