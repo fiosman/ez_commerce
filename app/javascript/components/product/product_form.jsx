@@ -7,6 +7,7 @@ class ProductForm extends React.Component {
       title: "",
       category_id: "",
       imageFile: null,
+      imgUrl: null,
       body: "",
       price: "",
     };
@@ -21,7 +22,15 @@ class ProductForm extends React.Component {
   }
 
   handleFile(e) {
-    this.setState({ imageFile: e.currentTarget.files[0] });
+    const file = e.currentTarget.files[0];
+    const fileReader = new FileReader();
+    fileReader.onloadend = () => {
+      this.setState({ imageFile: file, imgUrl: fileReader.result });
+    };
+
+    if (file) {
+      fileReader.readAsDataURL(file);
+    }
   }
 
   handleSubmit(e) {
@@ -67,6 +76,9 @@ class ProductForm extends React.Component {
   }
 
   render() {
+    const imagePreview = this.state.imgUrl ? (
+      <img src={this.state.imgUrl} />
+    ) : null;
     let options = this.props.categories.map((category, idx) => {
       return (
         <option key={idx} value={category.id}>
@@ -118,6 +130,10 @@ class ProductForm extends React.Component {
             {options}
           </select>
           <input type="file" onChange={this.handleFile} />
+        </label>
+        <label>
+          Image Preview
+          {imagePreview}
         </label>
         <input type="submit" value="Submit" />
       </form>
