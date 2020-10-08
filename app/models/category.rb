@@ -12,6 +12,7 @@
 #  index_categories_on_tagging  (tagging) UNIQUE
 #
 class Category < ApplicationRecord
+  resourcify
   validates_presence_of :tagging
   validates_uniqueness_of :tagging
 
