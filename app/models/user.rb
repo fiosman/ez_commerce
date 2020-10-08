@@ -16,6 +16,7 @@
 #
 class User < ApplicationRecord
   rolify
+  after_create :assign_default_role
   validates_presence_of :username, :password_digest, :session_token
   validates_uniqueness_of :username, :session_token
   validates_length_of :password, minimum: 6, allow_nil: true
@@ -42,6 +43,10 @@ class User < ApplicationRecord
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
+  end
+
+  def assign_default_role
+    self.add_role(:registered) if self.roles.blank?
   end
 
   private
