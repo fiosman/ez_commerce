@@ -15,6 +15,7 @@
 #  index_users_on_username       (username) UNIQUE
 #
 class User < ApplicationRecord
+  rolify
   validates_presence_of :username, :password_digest, :session_token
   validates_uniqueness_of :username, :session_token
   validates_length_of :password, minimum: 6, allow_nil: true
