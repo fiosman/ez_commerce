@@ -1,4 +1,6 @@
 class Api::ProductsController < ApplicationController
+  load_and_authorize_resource
+
   def create
     @product = Product.new(product_params)
     if @product.save

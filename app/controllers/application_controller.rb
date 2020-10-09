@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :logged_in?
   protect_from_forgery unless: -> { request.format.json? }
 
+  rescue_from CanCan::AccessDenied do |exception|
+    render json: ["You are not authorized to perform this action."], status: 403
+  end
+
   def logged_in?
     return current_user ? true : false
   end

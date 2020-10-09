@@ -1,4 +1,6 @@
 class Api::CategoriesController < ApplicationController
+  load_and_authorize_resource
+  
   def create
     @category = Category.new(category_params)
 

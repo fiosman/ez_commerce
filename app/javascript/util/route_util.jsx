@@ -4,9 +4,12 @@ import { Redirect, Route, withRouter } from "react-router-dom";
 
 const mapStateToProps = (state) => ({
   loggedIn: Boolean(state.session.id),
+  isAdmin: state.session.id
+    ? state.entities.users[state.session.id].isAdmin
+    : null,
 });
 
-const AuthRoute = ({ loggedIn, path, component: Component }) => (
+const Auth = ({ loggedIn, path, component: Component }) => (
   <Route
     path={path}
     render={(props) =>
@@ -15,4 +18,14 @@ const AuthRoute = ({ loggedIn, path, component: Component }) => (
   />
 );
 
-export default withRouter(connect(mapStateToProps, null)(AuthRoute));
+const Admin = ({ isAdmin, path, component: Component }) => (
+  <Route
+    path={path}
+    render={(props) =>
+      isAdmin ? <Component {...props} /> : <Redirect to="/" />
+    }
+  />
+);
+
+export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
+export const AdminRoute = withRouter(connect(mapStateToProps, null)(Admin));
