@@ -2,7 +2,7 @@ class Api::ProductsController < ApplicationController
   load_and_authorize_resource
 
   def create
-    @product = Product.new(product_params)
+    @product = Product.new(filtered_params)
     if @product.save
       render :show
     else
@@ -11,19 +11,18 @@ class Api::ProductsController < ApplicationController
   end
 
   def update
-    @product = Product.find(params[:product][:id])
-
-    if @product.update(product_params)
+    @product = Product.find(params[:id])
+    if @product.update(filtered_params)
       render :show
     else
       render json: @product.errors.full_messages, status: 401
     end
   end
 
-  # def show
-  #   @product = Product.find(params[:product][:id])
-  #   render :show
-  # end
+  def show
+    @product = Product.find(params[:id])
+    render :show
+  end
 
   def index
     @products = Product.all.includes(:category)
@@ -44,6 +43,10 @@ class Api::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title, :body, :price, :category_id, :image)
+    params.require(:product).permit(:id, :title, :body, :price, :category_id, :image)
+  end
+
+  def filtered_params
+    product_params[:image].blank? ? product_params.except(:image) : product_params
   end
 end

@@ -6,8 +6,8 @@ class ProductForm extends React.Component {
     this.state = {
       title: "",
       category_id: "",
-      imageFile: null,
-      imgUrl: null,
+      imageFile: "",
+      imgUrl: "",
       body: "",
       price: "",
     };
@@ -48,7 +48,7 @@ class ProductForm extends React.Component {
         .then(() => this.props.clearErrors());
     } else if (this.props.formType === "update") {
       return this.props
-        .updateProduct(Object.assign({ id: this.props.product.id }, this.state))
+        .updateProduct(formData, this.props.product.id)
         .then(() => this.props.clearErrors());
     }
   }

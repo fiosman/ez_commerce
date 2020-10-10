@@ -1,2 +1,5 @@
 json.partial! "/api/products/product", product: @product
-json.imageUrl url_for(@product.image)
+if @product.image.attached?
+  json.imageUrl url_for(@product.image)
+end
+  

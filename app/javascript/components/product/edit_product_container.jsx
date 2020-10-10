@@ -14,7 +14,8 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  updateProduct: (product) => dispatch(modifyProduct(product)),
+  updateProduct: (product, productId) =>
+    dispatch(modifyProduct(product, productId)),
   clearErrors: () => dispatch(removeProductErrors()),
 });
 

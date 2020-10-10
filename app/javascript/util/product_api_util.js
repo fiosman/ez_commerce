@@ -7,11 +7,13 @@ export const createProduct = (product) =>
     processData: false,
   });
 
-export const updateProduct = (product) =>
+export const updateProduct = (product, productId) =>
   $.ajax({
-    url: `/api/products/${product.id}`,
+    url: `/api/products/${productId}`,
     method: "PATCH",
-    data: { product },
+    data: product,
+    contentType: false,
+    processData: false,
   });
 
 export const deleteProduct = (productId) =>
