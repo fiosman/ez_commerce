@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
     render json: ["You are not authorized to perform this action."], status: 403
   end
 
+  # rescue_from ActiveSupport::MessageVerifier::InvalidSignature do |exception|
+  #   render json: ["Blahhh"], status: 422
+  # end
+
   def logged_in?
     return current_user ? true : false
   end

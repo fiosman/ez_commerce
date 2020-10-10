@@ -24,6 +24,10 @@ class ProductForm extends React.Component {
       .then(() => this.props.clearErrors());
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   displayErrors() {
     return (
       <ul>
