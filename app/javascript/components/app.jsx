@@ -16,23 +16,24 @@ const App = () => (
       <h1>EzCommerce</h1>
     </header>
     <Switch>
-      <AdminRoute path="/admin" component={AdminDashContainer} />
+      <AdminRoute path="/admin" exact component={AdminDashContainer} />
       <AuthRoute path="/login" exact component={LoginFormContainer} />
       <AuthRoute path="/signup" exact component={SignupFormContainer} />
-      <Route path="/admin/product/new" exact component={AddProductContainer} />
-      <Route
-        path="/admin/product/:productId/edit"
+      <AdminRoute
+        path="/admin/product/new"
         exact
+        component={AddProductContainer}
+      />
+      <AdminRoute
+        path="/admin/product/:productId/edit"
         component={EditProductContainer}
       />
-      <Route
+      <AdminRoute
         path="/admin/category/new"
-        exact
         component={CategoryFormContainer}
       />
-      <Route
+      <AdminRoute
         path="/admin/inventory"
-        exact
         component={InventoryIndexContainer}
       />
       <Route path="/" exact component={GreetingContainer} />

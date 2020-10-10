@@ -8,7 +8,8 @@ class Ability
     if user.has_role? :admin
       can :manage, :all
     elsif user.has_role? :registered
-      can :manage, :all #for now
+      can :read, Product
+      can :read, Category
     else
       can :read, :all
     end
