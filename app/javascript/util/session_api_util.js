@@ -1,6 +1,6 @@
 export const signupUser = (user) => {
   return $.ajax({
-    url: "/api/user",
+    url: "/api/users",
     method: "POST",
     data: { user },
   });
@@ -8,7 +8,7 @@ export const signupUser = (user) => {
 
 export const updateUser = (user) => {
   return $.ajax({
-    url: "/api/user",
+    url: `/api/users/${user.id}`,
     method: "PATCH",
     data: { user },
   });

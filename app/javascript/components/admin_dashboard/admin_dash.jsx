@@ -1,6 +1,7 @@
 import React from "react";
 import GreetingContainer from "../greeting/greeting_container";
 import AdminNavBar from "../admin_dashboard/admin_nav_bar";
+import Stats from "../store_stats/stats";
 class AdminDash extends React.Component {
   constructor(props) {
     super(props);
@@ -22,6 +23,7 @@ class AdminDash extends React.Component {
           <h2>Admin Dashboard</h2>
           <GreetingContainer />
           <AdminNavBar />
+          {/* <Stats /> */}
         </section>
       </div>
     );

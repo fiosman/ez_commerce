@@ -9,6 +9,7 @@ import EditProductContainer from "../components/product/edit_product_container";
 import AddProductContainer from "../components/product/add_product_container";
 import CategoryFormContainer from "../components/category/category_form_container";
 import InventoryIndexContainer from "../components/inventory/inventory_index_container";
+import Splash from "../components/splash/splash";
 
 const App = () => (
   <div>
@@ -32,11 +33,8 @@ const App = () => (
         path="/admin/category/new"
         component={CategoryFormContainer}
       />
-      <AdminRoute
-        path="/admin/inventory"
-        component={InventoryIndexContainer}
-      />
-      <Route path="/" exact component={GreetingContainer} />
+      <AdminRoute path="/admin/inventory" component={InventoryIndexContainer} />
+      <Route path="/" exact component={Splash} />
     </Switch>
   </div>
 );
