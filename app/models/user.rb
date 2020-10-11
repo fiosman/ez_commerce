@@ -25,6 +25,8 @@ class User < ApplicationRecord
 
   after_initialize :ensure_session_token
 
+  has_many :reviews
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && BCrypt::Password.new(user.password_digest).is_password?(password) ? user : nil
