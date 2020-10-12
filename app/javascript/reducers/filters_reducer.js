@@ -1,6 +1,7 @@
-import { combineReducer } from "redux";
+import { combineReducers } from "redux";
+import searchReducer from "./search_reducer";
 
-const filtersReducer = combineReducer({
+const filtersReducer = combineReducers({
   search: searchReducer,
 });
 

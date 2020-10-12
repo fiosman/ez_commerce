@@ -15,6 +15,7 @@ const mapStateToProps = (state) => ({
   loadingProducts: state.loading.products,
   products: selectAllProducts(state),
   categories: selectAllCategories(state),
+  searchTerm: state.filters.search,
 });
 
 const mapDispatchToProps = (dispatch) => ({

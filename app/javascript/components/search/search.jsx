@@ -11,7 +11,6 @@ class Search extends React.Component {
     this.props.searchByProduct(e.target.value);
   }
   render() {
-    console.log(this.props);
     return (
       <div>
         <input

@@ -1,11 +1,11 @@
-import RECEIVE_SEARCHED_PRODUCTS from "../actions/product_actions";
+import { RECEIVE_SEARCHED_PRODUCTS } from "../actions/product_actions";
 
-const searchReducer = (state = {}, action) => {
+const searchReducer = (state = "", action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_SEARCHED_PRODUCTS:
-      return Object.assign({}, state, action.searchTerm);
+      return action.searchTerm;
     default:
       return state;
   }

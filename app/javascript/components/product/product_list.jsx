@@ -16,11 +16,15 @@ class ProductList extends React.Component {
   }
 
   render() {
-    const { products, fetchSearchedProducts } = this.props;
+    const { products, fetchSearchedProducts, searchTerm } = this.props;
     return (
       <section>
         <div>
-          <Search products={products} searchByProduct={fetchSearchedProducts} />
+          <Search
+            products={products}
+            searchByProduct={fetchSearchedProducts}
+            search={searchTerm}
+          />
           {products.map((product, index) => (
             <ProductListItem product={product} key={index} />
           ))}
