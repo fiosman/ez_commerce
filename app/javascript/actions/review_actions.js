@@ -3,10 +3,16 @@ export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_REVIEW_ERRORS = "REMOVE_REVIEW_ERRORS";
+export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVEIWS";
 
 export const receiveReview = (review) => ({
   type: RECEIVE_REVIEW,
   review,
+});
+
+export const receiveReviews = (reviews) => ({
+  type: RECEIVE_ALL_REVIEWS,
+  reviews,
 });
 
 export const wipeReview = (reviewId) => ({
@@ -31,5 +37,7 @@ export const addReview = (review) => (dispatch) =>
       throw err;
     });
 
-export const removeReview = (reviewId) => (dispatch) =>
-  deleteReview(reviewId).then((review) => dispatch(wipeReview(review.id)));
+export const removeReview = (reviewId, productId) => (dispatch) =>
+  deleteReview(reviewId, productId).then((review) =>
+    dispatch(wipeReview(review.id))
+  );

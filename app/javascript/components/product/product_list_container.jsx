@@ -1,5 +1,8 @@
 import ProductList from "./product_list";
-import { fetchProducts } from "../../actions/product_actions";
+import {
+  fetchProducts,
+  receiveSearchedProducts,
+} from "../../actions/product_actions";
 import { connect } from "react-redux";
 import { pullCategories } from "../../actions/category_actions";
 import {
@@ -17,6 +20,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   getAllProducts: () => dispatch(fetchProducts()),
   getAllCategories: () => dispatch(pullCategories()),
+  fetchSearchedProducts: (searchTerm) =>
+    dispatch(receiveSearchedProducts(searchTerm)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProductList);

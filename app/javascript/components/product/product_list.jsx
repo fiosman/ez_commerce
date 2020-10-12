@@ -1,5 +1,6 @@
 import React from "react";
 import ProductListItem from "./product_list_item";
+import Search from "../search/search";
 
 class ProductList extends React.Component {
   constructor(props) {
@@ -15,10 +16,11 @@ class ProductList extends React.Component {
   }
 
   render() {
-    const { products } = this.props;
+    const { products, fetchSearchedProducts } = this.props;
     return (
       <section>
         <div>
+          <Search products={products} searchByProduct={fetchSearchedProducts} />
           {products.map((product, index) => (
             <ProductListItem product={product} key={index} />
           ))}

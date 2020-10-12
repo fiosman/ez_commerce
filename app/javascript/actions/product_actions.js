@@ -5,6 +5,7 @@ export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
 export const STARAT_LOADING_SINGLE_PRODUCT = "START_LOADING_SINGLE_PRODUCT";
 export const START_LOADING_ALL_PRODUCTS = "START_LOADING_ALL_PRODUCTS";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
+export const RECEIVE_SEARCHED_PRODUCTS = "RECEIVE_SEARCHED_RPDOUCTS";
 
 import {
   createProduct,
@@ -43,6 +44,11 @@ export const startLoadingAllProducts = () => ({
 export const wipeProduct = (productId) => ({
   type: REMOVE_PRODUCT,
   productId,
+});
+
+export const receiveSearchedProducts = (searchTerm) => ({
+  type: RECEIVE_SEARCHED_PRODUCTS,
+  searchTerm,
 });
 
 export const addProduct = (product) => (dispatch) =>

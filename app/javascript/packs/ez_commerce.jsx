@@ -6,8 +6,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { store } from "../store/store";
 import Root from "../components/root";
+import { addReview, removeReview } from "../actions/review_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
+  window.store = store;
+  window.dispatch = store.dispatch;
+  window.addReview = addReview;
+  window.removeReview = removeReview;
   ReactDOM.render(
     <Root store={store} />,
     document.body.appendChild(document.createElement("div"))

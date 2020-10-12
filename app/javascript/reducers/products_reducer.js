@@ -2,6 +2,7 @@ import {
   RECEIVE_PRODUCTS,
   RECEIVE_PRODUCT,
   REMOVE_PRODUCT,
+  RECEIVE_SEARCHED_PRODUCTS,
 } from "../actions/product_actions";
 import { REMOVE_CATEGORY } from "../actions/category_actions";
 
