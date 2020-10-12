@@ -8,6 +8,7 @@ import { pullCategories } from "../../actions/category_actions";
 import {
   selectAllProducts,
   selectAllCategories,
+  selectSearchedProducts,
 } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
@@ -15,6 +16,7 @@ const mapStateToProps = (state) => ({
   loadingProducts: state.loading.products,
   products: selectAllProducts(state),
   categories: selectAllCategories(state),
+  searchedProducts: selectSearchedProducts(state),
   searchTerm: state.filters.search,
 });
 

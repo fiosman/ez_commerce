@@ -16,7 +16,14 @@ class ProductList extends React.Component {
   }
 
   render() {
-    const { products, fetchSearchedProducts, searchTerm } = this.props;
+    const {
+      products,
+      fetchSearchedProducts,
+      searchTerm,
+      searchedProducts,
+    } = this.props;
+
+    console.log(searchedProducts);
     return (
       <section>
         <div>
@@ -25,7 +32,7 @@ class ProductList extends React.Component {
             searchByProduct={fetchSearchedProducts}
             search={searchTerm}
           />
-          {products.map((product, index) => (
+          {searchedProducts.map((product, index) => (
             <ProductListItem product={product} key={index} />
           ))}
         </div>

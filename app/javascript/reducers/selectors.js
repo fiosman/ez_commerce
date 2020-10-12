@@ -17,3 +17,11 @@ export const selectAllProducts = (state) => {
 
   return arr;
 };
+
+export const selectSearchedProducts = (state) => {
+  const products = selectAllProducts(state);
+
+  return products.filter((product) =>
+    product.title.includes(state.filters.search)
+  );
+};
