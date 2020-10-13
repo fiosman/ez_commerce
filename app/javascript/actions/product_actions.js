@@ -6,6 +6,8 @@ export const STARAT_LOADING_SINGLE_PRODUCT = "START_LOADING_SINGLE_PRODUCT";
 export const START_LOADING_ALL_PRODUCTS = "START_LOADING_ALL_PRODUCTS";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const RECEIVE_SEARCHED_PRODUCTS = "RECEIVE_SEARCHED_PRODUCTS";
+export const RECEIVE_FILTERED_CATEGORIES = "RECEIVE_FILTERED_CATEGORIES";
+export const RECEIVE_FILTERED_PRICE = "RECEIVE_FILTERED_PRICE";
 
 import {
   createProduct,
@@ -49,6 +51,16 @@ export const wipeProduct = (productId) => ({
 export const receiveSearchedProducts = (searchTerm) => ({
   type: RECEIVE_SEARCHED_PRODUCTS,
   searchTerm,
+});
+
+export const receiveFilteredCategories = (categories) => ({
+  type: RECEIVE_FILTERED_CATEGORIES,
+  categories,
+});
+
+export const receiveFilteredPrice = (price) => ({
+  type: RECEIVE_FILTERED_PRICE,
+  price,
 });
 
 export const addProduct = (product) => (dispatch) =>
