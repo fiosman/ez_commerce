@@ -3,27 +3,30 @@ import React from "react";
 class Filter extends React.Component {
   constructor(props) {
     super(props);
-    this.handleChange = this.handleChange.bind(this);
+    this.categoryFilter = this.categoryFilter.bind(this);
+    this.priceFilter = this.priceFilter.bind(this);
     this.state = {
       price: "",
       category: [],
     };
   }
 
-  handleChange(e) {
-    if (e.target.name === "category") {
-      if (e.target.checked) {
-        this.setState({
-          category: [...this.state.category, e.target.value],
-        });
-      } else if (!e.target.checked) {
-        this.setState({
-          category: this.state.category.filter((category) => {
-            return category !== e.target.value;
-          }),
-        });
-      }
+  categoryFilter(e) {
+    if (e.target.checked) {
+      this.setState({
+        category: [...this.state.category, e.target.value],
+      });
+    } else if (!e.target.checked) {
+      this.setState({
+        category: this.state.category.filter((category) => {
+          return category !== e.target.value;
+        }),
+      });
     }
+  }
+
+  priceFilter(e) {
+    this.setState({ price: e.target.value });
   }
   render() {
     console.log(this.state);
@@ -38,7 +41,7 @@ class Filter extends React.Component {
               <label key={idx}>
                 <input
                   type="checkbox"
-                  onChange={this.handleChange}
+                  onChange={this.categoryFilter}
                   name="category"
                   value={category.tagging}
                 />
@@ -51,19 +54,43 @@ class Filter extends React.Component {
         <section>
           <h3>Price</h3>
           <label>
-            <input type="radio" value="" />
+            <input
+              type="radio"
+              value="<25"
+              name="price"
+              checked={this.state.price === "<25"}
+              onChange={this.priceFilter}
+            />
             Under $25
           </label>
           <label>
-            <input type="radio" value="" />
+            <input
+              type="radio"
+              value="25-50"
+              name="price"
+              checked={this.state.price === "25-50"}
+              onChange={this.priceFilter}
+            />
             $25 to $50
           </label>
           <label>
-            <input type="radio" value="" />
+            <input
+              type="radio"
+              value="50-100"
+              name="price"
+              checked={this.state.price === "50-100"}
+              onChange={this.priceFilter}
+            />
             $50 to $100
           </label>
           <label>
-            <input type="radio" value="" />
+            <input
+              type="radio"
+              value=">100"
+              name="price"
+              checked={this.state.price === ">100"}
+              onChange={this.priceFilter}
+            />
             $100 and Over
           </label>
         </section>
