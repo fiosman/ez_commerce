@@ -21,10 +21,11 @@ class ProductList extends React.Component {
       products,
       fetchSearchedProducts,
       searchTerm,
-      searchedProducts,
       categories,
+      filterByCategory,
+      filterByPrice,
+      filteredProducts,
     } = this.props;
-
     return (
       <section>
         <div>
@@ -33,10 +34,19 @@ class ProductList extends React.Component {
             searchByProduct={fetchSearchedProducts}
             search={searchTerm}
           />
-          <Filter products={products} categories={categories} />
-          {searchedProducts.map((product, index) => (
-            <ProductListItem product={product} key={index} />
-          ))}
+          <Filter
+            products={products}
+            categories={categories}
+            filterByCategory={filterByCategory}
+            filterByPrice={filterByPrice}
+          />
+          {filteredProducts.length > 0 ? (
+            filteredProducts.map((product, index) => (
+              <ProductListItem product={product} key={index} />
+            ))
+          ) : (
+            <h2>No products to display!</h2>
+          )}
         </div>
       </section>
     );

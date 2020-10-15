@@ -1,6 +1,6 @@
 import { RECEIVE_FILTERED_PRICE } from "../actions/product_actions";
 
-const priceFilterReducer = (state = {}, action) => {
+const priceFilterReducer = (state = "", action) => {
   Object.freeze(state);
 
   switch (action.type) {

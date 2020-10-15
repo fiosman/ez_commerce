@@ -28,8 +28,17 @@ class Filter extends React.Component {
   priceFilter(e) {
     this.setState({ price: e.target.value });
   }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.price != this.state.price) {
+      this.props.filterByPrice(this.state.price);
+    }
+
+    if (prevState.category != this.state.category) {
+      this.props.filterByCategory(this.state.category);
+    }
+  }
   render() {
-    console.log(this.state);
     const { categories, products } = this.props;
     return (
       <div>

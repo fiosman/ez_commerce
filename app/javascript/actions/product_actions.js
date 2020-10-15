@@ -8,6 +8,7 @@ export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const RECEIVE_SEARCHED_PRODUCTS = "RECEIVE_SEARCHED_PRODUCTS";
 export const RECEIVE_FILTERED_CATEGORIES = "RECEIVE_FILTERED_CATEGORIES";
 export const RECEIVE_FILTERED_PRICE = "RECEIVE_FILTERED_PRICE";
+export const RECEIVE_FILTERED_PRODUCTS = "RECEIVE_FILTERED_PRODUCTS";
 
 import {
   createProduct,
@@ -53,15 +54,20 @@ export const receiveSearchedProducts = (searchTerm) => ({
   searchTerm,
 });
 
-export const receiveFilteredCategories = (categories) => ({
+export const receiveFilteredCategory = (category) => ({
   type: RECEIVE_FILTERED_CATEGORIES,
-  categories,
+  category,
 });
 
 export const receiveFilteredPrice = (price) => ({
   type: RECEIVE_FILTERED_PRICE,
   price,
 });
+
+// export const receiveFilteredProducts = (filter) => ({
+//   type: RECEIVE_FILTERED_PRODUCTS,
+//   filter,
+// });
 
 export const addProduct = (product) => (dispatch) =>
   createProduct(product)
