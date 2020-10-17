@@ -1,18 +1,29 @@
 import React from "react";
+import { withRouter } from "react-router";
+class ProductListItem extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-const ProductListItem = (props) => {
-  const { product } = props;
-  return (
-    <div>
+  handleClick() {
+    this.props.history.push(`/products/${this.props.product.id}`);
+  }
+
+  render() {
+    const { product } = this.props;
+    return (
       <div>
-        <figure>
-          <img src={product.imageUrl} />
-        </figure>
-        <h2>{product.title}</h2>
-        <h2>${product.price}</h2>
+        <div>
+          <figure>
+            <img src={product.imageUrl} onClick={this.handleClick} />
+          </figure>
+          <h2>{product.title}</h2>
+          <h2>${product.price}</h2>
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
-export default ProductListItem;
+export default withRouter(ProductListItem);
