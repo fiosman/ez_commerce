@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 class ProductShow extends React.Component {
   constructor(props) {
@@ -6,7 +7,11 @@ class ProductShow extends React.Component {
   }
 
   render() {
-    return <div></div>;
+    return (
+      <div>
+        <Link to="/">Return to main page</Link>
+      </div>
+    );
   }
 }
 
