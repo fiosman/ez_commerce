@@ -1,6 +1,6 @@
-export const postReview = (review, productId) => {
+export const postReview = (review) => {
   return $.ajax({
-    url: `/api/products/${productId}/reviews`,
+    url: `/api/products/${review.product_id}/reviews`,
     method: "POST",
     data: { review },
   });

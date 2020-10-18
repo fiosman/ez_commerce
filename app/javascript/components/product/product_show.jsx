@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ProductDetail from "./product_detail";
+import ReviewFormContainer from "../reviews/review_form_container";
 
 class ProductShow extends React.Component {
   constructor(props) {
@@ -40,6 +41,10 @@ class ProductShow extends React.Component {
           </div>
           <div>
             <ProductDetail product={product} />
+          </div>
+          <div>
+            <h2>Leave a Review</h2>
+            <ReviewFormContainer product={product} />
           </div>
         </section>
       </div>
