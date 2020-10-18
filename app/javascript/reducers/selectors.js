@@ -30,15 +30,13 @@ export const selectSearchedProducts = (state) => {
 
 export const selectFilteredProducts = (state) => {
   const products = selectAllProducts(state);
-
+  const categories = state.entities.categories;
+  const filters = state.filters;
   return products.filter((product) => {
     return (
-      product.title.includes(state.filters.search) &&
-      byCategory(
-        state.entities.categories[product.category_id].tagging,
-        state.filters.categories
-      ) &&
-      byPrice(product.price, state.filters.price)
+      product.title.includes(filters.search) &&
+      byCategory(categories[product.category_id].tagging, filters.categories) &&
+      byPrice(product.price, filters.price)
     );
   });
 };

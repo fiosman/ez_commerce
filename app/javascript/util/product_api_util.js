@@ -27,3 +27,9 @@ export const getProducts = () =>
     url: `/api/products`,
     method: "GET",
   });
+
+export const getProduct = (productId) =>
+  $.ajax({
+    url: `/api/products/${productId}`,
+    method: "GET",
+  });

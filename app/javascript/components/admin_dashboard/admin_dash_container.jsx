@@ -4,8 +4,8 @@ import { connect } from "react-redux";
 import { pullCategories } from "../../actions/category_actions";
 
 const mapStateToProps = (state) => ({
-  loadingCategories: state.loading.categories,
-  loadingProducts: state.loading.products,
+  loadingCategories: state.loading.index.categories,
+  loadingProducts: state.loading.index.products,
 });
 
 const mapDispatchToProps = (dispatch) => ({

@@ -25,6 +25,8 @@ const mapStateToProps = (state) => ({
   categoryFilter: state.filters.categories,
   priceFilter: state.filters.price,
   productFilters: state.filters,
+  loadingCategories: state.loading.index.categories,
+  loadingProducts: state.loading.index.products,
   filteredProducts: selectFilteredProducts(state),
 });
 

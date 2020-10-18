@@ -9,6 +9,7 @@ class ReviewForm extends React.Component {
       body: "",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleNavigation = this.handleNavigation.bind(this);
     this.handleChange = this.handleChange.bind(this);
   }
 
@@ -27,9 +28,10 @@ class ReviewForm extends React.Component {
     this.props.createReview(reviewData);
   }
 
-  // handleNavigation() {
-  //   return this.props.history.push(`/products/${this.props.productId}`);
-  // }
+  handleNavigation(e) {
+    e.preventDefault();
+    return this.props.history.push(`/products/${this.props.productId}`);
+  }
 
   render() {
     return (

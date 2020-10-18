@@ -19,13 +19,13 @@ class Api::ProductsController < ApplicationController
     end
   end
 
-  # def show
-  #   @product = Product.find(params[:id])
-  #   render :show
-  # end
+  def show
+    @product = Product.find(params[:id])
+    render :show
+  end
 
   def index
-    @products = Product.all.includes(:category)
+    @products = Product.all.includes(:category, :reviews)
     render :index
   end
 

@@ -9,12 +9,17 @@ import {
   START_LOADING_ALL_PRODUCTS,
   START_LOADING_SINGLE_PRODUCT,
   RECEIVE_PRODUCTS,
-  RECEIVE_PRODUCT,
+  RECEIVE_SINGLE_PRODUCT,
 } from "../actions/product_actions";
 
 const initialState = {
-  categories: false,
-  products: false,
+  index: {
+    categories: false,
+    products: false,
+  },
+  detail: {
+    product: false,
+  },
 };
 
 const loadingReducer = (state = initialState, action) => {
@@ -22,13 +27,17 @@ const loadingReducer = (state = initialState, action) => {
 
   switch (action.type) {
     case START_LOADING_ALL_CATEGORIES:
-      return Object.assign({}, state, { categories: true });
+      return Object.assign({}, state, { index: { categories: true } });
     case START_LOADING_ALL_PRODUCTS:
-      return Object.assign({}, state, { products: true });
+      return Object.assign({}, state, { index: { products: true } });
     case RECEIVE_PRODUCTS:
-      return Object.assign({}, state, { products: false });
+      return Object.assign({}, state, { index: { products: false } });
     case RECEIVE_CATEGORIES:
-      return Object.assign({}, state, { categories: false });
+      return Object.assign({}, state, { index: { categories: false } });
+    case RECEIVE_SINGLE_PRODUCT:
+      return Object.assign({}, state, { detail: { product: false } });
+    case START_LOADING_SINGLE_PRODUCT:
+      return Object.assign({}, state, { detail: { product: true } });
     default:
       return state;
   }

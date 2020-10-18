@@ -25,7 +25,14 @@ class ProductList extends React.Component {
       filterByCategory,
       filterByPrice,
       filteredProducts,
+      loadingCategories,
+      loadingProducts,
     } = this.props;
+
+    if (loadingCategories || loadingProducts) {
+      return <h2>Loading...</h2>;
+    }
+    // console.log(filteredProducts);
     return (
       <section>
         <div>

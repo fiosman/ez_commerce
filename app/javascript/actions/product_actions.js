@@ -1,8 +1,8 @@
 export const RECEIVE_PRODUCT_ERRORS = "RECEIVE_PRODUCT_ERRORS";
 export const REMOVE_PRODUCT_ERRORS = "REMOVE_PRODUCT_ERRORS";
-export const RECEIVE_PRODUCT = "RECEIVE_PRODUCT";
+export const RECEIVE_SINGLE_PRODUCT = "RECEIVE_PRODUCT";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
-export const STARAT_LOADING_SINGLE_PRODUCT = "START_LOADING_SINGLE_PRODUCT";
+export const START_LOADING_SINGLE_PRODUCT = "START_LOADING_SINGLE_PRODUCT";
 export const START_LOADING_ALL_PRODUCTS = "START_LOADING_ALL_PRODUCTS";
 export const REMOVE_PRODUCT = "REMOVE_PRODUCT";
 export const RECEIVE_SEARCHED_PRODUCTS = "RECEIVE_SEARCHED_PRODUCTS";
@@ -15,6 +15,7 @@ import {
   updateProduct,
   deleteProduct,
   getProducts,
+  getProduct,
 } from "../util/product_api_util";
 
 export const receiveProducts = (products) => ({
@@ -32,7 +33,7 @@ export const removeProductErrors = () => ({
 });
 
 export const receiveProduct = (product) => ({
-  type: RECEIVE_PRODUCT,
+  type: RECEIVE_SINGLE_PRODUCT,
   product,
 });
 
@@ -64,11 +65,6 @@ export const receiveFilteredPrice = (price) => ({
   price,
 });
 
-// export const receiveFilteredProducts = (filter) => ({
-//   type: RECEIVE_FILTERED_PRODUCTS,
-//   filter,
-// });
-
 export const addProduct = (product) => (dispatch) =>
   createProduct(product)
     .then((product) => dispatch(receiveProduct(product)))
@@ -80,6 +76,11 @@ export const addProduct = (product) => (dispatch) =>
 export const fetchProducts = () => (dispatch) => {
   dispatch(startLoadingAllProducts());
   getProducts().then((products) => dispatch(receiveProducts(products)));
+};
+
+export const fetchSingleProduct = (productId) => (dispatch) => {
+  dispatch(startLoadingSingleProduct());
+  getProduct(productId).then((product) => dispatch(receiveProduct(product)));
 };
 
 export const removeProduct = (productId) => (dispatch) =>

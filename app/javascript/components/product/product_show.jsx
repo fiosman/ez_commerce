@@ -11,7 +11,9 @@ class ProductShow extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.props);
+    if (this.props.product.reviewIds.length === 0) {
+      this.props.receiveSingleProduct(this.props.productId);
+    }
   }
 
   addToCart() {
@@ -23,7 +25,16 @@ class ProductShow extends React.Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, productId, loadingProduct } = this.props;
+    if (loadingProduct) {
+      return <h2>Loading Product...</h2>;
+    }
+    const reviewStatus =
+      this.props.location.pathname === `/products/${productId}` ? (
+        <Link to={`/products/${productId}/review`}> Leave a Review</Link>
+      ) : (
+        ""
+      );
     return (
       <div>
         <Link to="/">Return to main page</Link>
@@ -43,8 +54,13 @@ class ProductShow extends React.Component {
             <ProductDetail product={product} />
           </div>
           <div>
-            <h2>Leave a Review</h2>
-            <ReviewFormContainer product={product} />
+            <h2>{reviewStatus}</h2>
+            {this.props.location.pathname ===
+            `/products/${productId}/review` ? (
+              <ReviewFormContainer product={product} />
+            ) : (
+              ""
+            )}
           </div>
         </section>
       </div>

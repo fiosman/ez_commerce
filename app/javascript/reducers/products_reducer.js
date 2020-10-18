@@ -1,6 +1,6 @@
 import {
   RECEIVE_PRODUCTS,
-  RECEIVE_PRODUCT,
+  RECEIVE_SINGLE_PRODUCT,
   REMOVE_PRODUCT,
 } from "../actions/product_actions";
 import { REMOVE_CATEGORY } from "../actions/category_actions";
@@ -11,9 +11,9 @@ const productsReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_PRODUCTS:
       return Object.assign({}, action.products);
-    case RECEIVE_PRODUCT:
+    case RECEIVE_SINGLE_PRODUCT:
       return Object.assign({}, state, {
-        [action.product.id]: action.product,
+        [action.product.product.id]: action.product.product,
       });
     case REMOVE_PRODUCT:
       let currentState = Object.assign({}, state);
