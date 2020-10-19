@@ -9,6 +9,7 @@ export const RECEIVE_SEARCHED_PRODUCTS = "RECEIVE_SEARCHED_PRODUCTS";
 export const RECEIVE_FILTERED_CATEGORIES = "RECEIVE_FILTERED_CATEGORIES";
 export const RECEIVE_FILTERED_PRICE = "RECEIVE_FILTERED_PRICE";
 export const RECEIVE_FILTERED_PRODUCTS = "RECEIVE_FILTERED_PRODUCTS";
+import { receiveReviews } from "./review_actions";
 
 import {
   createProduct,
@@ -80,7 +81,10 @@ export const fetchProducts = () => (dispatch) => {
 
 export const fetchSingleProduct = (productId) => (dispatch) => {
   dispatch(startLoadingSingleProduct());
-  getProduct(productId).then((product) => dispatch(receiveProduct(product)));
+  getProduct(productId).then((product) => {
+    dispatch(receiveProduct(product));
+    dispatch(receiveReviews(product.reviews));
+  });
 };
 
 export const removeProduct = (productId) => (dispatch) =>

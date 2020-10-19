@@ -5,11 +5,16 @@ const ReviewIndex = (props) => {
   if (props.reviews) {
     return reviewIds.map((reviewId) => {
       return (
-        <ul key={reviewId}>
-          <li>Rating: {props.reviews[reviewId].rating}</li>
-          <li>How was it? {props.reviews[reviewId].body}</li>
-          <li>Posted by: {props.reviews[reviewId].author}</li>
-        </ul>
+        <section key={reviewId}>
+          <ul>
+            <li>
+              Posted on: {new Date(props.product.created_at).toLocaleString()}{" "}
+            </li>
+            <li>Rating: {props.reviews[reviewId].rating}</li>
+            <li>How was it? {props.reviews[reviewId].body}</li>
+            <li>Posted by: {props.reviews[reviewId].author}</li>
+          </ul>
+        </section>
       );
     });
   } else {

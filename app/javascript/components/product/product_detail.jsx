@@ -1,4 +1,5 @@
 import React from "react";
+import ReviewIndex from "../reviews/review_index";
 
 class ProductDetail extends React.Component {
   constructor(props) {
@@ -6,7 +7,7 @@ class ProductDetail extends React.Component {
   }
 
   render() {
-    const { product } = this.props;
+    const { product, reviews } = this.props;
     return (
       <div>
         <section>
@@ -15,7 +16,7 @@ class ProductDetail extends React.Component {
         </section>
         <section>
           <h2>Reviews</h2>
-          {/* <ReviewIndex product={product} reviews={reviews} /> */}
+          <ReviewIndex product={product} reviews={reviews} />
         </section>
       </div>
     );

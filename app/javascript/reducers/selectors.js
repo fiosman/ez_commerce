@@ -40,3 +40,16 @@ export const selectFilteredProducts = (state) => {
     );
   });
 };
+
+export const selectProductReviews = (state) => {
+  // return product
+  //   ? product.reviewIds.map((reviewId) => state.entities.reviews[reviewId])
+  //   : [];
+  let arr = [];
+
+  for (let review in state.entities.reviews) {
+    arr.push(review);
+  }
+
+  return arr;
+};

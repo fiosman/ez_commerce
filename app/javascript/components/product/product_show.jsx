@@ -11,9 +11,7 @@ class ProductShow extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.product.reviewIds.length === 0) {
-      this.props.receiveSingleProduct(this.props.productId);
-    }
+    this.props.receiveSingleProduct(this.props.productId);
   }
 
   addToCart() {
@@ -25,7 +23,7 @@ class ProductShow extends React.Component {
   }
 
   render() {
-    const { product, productId, loadingProduct } = this.props;
+    const { product, productId, loadingProduct, productReviews } = this.props;
     if (loadingProduct) {
       return <h2>Loading Product...</h2>;
     }
@@ -51,7 +49,7 @@ class ProductShow extends React.Component {
             <button onClick={this.addToCart}>Add to Cart</button>
           </div>
           <div>
-            <ProductDetail product={product} />
+            <ProductDetail product={product} reviews={productReviews} />
           </div>
           <div>
             <h2>{reviewStatus}</h2>
