@@ -9,8 +9,6 @@ const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {
-    // case RECEIVE_SINGLE_PRODUCT:
-    //   return Object.assign({}, state, action.product.reviews);
     case RECEIVE_ALL_REVIEWS:
       return Object.assign({}, state, action.reviews);
     case RECEIVE_REVIEW:

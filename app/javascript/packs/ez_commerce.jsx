@@ -7,6 +7,8 @@ import ReactDOM from "react-dom";
 import { store } from "../store/store";
 import Root from "../components/root";
 import { addReview, removeReview } from "../actions/review_actions";
+import { fetchProducts } from "../actions/product_actions";
+import { pullCategories } from "../actions/category_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   window.store = store;

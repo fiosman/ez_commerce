@@ -1,18 +1,15 @@
 import React from "react";
 
 const ReviewIndex = (props) => {
-  const reviewIds = Object.keys(props.reviews);
-  if (props.reviews) {
-    return reviewIds.map((reviewId) => {
+  if (props.reviews.length > 0) {
+    return props.reviews.map((review, idx) => {
       return (
-        <section key={reviewId}>
+        <section key={idx}>
           <ul>
-            <li>
-              Posted on: {new Date(props.product.created_at).toLocaleString()}{" "}
-            </li>
-            <li>Rating: {props.reviews[reviewId].rating}</li>
-            <li>How was it? {props.reviews[reviewId].body}</li>
-            <li>Posted by: {props.reviews[reviewId].author}</li>
+            <li>Posted on: {new Date(review.created_at).toLocaleString()} </li>
+            <li>Rating: {review.rating}</li>
+            <li>How was it? {review.body}</li>
+            <li>Posted by: {review.author}</li>
           </ul>
         </section>
       );

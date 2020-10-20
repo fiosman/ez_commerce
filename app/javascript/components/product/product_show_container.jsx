@@ -7,7 +7,10 @@ const mapStateToProps = (state, ownProps) => ({
   product: state.entities.products[ownProps.match.params.productId],
   productId: ownProps.match.params.productId,
   loadingProduct: state.loading.detail.product,
-  productReviews: selectProductReviews(state),
+  productReviews: selectProductReviews(
+    state.entities.reviews,
+    state.entities.products[ownProps.match.params.productId]
+  ),
 });
 
 const mapDispatchToProps = (dispatch) => ({
