@@ -23,14 +23,15 @@ class ProductShow extends React.Component {
   }
 
   render() {
-    const { product, productId, loadingProduct, productReviews } = this.props;
-    console.log(product);
-    if (loadingProduct) {
+    if (this.props.loadingProduct || this.props.loadingReviews) {
       return <h2>Loading Product...</h2>;
     }
     const reviewStatus =
-      this.props.location.pathname === `/products/${productId}` ? (
-        <Link to={`/products/${productId}/review`}> Leave a Review</Link>
+      this.props.location.pathname === `/products/${this.props.productId}` ? (
+        <Link to={`/products/${this.props.productId}/review`}>
+          {" "}
+          Leave a Review
+        </Link>
       ) : (
         ""
       );
@@ -39,24 +40,27 @@ class ProductShow extends React.Component {
         <Link to="/">Return to main page</Link>
         <section>
           <figure>
-            <img src={product.imageUrl} width="200" height="40" />
+            <img src={this.props.product.imageUrl} width="200" height="40" />
           </figure>
           <div>
-            <h2>{product.title}</h2>
-            <h2>{product.price}</h2>
+            <h2>{this.props.product.title}</h2>
+            <h2>{this.props.product.price}</h2>
             <button type="button">-</button>
             <input type="text" value="1" onChange={this.handleQuantity}></input>
             <button type="button">+</button>
             <button onClick={this.addToCart}>Add to Cart</button>
           </div>
           <div>
-            <ProductDetail product={product} reviews={productReviews} />
+            <ProductDetail
+              product={this.props.product}
+              reviews={this.props.productReviews}
+            />
           </div>
           <div>
             <h2>{reviewStatus}</h2>
             {this.props.location.pathname ===
-            `/products/${productId}/review` ? (
-              <ReviewFormContainer product={product} />
+            `/products/${this.props.productId}/review` ? (
+              <ReviewFormContainer product={this.props.product} />
             ) : (
               ""
             )}

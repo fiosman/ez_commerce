@@ -3,17 +3,23 @@ import ProductShow from "./product_show";
 import { fetchSingleProduct } from "../../actions/product_actions";
 import { selectProductReviews } from "../../reducers/selectors";
 
-const mapStateToProps = (state, ownProps) => ({
-  product: state.entities.products[ownProps.match.params.productId],
-  productId: ownProps.match.params.productId,
-  loadingProduct: state.loading.detail.product,
-  productReviews: selectProductReviews(
-    state.entities.reviews,
-    state.entities.products[ownProps.match.params.productId]
-  ),
-});
+export const mapStateToProps = (state, ownProps) => {
+  const product = state.entities.products[ownProps.match.params.productId];
+  const productId = ownProps.match.params.productId;
+  const loadingProduct = state.loading.detail.product;
+  const loadingReviews = state.loading.detail.reviews;
+  const productReviews = state.entities.reviews;
 
-const mapDispatchToProps = (dispatch) => ({
+  return {
+    product: product,
+    productId: productId,
+    loadingProduct: loadingProduct,
+    loadingReviews: loadingReviews,
+    productReviews: selectProductReviews(productReviews, product),
+  };
+};
+
+export const mapDispatchToProps = (dispatch) => ({
   receiveSingleProduct: (productId) => dispatch(fetchSingleProduct(productId)),
 });
 

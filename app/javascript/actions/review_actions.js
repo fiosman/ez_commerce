@@ -4,6 +4,7 @@ export const REMOVE_REVIEW = "REMOVE_REVIEW";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_REVIEW_ERRORS = "REMOVE_REVIEW_ERRORS";
 export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVEIWS";
+export const LOADING_REVIEWS = "LOADING_REVIEWS";
 
 export const receiveReview = (review) => ({
   type: RECEIVE_REVIEW,
@@ -27,6 +28,10 @@ export const receiveReviewErrors = (errors) => ({
 
 export const removeReviewErrors = () => ({
   type: REMOVE_REVIEW_ERRORS,
+});
+
+export const startLoadingReviews = () => ({
+  type: LOADING_REVIEWS,
 });
 
 export const addReview = (review) => (dispatch) =>

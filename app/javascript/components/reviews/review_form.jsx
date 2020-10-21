@@ -25,7 +25,9 @@ class ReviewForm extends React.Component {
     let reviewData = Object.assign({}, this.state, {
       product_id: this.props.productId,
     });
-    this.props.createReview(reviewData);
+    this.props
+      .createReview(reviewData)
+      .then(() => this.props.history.push(`/products/${this.props.productId}`));
   }
 
   handleNavigation(e) {

@@ -12,6 +12,11 @@ import {
   RECEIVE_SINGLE_PRODUCT,
 } from "../actions/product_actions";
 
+import {
+  RECEIVE_ALL_REVIEWS,
+  LOADING_REVIEWS,
+} from "../actions/review_actions";
+
 const initialState = {
   index: {
     categories: false,
@@ -19,6 +24,7 @@ const initialState = {
   },
   detail: {
     product: false,
+    reviews: false,
   },
 };
 
@@ -36,8 +42,14 @@ const loadingReducer = (state = initialState, action) => {
       return Object.assign({}, state, { index: { categories: false } });
     case RECEIVE_SINGLE_PRODUCT:
       return Object.assign({}, state, { detail: { product: false } });
+    case RECEIVE_ALL_REVIEWS:
+      return Object.assign({}, state, { detail: { reviews: false } });
+    case LOADING_REVIEWS:
+      return Object.assign({}, state, { detail: { reviews: true } });
     case START_LOADING_SINGLE_PRODUCT:
-      return Object.assign({}, state, { detail: { product: true } });
+      return Object.assign({}, state, {
+        detail: { product: true },
+      });
     default:
       return state;
   }

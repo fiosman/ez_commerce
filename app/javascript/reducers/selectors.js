@@ -21,6 +21,7 @@ export const selectAllProducts = (state) => {
 };
 
 export const selectSearchedProducts = (state) => {
+  console.log(state);
   const products = selectAllProducts(state);
 
   return products.filter((product) =>
@@ -42,5 +43,6 @@ export const selectFilteredProducts = (state) => {
 };
 
 export const selectProductReviews = (allReviews, product) => {
-  return product.reviewIds.map((reviewId) => allReviews[reviewId]);
+  const products = product.reviewIds.map((reviewId) => allReviews[reviewId]);
+  return products.filter((product) => product != undefined);
 };

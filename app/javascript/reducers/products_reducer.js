@@ -5,6 +5,8 @@ import {
 } from "../actions/product_actions";
 import { REMOVE_CATEGORY } from "../actions/category_actions";
 
+import { RECEIVE_REVIEW } from "../actions/review_actions";
+
 const productsReducer = (state = {}, action) => {
   Object.freeze(state);
 
@@ -28,6 +30,15 @@ const productsReducer = (state = {}, action) => {
         }
       }
       return newState;
+    case RECEIVE_REVIEW:
+      const currentReviewIds = state[action.review.product_id].reviewIds;
+      return {
+        ...state,
+        [action.review.product_id]: {
+          ...state[action.review.product_id],
+          reviewIds: [...currentReviewIds, action.review.id],
+        },
+      };
     default:
       return state;
   }

@@ -3,7 +3,6 @@ import {
   REMOVE_REVIEW,
   RECEIVE_ALL_REVIEWS,
 } from "../actions/review_actions";
-import { RECEIVE_SINGLE_PRODUCT } from "../actions/product_actions";
 
 const reviewsReducer = (state = {}, action) => {
   Object.freeze(state);
