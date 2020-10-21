@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ProductDetail from "./product_detail";
 import ReviewFormContainer from "../reviews/review_form_container";
-
+import ReviewIndex from "../reviews/review_index";
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
@@ -49,12 +48,10 @@ class ProductShow extends React.Component {
             <input type="text" value="1" onChange={this.handleQuantity}></input>
             <button type="button">+</button>
             <button onClick={this.addToCart}>Add to Cart</button>
-          </div>
-          <div>
-            <ProductDetail
-              product={this.props.product}
-              reviews={this.props.productReviews}
-            />
+            <section>
+              <h2>Description</h2>
+              <p>{this.props.product.body}</p>
+            </section>
           </div>
           <div>
             <h2>{reviewStatus}</h2>
@@ -64,6 +61,15 @@ class ProductShow extends React.Component {
             ) : (
               ""
             )}
+          </div>
+          <div>
+            <section>
+              <h2>Reviews</h2>
+              <ReviewIndex
+                product={this.props.product}
+                reviews={this.props.productReviews}
+              />
+            </section>
           </div>
         </section>
       </div>
