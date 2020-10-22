@@ -19,4 +19,8 @@ class Product < ApplicationRecord
   belongs_to :category
   has_many :reviews
   has_one_attached :image
+
+  def average_rating
+    this.reviews.rating.average(:rating).round
+  end
 end

@@ -21,7 +21,6 @@ export const selectAllProducts = (state) => {
 };
 
 export const selectSearchedProducts = (state) => {
-  console.log(state);
   const products = selectAllProducts(state);
 
   return products.filter((product) =>

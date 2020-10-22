@@ -44,6 +44,7 @@ class ProductShow extends React.Component {
           <div>
             <h2>{this.props.product.title}</h2>
             <h2>{this.props.product.price}</h2>
+            <div>X stars (X reviews)</div>
             <button type="button">-</button>
             <input type="text" value="1" onChange={this.handleQuantity}></input>
             <button type="button">+</button>
