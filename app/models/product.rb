@@ -21,6 +21,6 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   def average_rating
-    this.reviews.rating.average(:rating).round
+    this.reviews.average(:rating).round
   end
 end
