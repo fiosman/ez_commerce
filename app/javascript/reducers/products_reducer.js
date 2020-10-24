@@ -37,6 +37,7 @@ const productsReducer = (state = {}, action) => {
         [action.review.product_id]: {
           ...state[action.review.product_id],
           reviewIds: [...currentReviewIds, action.review.id],
+          avgRating: action.review.average_rating,
         },
       };
     default:

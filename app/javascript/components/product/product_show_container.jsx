@@ -16,6 +16,7 @@ export const mapStateToProps = (state, ownProps) => {
     loadingProduct: loadingProduct,
     loadingReviews: loadingReviews,
     productReviews: selectProductReviews(productReviews, product),
+    avgRating: product.average_rating,
   };
 };
 

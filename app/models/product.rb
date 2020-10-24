@@ -21,6 +21,6 @@ class Product < ApplicationRecord
   has_one_attached :image
 
   def average_rating
-    this.reviews.average(:rating).round
+    self.reviews.count > 0 ? self.reviews.average(:rating).to_f.round : "Has not yet been rated!"
   end
 end

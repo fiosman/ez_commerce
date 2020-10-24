@@ -6,6 +6,7 @@ json.product do
   json.reviewIds do
     json.array! @product.review_ids
   end
+  json.avgRating @product.average_rating
 end
 
 if @product.reviews.length > 0

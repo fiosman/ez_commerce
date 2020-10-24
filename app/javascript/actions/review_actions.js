@@ -3,7 +3,7 @@ export const RECEIVE_REVIEW = "RECEIVE_REVIEW";
 export const REMOVE_REVIEW = "REMOVE_REVIEW";
 export const RECEIVE_REVIEW_ERRORS = "RECEIVE_REVIEW_ERRORS";
 export const REMOVE_REVIEW_ERRORS = "REMOVE_REVIEW_ERRORS";
-export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVEIWS";
+export const RECEIVE_ALL_REVIEWS = "RECEIVE_ALL_REVIEWS";
 export const LOADING_REVIEWS = "LOADING_REVIEWS";
 
 export const receiveReview = (review) => ({

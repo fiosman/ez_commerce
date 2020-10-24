@@ -22,6 +22,7 @@ class ProductShow extends React.Component {
   }
 
   render() {
+    console.log(this.props.product);
     if (this.props.loadingProduct || this.props.loadingReviews) {
       return <h2>Loading Product...</h2>;
     }
@@ -44,7 +45,10 @@ class ProductShow extends React.Component {
           <div>
             <h2>{this.props.product.title}</h2>
             <h2>{this.props.product.price}</h2>
-            <div>X stars ({this.props.productReviews.length} reviews)</div>
+            <div>
+              {this.props.product.avgRating} stars (
+              {this.props.productReviews.length} reviews)
+            </div>
             <button type="button">-</button>
             <input type="text" value="1" onChange={this.handleQuantity}></input>
             <button type="button">+</button>
