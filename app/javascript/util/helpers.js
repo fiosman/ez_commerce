@@ -8,7 +8,7 @@ export const byPrice = (productPrice, filterPrice = "") => {
     case "50-100":
       return parsedPrice > 50 && parsedPrice < 100 ? true : false;
     case ">100":
-      return parsedPrice > 100 ? true : false;
+      return parsedPrice > 100 || parsedPrice === 100 ? true : false;
     default:
       return true;
   }

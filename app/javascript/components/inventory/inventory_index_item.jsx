@@ -16,6 +16,7 @@ class InventoryIndexItem extends React.Component {
       deleteProduct,
       deleteCategory,
     } = this.props;
+
     return (
       <tr>
         <td>{id}</td>
@@ -25,8 +26,8 @@ class InventoryIndexItem extends React.Component {
         <td>{createdAt}</td>
         <td>{updatedAt}</td>
         <td>
-          <button onClick={deleteProduct.bind(this, id)}>Delete Product</button>
-          <button onClick={deleteCategory.bind(this, category.id)}>
+          <button onClick={() => deleteProduct(id)}>Delete Product</button>
+          <button onClick={() => deleteCategory(category.id)}>
             Delete Category
           </button>
           <button

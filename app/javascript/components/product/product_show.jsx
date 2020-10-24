@@ -22,7 +22,6 @@ class ProductShow extends React.Component {
   }
 
   render() {
-    console.log(this.props.product);
     if (this.props.loadingProduct || this.props.loadingReviews) {
       return <h2>Loading Product...</h2>;
     }

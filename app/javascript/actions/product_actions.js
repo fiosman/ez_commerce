@@ -1,6 +1,6 @@
 export const RECEIVE_PRODUCT_ERRORS = "RECEIVE_PRODUCT_ERRORS";
 export const REMOVE_PRODUCT_ERRORS = "REMOVE_PRODUCT_ERRORS";
-export const RECEIVE_SINGLE_PRODUCT = "RECEIVE_PRODUCT";
+export const RECEIVE_SINGLE_PRODUCT = "RECEIVE_SINGLE_PRODUCT";
 export const RECEIVE_PRODUCTS = "RECEIVE_PRODUCTS";
 export const START_LOADING_SINGLE_PRODUCT = "START_LOADING_SINGLE_PRODUCT";
 export const START_LOADING_ALL_PRODUCTS = "START_LOADING_ALL_PRODUCTS";
@@ -33,7 +33,7 @@ export const removeProductErrors = () => ({
   type: REMOVE_PRODUCT_ERRORS,
 });
 
-export const receiveProduct = (product) => ({
+export const receiveSingleProduct = (product) => ({
   type: RECEIVE_SINGLE_PRODUCT,
   product,
 });
@@ -68,7 +68,7 @@ export const receiveFilteredPrice = (price) => ({
 
 export const addProduct = (product) => (dispatch) =>
   createProduct(product)
-    .then((product) => dispatch(receiveProduct(product)))
+    .then((product) => dispatch(receiveSingleProduct(product)))
     .catch((err) => {
       dispatch(receiveProductErrors(err.responseJSON));
       throw err;
@@ -83,17 +83,20 @@ export const fetchSingleProduct = (productId) => (dispatch) => {
   dispatch(startLoadingSingleProduct());
   dispatch(startLoadingReviews());
   getProduct(productId).then((product) => {
-    dispatch(receiveProduct(product));
+    dispatch(receiveSingleProduct(product));
     dispatch(receiveReviews(product.reviews));
   });
 };
 
 export const removeProduct = (productId) => (dispatch) =>
-  deleteProduct(productId).then((product) => dispatch(wipeProduct(product.id)));
+  deleteProduct(productId).then((product) => {
+    // console.log(product);
+    dispatch(wipeProduct(product.id));
+  });
 
 export const modifyProduct = (product, productId) => (dispatch) =>
   updateProduct(product, productId)
-    .then((product) => dispatch(receiveProduct(product)))
+    .then((product) => dispatch(receiveSingleProduct(product)))
     .catch((err) => {
       dispatch(receiveProductErrors(err.responseJSON));
       throw err;
