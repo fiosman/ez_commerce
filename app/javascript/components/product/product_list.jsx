@@ -27,6 +27,7 @@ class ProductList extends React.Component {
       filteredProducts,
       loadingCategories,
       loadingProducts,
+      clearAllFilters,
     } = this.props;
 
     if (loadingCategories || loadingProducts) {
@@ -46,6 +47,7 @@ class ProductList extends React.Component {
             categories={categories}
             filterByCategory={filterByCategory}
             filterByPrice={filterByPrice}
+            clearFilters={clearAllFilters}
           />
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product, index) => (

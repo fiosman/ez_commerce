@@ -3,12 +3,13 @@ import React from "react";
 class Filter extends React.Component {
   constructor(props) {
     super(props);
-    this.categoryFilter = this.categoryFilter.bind(this);
-    this.priceFilter = this.priceFilter.bind(this);
     this.state = {
       price: "",
       category: [],
     };
+    this.categoryFilter = this.categoryFilter.bind(this);
+    this.priceFilter = this.priceFilter.bind(this);
+    this.clearProductFilters = this.clearProductFilters.bind(this);
   }
 
   categoryFilter(e) {
@@ -22,6 +23,7 @@ class Filter extends React.Component {
           return category !== e.target.value;
         }),
       });
+    } else {
     }
   }
 
@@ -29,13 +31,24 @@ class Filter extends React.Component {
     this.setState({ price: e.target.value });
   }
 
+  clearProductFilters(e) {
+    e.preventDefault();
+    this.setState({ price: "", category: [] });
+  }
+
   componentDidUpdate(prevProps, prevState) {
+    if (
+      (this.state.price === "" && prevState.price != "") ||
+      (this.state.category.length === 0 && prevState.category.length != 0)
+    ) {
+      return this.props.clearFilters();
+    }
     if (prevState.price != this.state.price) {
-      this.props.filterByPrice(this.state.price);
+      return this.props.filterByPrice(this.state.price);
     }
 
-    if (prevState.category != this.state.category) {
-      this.props.filterByCategory(this.state.category);
+    if (this.state.category.length != prevState.category.length) {
+      return this.props.filterByCategory(this.state.category);
     }
   }
   render() {
@@ -53,6 +66,7 @@ class Filter extends React.Component {
                   onChange={this.categoryFilter}
                   name="category"
                   value={category.tagging}
+                  checked={this.state.category.includes(category.tagging)}
                 />
                 {category.tagging}
               </label>
@@ -102,6 +116,9 @@ class Filter extends React.Component {
             />
             $100 and Over
           </label>
+        </section>
+        <section>
+          <button onClick={this.clearProductFilters}> Clear Filters </button>
         </section>
       </div>
     );

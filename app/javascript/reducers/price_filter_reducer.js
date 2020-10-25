@@ -1,4 +1,7 @@
-import { RECEIVE_FILTERED_PRICE } from "../actions/product_actions";
+import {
+  RECEIVE_FILTERED_PRICE,
+  CLEAR_FILTERS,
+} from "../actions/product_actions";
 
 const priceFilterReducer = (state = "", action) => {
   Object.freeze(state);
@@ -6,6 +9,8 @@ const priceFilterReducer = (state = "", action) => {
   switch (action.type) {
     case RECEIVE_FILTERED_PRICE:
       return action.price;
+    case CLEAR_FILTERS:
+      return "";
     default:
       return state;
   }

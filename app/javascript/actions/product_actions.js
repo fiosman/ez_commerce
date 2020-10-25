@@ -9,6 +9,7 @@ export const RECEIVE_SEARCHED_PRODUCTS = "RECEIVE_SEARCHED_PRODUCTS";
 export const RECEIVE_FILTERED_CATEGORIES = "RECEIVE_FILTERED_CATEGORIES";
 export const RECEIVE_FILTERED_PRICE = "RECEIVE_FILTERED_PRICE";
 export const RECEIVE_FILTERED_PRODUCTS = "RECEIVE_FILTERED_PRODUCTS";
+export const CLEAR_FILTERS = "CLEAR_FILTERS";
 import { receiveReviews, startLoadingReviews } from "./review_actions";
 
 import {
@@ -64,6 +65,10 @@ export const receiveFilteredCategory = (category) => ({
 export const receiveFilteredPrice = (price) => ({
   type: RECEIVE_FILTERED_PRICE,
   price,
+});
+
+export const clearFilters = () => ({
+  type: CLEAR_FILTERS,
 });
 
 export const addProduct = (product) => (dispatch) =>

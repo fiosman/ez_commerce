@@ -1,4 +1,7 @@
-import { RECEIVE_SEARCHED_PRODUCTS } from "../actions/product_actions";
+import {
+  RECEIVE_SEARCHED_PRODUCTS,
+  CLEAR_FILTERS,
+} from "../actions/product_actions";
 
 const searchReducer = (state = "", action) => {
   Object.freeze(state);
@@ -6,6 +9,8 @@ const searchReducer = (state = "", action) => {
   switch (action.type) {
     case RECEIVE_SEARCHED_PRODUCTS:
       return action.searchTerm;
+    case CLEAR_FILTERS:
+      return "";
     default:
       return state;
   }
