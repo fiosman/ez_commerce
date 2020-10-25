@@ -6,10 +6,12 @@ class Filter extends React.Component {
     this.state = {
       price: "",
       category: [],
+      searchTerm: "",
     };
     this.categoryFilter = this.categoryFilter.bind(this);
     this.priceFilter = this.priceFilter.bind(this);
     this.clearProductFilters = this.clearProductFilters.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
 
   categoryFilter(e) {
@@ -27,19 +29,24 @@ class Filter extends React.Component {
     }
   }
 
+  handleInput(e) {
+    this.setState({ searchTerm: e.target.value });
+  }
+
   priceFilter(e) {
     this.setState({ price: e.target.value });
   }
 
   clearProductFilters(e) {
     e.preventDefault();
-    this.setState({ price: "", category: [] });
+    this.setState({ price: "", category: [], searchTerm: "" });
   }
 
   componentDidUpdate(prevProps, prevState) {
     if (
       (this.state.price === "" && prevState.price != "") ||
-      (this.state.category.length === 0 && prevState.category.length != 0)
+      (this.state.category.length === 0 && prevState.category.length != 0) ||
+      (this.state.searchTerm == "" && prevState.searchTerm != "")
     ) {
       return this.props.clearFilters();
     }
@@ -50,11 +57,23 @@ class Filter extends React.Component {
     if (this.state.category.length != prevState.category.length) {
       return this.props.filterByCategory(this.state.category);
     }
+
+    if (this.state.searchTerm != prevState.searchTerm) {
+      return this.props.searchByProduct(this.state.searchTerm);
+    }
   }
   render() {
     const { categories, products } = this.props;
     return (
       <div>
+        <section>
+          <input
+            type="text"
+            placeholder="Search by product..."
+            onChange={this.handleInput}
+            value={this.state.searchTerm}
+          />
+        </section>
         <h2>Filters</h2>
         <section>
           <h3>Category</h3>

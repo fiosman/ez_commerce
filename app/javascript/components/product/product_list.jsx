@@ -1,6 +1,5 @@
 import React from "react";
 import ProductListItem from "./product_list_item";
-import Search from "../search/search";
 import Filter from "../filter/filter";
 
 class ProductList extends React.Component {
@@ -33,21 +32,17 @@ class ProductList extends React.Component {
     if (loadingCategories || loadingProducts) {
       return <h2>Loading...</h2>;
     }
-    // console.log(filteredProducts);
     return (
       <section>
         <div>
-          <Search
-            products={products}
-            searchByProduct={fetchSearchedProducts}
-            search={searchTerm}
-          />
           <Filter
             products={products}
             categories={categories}
             filterByCategory={filterByCategory}
             filterByPrice={filterByPrice}
             clearFilters={clearAllFilters}
+            searchByProduct={fetchSearchedProducts}
+            search={searchTerm}
           />
           {filteredProducts.length > 0 ? (
             filteredProducts.map((product, index) => (
