@@ -95,7 +95,6 @@ export const fetchSingleProduct = (productId) => (dispatch) => {
 
 export const removeProduct = (productId) => (dispatch) =>
   deleteProduct(productId).then((product) => {
-    // console.log(product);
     dispatch(wipeProduct(product.id));
   });
 

@@ -35,8 +35,23 @@ class ReviewForm extends React.Component {
     return this.props.history.push(`/products/${this.props.productId}`);
   }
 
-  render() {
+  displayErrors() {
     return (
+      <ul>
+        {this.props.errors.map((error, idx) => {
+          return <li key={idx}>{error}</li>;
+        })}
+      </ul>
+    );
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+  render() {
+    const errors = this.props.errors.length > 0 ? this.displayErrors() : "";
+    const reviewForm = (
       <form onSubmit={this.handleSubmit}>
         <label>
           Rating
@@ -58,6 +73,12 @@ class ReviewForm extends React.Component {
         <input type="submit" />
         <button onClick={this.handleNavigation}>Cancel</button>
       </form>
+    );
+    return (
+      <section>
+        {errors}
+        {reviewForm}
+      </section>
     );
   }
 }
