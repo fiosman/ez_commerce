@@ -5,5 +5,6 @@
       json.imageUrl url_for(product.image)
     end
     json.reviewIds []
+    json.avgRating product.average_rating
   end
 end

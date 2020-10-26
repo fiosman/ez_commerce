@@ -12,6 +12,8 @@ class ProductListItem extends React.Component {
 
   render() {
     const { product } = this.props;
+    const productRating =
+      product.avgRating > 0 ? product.avgRating : "No ratings";
     return (
       <div>
         <div>
@@ -20,6 +22,7 @@ class ProductListItem extends React.Component {
           </figure>
           <h2>{product.title}</h2>
           <h2>${product.price}</h2>
+          <h2>{productRating}</h2>
         </div>
       </div>
     );
