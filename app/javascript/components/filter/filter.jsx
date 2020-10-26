@@ -48,7 +48,7 @@ class Filter extends React.Component {
       (this.state.category.length === 0 && prevState.category.length != 0) ||
       (this.state.searchTerm == "" && prevState.searchTerm != "")
     ) {
-      return this.props.clearFilters();
+      return this.props.clearAllFilters();
     }
     if (prevState.price != this.state.price) {
       return this.props.filterByPrice(this.state.price);
@@ -59,7 +59,7 @@ class Filter extends React.Component {
     }
 
     if (this.state.searchTerm != prevState.searchTerm) {
-      return this.props.searchByProduct(this.state.searchTerm);
+      return this.props.fetchSearchedProducts(this.state.searchTerm);
     }
   }
   render() {

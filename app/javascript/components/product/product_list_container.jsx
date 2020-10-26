@@ -11,20 +11,12 @@ import { pullCategories } from "../../actions/category_actions";
 import {
   selectAllProducts,
   selectAllCategories,
-  selectSearchedProducts,
   selectFilteredProducts,
 } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => ({
-  loadingCategories: state.loading.categories,
-  loadingProducts: state.loading.products,
   products: selectAllProducts(state),
   categories: selectAllCategories(state),
-  searchedProducts: selectSearchedProducts(state),
-  searchTerm: state.filters.search,
-  categoryFilter: state.filters.categories,
-  priceFilter: state.filters.price,
-  productFilters: state.filters,
   loadingCategories: state.loading.index.categories,
   loadingProducts: state.loading.index.products,
   filteredProducts: selectFilteredProducts(state),

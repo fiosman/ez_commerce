@@ -8,10 +8,15 @@ class ProductList extends React.Component {
   }
 
   componentDidMount() {
-    const { products, categories } = this.props;
+    const {
+      products,
+      categories,
+      getAllProducts,
+      getAllCategories,
+    } = this.props;
     if (products.length === 0 && categories.length === 0) {
-      this.props.getAllProducts();
-      this.props.getAllCategories();
+      getAllProducts();
+      getAllCategories();
     }
   }
 
@@ -19,33 +24,21 @@ class ProductList extends React.Component {
     const {
       products,
       fetchSearchedProducts,
-      searchTerm,
       categories,
       filterByCategory,
       filterByPrice,
-      filteredProducts,
-      loadingCategories,
-      loadingProducts,
       clearAllFilters,
     } = this.props;
 
-    if (loadingCategories || loadingProducts) {
+    if (this.props.loadingCategories || this.props.loadingProducts) {
       return <h2>Loading...</h2>;
     }
     return (
       <section>
         <div>
-          <Filter
-            products={products}
-            categories={categories}
-            filterByCategory={filterByCategory}
-            filterByPrice={filterByPrice}
-            clearFilters={clearAllFilters}
-            searchByProduct={fetchSearchedProducts}
-            search={searchTerm}
-          />
-          {filteredProducts.length > 0 ? (
-            filteredProducts.map((product, index) => (
+          <Filter {...this.props} />
+          {this.props.filteredProducts.length > 0 ? (
+            this.props.filteredProducts.map((product, index) => (
               <ProductListItem product={product} key={index} />
             ))
           ) : (
