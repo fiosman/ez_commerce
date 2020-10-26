@@ -1,4 +1,6 @@
 class Api::ReviewsController < ApplicationController
+  load_and_authorize_resource
+
   def create
     @review = current_user.reviews.new(review_params)
     if @review.save

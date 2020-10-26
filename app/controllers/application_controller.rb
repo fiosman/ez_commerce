@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery unless: -> { request.format.json? }
 
   rescue_from CanCan::AccessDenied do |exception|
-    render json: ["You are not authorized to perform this action."], status: 403
+    render json: ["You do not have the permissions to perform this action."], status: 403
   end
 
   # rescue_from ActiveSupport::MessageVerifier::InvalidSignature do |exception|

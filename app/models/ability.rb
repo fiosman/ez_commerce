@@ -10,6 +10,7 @@ class Ability
     elsif user.has_role? :registered
       can :read, Product
       can :read, Category
+      can [:create, :read], Review
     else
       can :read, :all
     end
