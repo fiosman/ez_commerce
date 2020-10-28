@@ -27,6 +27,8 @@ class User < ApplicationRecord
 
   has_many :reviews
 
+  has_one :cart
+
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)
     user && BCrypt::Password.new(user.password_digest).is_password?(password) ? user : nil
