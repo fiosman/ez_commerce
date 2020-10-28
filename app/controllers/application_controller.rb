@@ -29,4 +29,17 @@ class ApplicationController < ActionController::Base
     session[:session_token] = nil
     @current_user = nil
   end
+
+  def current_cart
+    if logged_in?
+      @cart = current_user.cart
+    else
+      if session[:cart_id]
+        @cart = Cart.find(session[:cart_id])
+      else
+        @cart = Cart.create
+        session[:cart_id] = @cart.id
+      end
+    end
+  end
 end

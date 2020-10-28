@@ -18,6 +18,7 @@ class Product < ApplicationRecord
 
   belongs_to :category
   has_many :reviews
+  has_many :line_items
   has_one_attached :image
 
   def average_rating
