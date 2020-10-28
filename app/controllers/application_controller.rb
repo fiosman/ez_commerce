@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?, :current_cart
   protect_from_forgery unless: -> { request.format.json? }
 
   rescue_from CanCan::AccessDenied do |exception|
