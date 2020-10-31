@@ -34,11 +34,11 @@ class ApplicationController < ActionController::Base
     if logged_in?
       @cart = current_user.cart
     else
-      if session[:cart_id]
-        @cart = Cart.find(session[:cart_id])
+      if session[:cart_token]
+        @cart = Cart.find(session[:cart_token])
       else
         @cart = Cart.create
-        session[:cart_id] = @cart.id
+        session[:cart_token] = @cart.cart_token
       end
     end
   end

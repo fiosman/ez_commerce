@@ -20,6 +20,10 @@ class Cart < ApplicationRecord
   validates_presence_of :cart_token
   validates_uniqueness_of :user_id
 
+  def add_to_cart(line_item) 
+    
+  end
+
   private
 
   def set_cart_token
