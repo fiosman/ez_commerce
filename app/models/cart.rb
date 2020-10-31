@@ -20,8 +20,14 @@ class Cart < ApplicationRecord
   validates_presence_of :cart_token
   validates_uniqueness_of :user_id
 
-  def add_to_cart(line_item) 
-    
+  def add_item(product_params)
+    current_item = self.line_items.find_by(product_id: product_params[:line_item][:product_id])
+    if current_item
+      current_item.quantity += product_params[:line_item][:quantity]
+      current_item.save
+    else
+      new_item = self.line_items.create(product_id: product_params[:line_item][:product_id])
+    end
   end
 
   private
