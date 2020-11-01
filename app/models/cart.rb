@@ -8,17 +8,12 @@
 #  updated_at :datetime         not null
 #  user_id    :integer
 #
-# Indexes
-#
-#  index_carts_on_user_id  (user_id) UNIQUE
-#
 class Cart < ApplicationRecord
   belongs_to :user, optional: true
   has_many :line_items, dependent: :destroy
 
   after_initialize :set_cart_token
   validates_presence_of :cart_token
-  validates_uniqueness_of :user_id
 
   def add_item(product_params)
     current_item = self.line_items.find_by(product_id: product_params[:line_item][:product_id])

@@ -35,8 +35,10 @@ class ApplicationController < ActionController::Base
       @current_cart = current_user.cart
     else
       if session[:cart_token]
+        puts "Fetching the cart..."
         @current_cart = Cart.find_by(cart_token: session[:cart_token])
       else
+        puts "Creating..."
         @current_cart = Cart.create
         session[:cart_token] = @current_cart.cart_token
       end
