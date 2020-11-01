@@ -32,15 +32,14 @@ class ApplicationController < ActionController::Base
 
   def current_cart
     if logged_in?
-      @cart = current_user.cart
+      @current_cart = current_user.cart
     else
       if session[:cart_token]
-        @cart = Cart.find(session[:cart_token])
+        @current_cart = Cart.find_by(cart_token: session[:cart_token])
       else
-        @cart = Cart.create
-        session[:cart_token] = @cart.cart_token
+        @current_cart = Cart.create
+        session[:cart_token] = @current_cart.cart_token
       end
     end
-    return @cart
   end
 end
