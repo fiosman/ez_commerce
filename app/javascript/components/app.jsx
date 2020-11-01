@@ -11,7 +11,7 @@ import CategoryFormContainer from "../components/category/category_form_containe
 import InventoryIndexContainer from "../components/inventory/inventory_index_container";
 import Splash from "../components/splash/splash";
 import ProductShowContainer from "../components/product/product_show_container";
-
+import CartContainer from "../components/cart/cart_container"
 const App = () => (
   <div>
     <header>
@@ -37,6 +37,7 @@ const App = () => (
       <AdminRoute path="/admin/inventory" component={InventoryIndexContainer} />
       <Route path="/" exact component={Splash} />
       <Route path="/products/:productId" component={ProductShowContainer} />
+      <Route path="/cart" exact component={CartContainer} />
     </Switch>
   </div>
 );
