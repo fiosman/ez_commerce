@@ -9,6 +9,7 @@ Rails.application.routes.draw do
       resources :reviews, only: [:create, :destroy, :index]
     end
     resources :categories, only: [:create, :destroy, :index]
+    resources :line_items, only: [:create, :destroy, :update]
   end
 
   root to: "static_pages#root"
