@@ -10,9 +10,24 @@ class Api::LineItemsController < ApplicationController
   end
 
   def update
+    @line_item = LineItem.find(params[:id])
+
+    if @line_item.update(line_item_params)
+      render :show
+    else
+      render json: @line_item.errors.fulL_messages, status: 401
+    end
   end
 
   def destroy
+    @line_item = LineItem.find(params[:id])
+
+    if @line_item
+      @line_item.destroy
+      render :show
+    else
+      render json: ["Something went wrong here..."]
+    end
   end
 
   private
