@@ -10,3 +10,9 @@ export const addItemToCart = (line_item) =>
     method: "POST",
     data: { line_item },
   });
+
+export const getCartItems = () =>
+  $.ajax({
+    url: "/api/line_items",
+    method: "GET",
+  });

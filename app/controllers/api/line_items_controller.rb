@@ -9,6 +9,11 @@ class Api::LineItemsController < ApplicationController
     end
   end
 
+  def index
+    @line_items = current_cart.line_items
+    render :index
+  end
+
   def update
     @line_item = LineItem.find(params[:id])
 
