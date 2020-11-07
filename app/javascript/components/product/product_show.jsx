@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import ReviewFormContainer from "../reviews/review_form_container";
 import ReviewIndex from "../reviews/review_index";
-import LineItem from "../line_item/line_item";
+import LineItemContainer from "../line_item/line_item_container";
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
@@ -49,7 +49,7 @@ class ProductShow extends React.Component {
               {this.props.product.avgRating} stars (
               {this.props.productReviews.length} reviews)
             </div>
-            <LineItem />
+            <LineItemContainer />
             <section>
               <h2>Description</h2>
               <p>{this.props.product.body}</p>

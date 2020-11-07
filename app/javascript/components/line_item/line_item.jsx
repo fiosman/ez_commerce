@@ -9,6 +9,7 @@ class LineItem extends React.Component {
     };
 
     this.handleQuantity = this.handleQuantity.bind(this);
+    this.addToCart = this.addToCart.bind(this);
   }
 
   handleQuantity(e) {
@@ -23,7 +24,7 @@ class LineItem extends React.Component {
   }
 
   addToCart() {
-    
+    this.props.addCartItem(this.state);
   }
 
   render() {

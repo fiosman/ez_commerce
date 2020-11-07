@@ -1,7 +1,7 @@
 export const RECEIVE_CART = "RECEIVE_CART";
 export const EMPTY_CART = "EMPTY_CART";
 export const ADD_TO_CART = "ADD_TO_CART";
-import { getCart, addCartItem } from "../util/cart_api_util";
+import { getCart, addItemToCart } from "../util/cart_api_util";
 
 export const receiveCart = (cart) => ({
   type: RECEIVE_CART,
@@ -13,13 +13,13 @@ export const emptyCart = (cartId) => ({
   cartId,
 });
 
-export const addToCart = (product) => ({
+export const addToCart = (item) => ({
   type: ADD_TO_CART,
-  product,
+  item,
 });
 
 export const pullCart = () => (dispatch) =>
   getCart().then((cart) => dispatch(receiveCart(cart)));
 
-export const addItemToCart = (itemData) => (dispatch) =>
+export const addCartItem = (itemData) => (dispatch) =>
   addItemToCart(itemData).then((item) => dispatch(addToCart(item)));

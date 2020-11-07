@@ -4,7 +4,7 @@ export const getCart = () =>
     method: "GET",
   });
 
-export const addCartItem = (line_item) => {
+export const addItemToCart = (line_item) => {
   $.ajax({
     url: "/api/line_items",
     method: "POST",
