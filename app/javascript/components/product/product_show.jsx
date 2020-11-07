@@ -6,20 +6,10 @@ import LineItemContainer from "../line_item/line_item_container";
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
-    this.addToCart = this.addToCart.bind(this);
-    this.handleQuantity = this.handleQuantity.bind(this);
   }
 
   componentDidMount() {
     this.props.receiveSingleProduct(this.props.productId);
-  }
-
-  addToCart() {
-    console.log("Added to cart");
-  }
-
-  handleQuantity() {
-    console.log("Something");
   }
 
   render() {
@@ -49,7 +39,7 @@ class ProductShow extends React.Component {
               {this.props.product.avgRating} stars (
               {this.props.productReviews.length} reviews)
             </div>
-            <LineItemContainer />
+            <LineItemContainer product={this.props.product} />
             <section>
               <h2>Description</h2>
               <p>{this.props.product.body}</p>

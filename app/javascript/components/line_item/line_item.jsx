@@ -24,7 +24,10 @@ class LineItem extends React.Component {
   }
 
   addToCart() {
-    this.props.addCartItem(this.state);
+    this.props.addCartItem({
+      ...this.state,
+      product_id: this.props.product.id,
+    });
   }
 
   render() {

@@ -1,16 +1,26 @@
-import { RECEIVE_CART, EMPTY_CART, ADD_TO_CART } from "../actions/cart_actions";
+import {
+  RECEIVE_CART,
+  EMPTY_CART,
+  RECEIVE_LINE_ITEM,
+} from "../actions/cart_actions";
 
 const cartReducer = (state = {}, action) => {
   Object.freeze(state);
 
   switch (action.type) {
     case RECEIVE_CART:
-      return Object.assign({}, state, { [action.cart.id]: action.cart });
+      return { [action.cart.id]: action.cart };
     case EMPTY_CART:
-    case ADD_TO_CART:
-      return Object.assign({}, state, {
-        [action.item.id]: action.item,
-      });
+    case RECEIVE_LINE_ITEM:
+      console.log(state);
+      const currentCart = state[action.item.cart_id];
+      const currentItemIds = currentCart.lineItemIds;
+      return {
+        [currentCart.id]: {
+          ...state[currentCart.id],
+          lineItemIds: [...currentItemIds, action.item.id],
+        },
+      };
     default:
       return state;
   }
