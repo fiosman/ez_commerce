@@ -5,6 +5,7 @@ import {
   addItemToCart,
   getCartItems,
   deleteLineItem,
+  updateLineItem,
 } from "../util/cart_api_util";
 
 export const receiveLineItem = (item) => ({
@@ -22,6 +23,11 @@ export const wipeLineItem = (item) => ({
   item,
 });
 
+export const updateLineItem = (item) => ({
+  type: UPDATE_LINE_ITEM,
+  item,
+});
+
 export const addCartItem = (itemData) => (dispatch) =>
   addItemToCart(itemData).then((item) => dispatch(receiveLineItem(item)));
 
@@ -34,3 +40,8 @@ export const removeLineItem = (lineItemId) => (dispatch) =>
   deleteLineItem(lineItemId).then((lineItem) => {
     dispatch(wipeLineItem(lineItem));
   });
+
+export const modifyLineItem = (lineItem) => (dispatch) =>
+  updateLineItem(lineItem).then((lineItem) =>
+    dispatch(updateLineItem(lineItem))
+  );

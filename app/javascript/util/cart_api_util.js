@@ -25,7 +25,7 @@ export const deleteLineItem = (lineItemId) =>
 
 export const updateLineItem = (line_item) =>
   $.ajax({
-    url: `api/line_items/${lineItemId}`,
+    url: `api/line_items/${line_item.id}`,
     method: "PATCH",
     data: { line_item },
   });
