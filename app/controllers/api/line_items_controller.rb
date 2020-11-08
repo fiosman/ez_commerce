@@ -1,6 +1,6 @@
 class Api::LineItemsController < ApplicationController
   def create
-    @line_item = current_cart.line_items.new(line_item_params)
+    @line_item = @current_cart.line_items.new(line_item_params)
 
     if @line_item.save
       render :show
@@ -10,7 +10,7 @@ class Api::LineItemsController < ApplicationController
   end
 
   def index
-    @line_items = current_cart.line_items
+    @line_items = @current_cart.line_items
     render :index
   end
 

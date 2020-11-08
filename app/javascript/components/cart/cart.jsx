@@ -1,21 +1,22 @@
-import React from 'react'
-import LineItem from "./line_item"
+import React from "react";
+import LineItem from "./line_item";
 
-class Cart extends React.Component { 
-  constructor(props) { 
-    super(props)
+class Cart extends React.Component {
+  constructor(props) {
+    super(props);
   }
 
-  componentDidMount() { 
-    this.props.getCart()
+  componentDidMount() {
+    this.props.getCart();
+    this.props.getAllLineItems();
   }
 
-  render() { 
+  render() {
     return (
       <div>
         <LineItem />
       </div>
-    )
+    );
   }
 }
 
