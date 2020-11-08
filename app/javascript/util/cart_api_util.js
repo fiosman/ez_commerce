@@ -22,3 +22,10 @@ export const deleteLineItem = (lineItemId) =>
     url: `api/line_items/${lineItemId}`,
     method: "DELETE",
   });
+
+export const updateLineItem = (line_item) =>
+  $.ajax({
+    url: `api/line_items/${lineItemId}`,
+    method: "PATCH",
+    data: { line_item },
+  });
