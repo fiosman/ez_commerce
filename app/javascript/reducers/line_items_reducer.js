@@ -2,6 +2,7 @@ import {
   RECEIVE_ALL_LINE_ITEMS,
   RECEIVE_LINE_ITEM,
   REMOVE_LINE_ITEM,
+  UPDATE_LINE_ITEM,
 } from "../actions/line_item_actions";
 
 const lineItemsReducer = (state = {}, action) => {
@@ -16,6 +17,10 @@ const lineItemsReducer = (state = {}, action) => {
       let newState = Object.assign({}, state);
       delete newState[action.item.id];
       return newState;
+    case UPDATE_LINE_ITEM:
+      let updatedState = Object.assign({}, state);
+      updatedState[action.item.id] = action.item;
+      return updatedState;
     default:
       return state;
   }

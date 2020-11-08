@@ -1,6 +1,7 @@
 export const RECEIVE_LINE_ITEM = "RECEIVE_LINE_ITEM";
 export const RECEIVE_ALL_LINE_ITEMS = "RECEIVE_ALL_LINE_ITEMS";
 export const REMOVE_LINE_ITEM = "REMOVE_LINE_ITEM";
+export const UPDATE_LINE_ITEM = "UPDATE_LINE_ITEM";
 import {
   addItemToCart,
   getCartItems,
@@ -23,7 +24,7 @@ export const wipeLineItem = (item) => ({
   item,
 });
 
-export const updateLineItem = (item) => ({
+export const patchLineItem = (item) => ({
   type: UPDATE_LINE_ITEM,
   item,
 });
@@ -43,5 +44,5 @@ export const removeLineItem = (lineItemId) => (dispatch) =>
 
 export const modifyLineItem = (lineItem) => (dispatch) =>
   updateLineItem(lineItem).then((lineItem) =>
-    dispatch(updateLineItem(lineItem))
+    dispatch(patchLineItem(lineItem))
   );

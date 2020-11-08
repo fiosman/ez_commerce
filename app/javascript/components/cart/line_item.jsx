@@ -4,7 +4,7 @@ class LineItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      quantity: 1,
+      quantity: this.props.item.quantity,
     };
 
     this.handleQuantity = this.handleQuantity.bind(this);
@@ -14,11 +14,24 @@ class LineItem extends React.Component {
   handleQuantity(e) {
     switch (e.target.name) {
       case "decrement":
+        if (this.state.quantity === 1) {
+          return;
+        }
         return this.setState({ quantity: this.state.quantity - 1 });
       case "increment":
         return this.setState({ quantity: this.state.quantity + 1 });
       case "user-input":
         return this.setState({ quantity: parseInt(e.target.value) || 1 });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.quantity != this.state.quantity) {
+      return this.props.updateCartItem({
+        ...this.state,
+        id: this.props.item.id,
+        product_id: this.props.item.product_id,
+      });
     }
   }
 
@@ -41,7 +54,7 @@ class LineItem extends React.Component {
             +
           </button>
           <input
-            type="number"
+            type="text"
             value={this.state.quantity}
             onChange={this.handleQuantity}
             name="user-input"

@@ -38,6 +38,6 @@ class Api::LineItemsController < ApplicationController
   private
 
   def line_item_params
-    params.require(:line_item).permit(:product_id, :quantity)
+    params.require(:line_item).permit(:id, :product_id, :quantity)
   end
 end

@@ -1,6 +1,9 @@
 import Cart from "./cart";
-import { pullCart } from "../../actions/cart_actions";
-import { grabItems, removeLineItem } from "../../actions/line_item_actions";
+import {
+  grabItems,
+  modifyLineItem,
+  removeLineItem,
+} from "../../actions/line_item_actions";
 import { connect } from "react-redux";
 import { selectLineItemIds } from "../../reducers/selectors";
 
@@ -18,6 +21,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   getAllLineItems: () => dispatch(grabItems()),
   removeCartItem: (itemId) => dispatch(removeLineItem(itemId)),
+  updateCartItem: (item) => dispatch(modifyLineItem(item)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Cart);
