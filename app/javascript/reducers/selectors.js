@@ -45,3 +45,7 @@ export const selectProductReviews = (allReviews, product) => {
   const products = product.reviewIds.map((reviewId) => allReviews[reviewId]);
   return products.filter((product) => product != undefined);
 };
+
+export const selectLineItemIds = (lineItemIds, lineItems) => {
+  return lineItemIds.map((lineItemId) => lineItems[lineItemId]);
+};

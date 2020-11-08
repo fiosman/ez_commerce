@@ -14,7 +14,27 @@ class Cart extends React.Component {
   render() {
     return (
       <div>
-        <LineItem />
+        <table>
+          <tbody>
+            <tr>
+              <th></th>
+              <th></th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+              <th>Total</th>
+            </tr>
+            {this.props.selectedLineItems.map((lineItem) => {
+              return (
+                <LineItem
+                  item={lineItem}
+                  key={lineItem.id}
+                  product={this.props.products[lineItem.product_id]}
+                />
+              );
+            })}
+          </tbody>
+        </table>
       </div>
     );
   }
