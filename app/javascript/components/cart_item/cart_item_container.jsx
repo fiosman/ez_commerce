@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
-import LineItem from "./line_item";
-import { addCartItem } from "../../actions/cart_actions";
+import CartItem from "./cart_item";
+import { addCartItem } from "../../actions/line_item_actions";
 
 const mapStateToProps = (state) => ({});
 
@@ -8,4 +8,4 @@ const mapDispatchToProps = (dispatch) => ({
   addCartItem: (itemData) => dispatch(addCartItem(itemData)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LineItem);
+export default connect(mapStateToProps, mapDispatchToProps)(CartItem);

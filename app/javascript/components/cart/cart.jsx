@@ -7,11 +7,11 @@ class Cart extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getCart();
     this.props.getAllLineItems();
   }
 
   render() {
+    console.log(this.props);
     return (
       <div>
         <table>
@@ -30,6 +30,7 @@ class Cart extends React.Component {
                   item={lineItem}
                   key={lineItem.id}
                   product={this.props.products[lineItem.product_id]}
+                  removeCartItem={this.props.removeCartItem}
                 />
               );
             })}

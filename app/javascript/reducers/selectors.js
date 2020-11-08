@@ -47,5 +47,6 @@ export const selectProductReviews = (allReviews, product) => {
 };
 
 export const selectLineItemIds = (lineItemIds, lineItems) => {
-  return lineItemIds.map((lineItemId) => lineItems[lineItemId]);
+  const allLineItems = lineItemIds.map((lineItemId) => lineItems[lineItemId]);
+  return allLineItems.filter((lineItem) => lineItem != undefined);
 };

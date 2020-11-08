@@ -8,6 +8,7 @@ class LineItem extends React.Component {
     };
 
     this.handleQuantity = this.handleQuantity.bind(this);
+    this.handleRemove = this.handleRemove.bind(this);
   }
 
   handleQuantity(e) {
@@ -21,11 +22,14 @@ class LineItem extends React.Component {
     }
   }
 
+  handleRemove() {
+    return this.props.removeCartItem(this.props.item.id);
+  }
   render() {
     return (
       <tr>
         <td>
-          <button>Delete</button>
+          <button onClick={this.handleRemove}>Delete</button>
         </td>
         <td>
           <img src={this.props.product.imageUrl} width="30" height="30" />

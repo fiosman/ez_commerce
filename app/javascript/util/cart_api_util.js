@@ -16,3 +16,9 @@ export const getCartItems = () =>
     url: "/api/line_items",
     method: "GET",
   });
+
+export const deleteLineItem = (lineItemId) =>
+  $.ajax({
+    url: `api/line_items/${lineItemId}`,
+    method: "DELETE",
+  });

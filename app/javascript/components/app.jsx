@@ -9,9 +9,9 @@ import EditProductContainer from "../components/product/edit_product_container";
 import AddProductContainer from "../components/product/add_product_container";
 import CategoryFormContainer from "../components/category/category_form_container";
 import InventoryIndexContainer from "../components/inventory/inventory_index_container";
-import Splash from "../components/splash/splash";
+import SplashContainer from "../components/splash/splash_container";
 import ProductShowContainer from "../components/product/product_show_container";
-import CartContainer from "../components/cart/cart_container"
+import CartContainer from "../components/cart/cart_container";
 const App = () => (
   <div>
     <header>
@@ -35,7 +35,7 @@ const App = () => (
         component={CategoryFormContainer}
       />
       <AdminRoute path="/admin/inventory" component={InventoryIndexContainer} />
-      <Route path="/" exact component={Splash} />
+      <Route path="/" exact component={SplashContainer} />
       <Route path="/products/:productId" component={ProductShowContainer} />
       <Route path="/cart" exact component={CartContainer} />
     </Switch>
