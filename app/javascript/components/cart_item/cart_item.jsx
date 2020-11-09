@@ -16,10 +16,31 @@ class CartItem extends React.Component {
     });
   }
 
-  render() {
+  displayErrors() {
     return (
+      <ul>
+        {this.props.errors.map((error, idx) => {
+          return <li key={idx}>{error}</li>;
+        })}
+      </ul>
+    );
+  }
+
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
+  render() {
+    const errors = this.props.errors.length > 0 ? this.displayErrors() : "";
+    const addToCartSection = (
       <div>
         <button onClick={this.addToCart}>Add to Cart</button>
+      </div>
+    );
+    return (
+      <div>
+        {addToCartSection}
+        {errors}
       </div>
     );
   }
