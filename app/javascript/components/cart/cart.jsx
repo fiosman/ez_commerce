@@ -59,7 +59,7 @@ class Cart extends React.Component {
               </tr>
             </tbody>
           </table>
-          <button>Proceed to checkout</button>
+          <button disabled>Proceed to checkout</button>
         </div>
       );
     }
