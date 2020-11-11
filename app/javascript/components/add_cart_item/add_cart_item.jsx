@@ -1,6 +1,6 @@
 import React from "react";
 
-class CartItem extends React.Component {
+class AddCartItem extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -46,4 +46,4 @@ class CartItem extends React.Component {
   }
 }
 
-export default CartItem;
+export default AddCartItem;

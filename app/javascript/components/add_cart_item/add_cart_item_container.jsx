@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import CartItem from "./cart_item";
+import AddCartItem from "./add_cart_item";
 import {
   addCartItem,
   removeLineItemErrors,
@@ -14,4 +14,4 @@ const mapDispatchToProps = (dispatch) => ({
   clearErrors: () => dispatch(removeLineItemErrors()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(CartItem);
+export default connect(mapStateToProps, mapDispatchToProps)(AddCartItem);
