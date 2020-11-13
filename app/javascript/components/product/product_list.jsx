@@ -7,19 +7,6 @@ class ProductList extends React.Component {
     super(props);
   }
 
-  componentDidMount() {
-    const {
-      products,
-      categories,
-      getAllProducts,
-      getAllCategories,
-    } = this.props;
-    if (products.length === 0 && categories.length === 0) {
-      getAllProducts();
-      getAllCategories();
-    }
-  }
-
   render() {
     if (this.props.loadingCategories || this.props.loadingProducts) {
       return <h2>Loading...</h2>;

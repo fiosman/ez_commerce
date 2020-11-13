@@ -9,7 +9,6 @@ export const mapStateToProps = (state, ownProps) => {
   const loadingProduct = state.loading.detail.product;
   const loadingReviews = state.loading.detail.reviews;
   const productReviews = state.entities.reviews;
-
   return {
     product: product,
     productId: productId,
