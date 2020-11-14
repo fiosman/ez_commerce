@@ -18,9 +18,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getProducts();
-    this.props.getCategories();
-    this.props.getCart();
+    if (this.props.productsEmpty || this.props.categoriesEmpty) {
+      this.props.getProducts();
+      this.props.getCategories();
+    }
   }
 
   render() {
