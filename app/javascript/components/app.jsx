@@ -18,17 +18,15 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    if (this.props.productsEmpty || this.props.categoriesEmpty) {
-      this.props.getProducts();
-      this.props.getCategories();
-    }
+    //Instead of making HTTP requests when router components mount, thereby increasing complexity of app (because more components will depend on each other)
+    //we can just handle this business logic inside the main app component, making all data available across components!
+    this.props.getProducts();
+    this.props.getCategories();
+    this.props.getCart();
   }
 
   render() {
-    if (
-      Object.keys(this.props.categories).length === 0 ||
-      Object.keys(this.props.products).length === 0
-    ) {
+    if (this.props.productsEmpty || this.props.categoriesEmpty) {
       return <h2>Loading Please wait...</h2>;
     } else {
       return (
