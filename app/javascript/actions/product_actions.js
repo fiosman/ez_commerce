@@ -36,7 +36,7 @@ export const removeProductErrors = () => ({
 
 export const receiveSingleProduct = (product) => ({
   type: RECEIVE_SINGLE_PRODUCT,
-  product,
+  product: product.product,
 });
 
 export const startLoadingSingleProduct = () => ({

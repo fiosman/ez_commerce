@@ -10,8 +10,6 @@ class ProductShow extends React.Component {
 
   componentDidMount() {
     this.props.receiveSingleProduct(this.props.productId);
-
-    //only add receiveReviews here, you already have the product from main app mounting!
   }
 
   render() {
