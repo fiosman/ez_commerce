@@ -20,6 +20,7 @@ const mapStateToProps = (state) => ({
   loadingCategories: state.loading.index.categories,
   loadingProducts: state.loading.index.products,
   filteredProducts: selectFilteredProducts(state),
+  filters: state.filters,
 });
 
 const mapDispatchToProps = (dispatch) => ({

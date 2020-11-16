@@ -4,9 +4,9 @@ class Filter extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      price: "",
-      category: [],
-      searchTerm: "",
+      category: this.props.filters.categories,
+      search: this.props.filters.search,
+      price: this.props.filters.price,
     };
     this.categoryFilter = this.categoryFilter.bind(this);
     this.priceFilter = this.priceFilter.bind(this);
@@ -38,7 +38,6 @@ class Filter extends React.Component {
   }
 
   clearProductFilters(e) {
-    e.preventDefault();
     this.setState({ price: "", category: [], searchTerm: "" });
   }
 
@@ -71,7 +70,7 @@ class Filter extends React.Component {
             type="text"
             placeholder="Search by product..."
             onChange={this.handleInput}
-            value={this.state.searchTerm}
+            value={this.state.searchTerm || ""}
           />
         </section>
         <h2>Filters</h2>
