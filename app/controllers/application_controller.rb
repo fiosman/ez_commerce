@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     render json: ["You do not have the permissions to perform this action."], status: 403
   end
 
-  before_action :current_cart
+  before_action :current_cart, except: :log_in!
 
   def logged_in?
     return current_user ? true : false

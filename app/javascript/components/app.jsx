@@ -23,8 +23,8 @@ class App extends React.Component {
     if (this.props.productsEmpty || this.props.categoriesEmpty) {
       this.props.getProducts();
       this.props.getCategories();
-      this.props.getCart();
     }
+    this.props.getCart();
   }
 
   render() {

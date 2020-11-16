@@ -1,8 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import { Route } from "react-router-dom"; 
-import Cart from "../cart/cart";
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -22,7 +20,7 @@ class Greeting extends React.Component {
         <section>
           Welcome {this.props.currentUser.username}
           <button onClick={this.handleLogout}>Logout</button>
-          <Link to ="/cart">Cart</Link>
+          <Link to="/cart">Cart</Link>
         </section>
       );
     } else {
