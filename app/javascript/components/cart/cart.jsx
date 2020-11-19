@@ -1,5 +1,6 @@
 import React from "react";
 import LineItem from "./line_item";
+import { Link } from "react-router-dom";
 
 class Cart extends React.Component {
   constructor(props) {
@@ -24,6 +25,7 @@ class Cart extends React.Component {
         .reduce((total, currAmount) => total + currAmount);
       return (
         <div>
+          <Link to="/">Return to main page</Link>
           <table>
             <tbody>
               <tr>
