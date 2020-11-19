@@ -28,6 +28,7 @@ class ProductShow extends React.Component {
     return (
       <div>
         <Link to="/">Return to main page</Link>
+        <Link to="/cart">Go to cart</Link>
         <section>
           <figure>
             <img src={this.props.product.imageUrl} width="200" height="40" />
