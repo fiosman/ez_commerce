@@ -21,6 +21,7 @@ class Greeting extends React.Component {
           Welcome {this.props.currentUser.username}
           <button onClick={this.handleLogout}>Logout</button>
           <Link to="/cart">Cart</Link>
+          <Link to="/admin">Admin Dash</Link>
         </section>
       );
     } else {
