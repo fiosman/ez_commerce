@@ -22,6 +22,16 @@ class ApplicationController < ActionController::Base
     @current_user = user
   end
 
+  def current_items
+    @line_items = @current_cart.line_items
+  end
+
+  def transfer_items
+    @line_items.each do |line_item|
+      current_cart.line_items.create(line_item.attributes.except("id", "created_at", "updated_at"))
+    end
+  end
+
   def log_out!
     current_user.reset_session_token!
     session[:session_token] = nil

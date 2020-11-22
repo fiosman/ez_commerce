@@ -17,7 +17,7 @@ class Cart extends React.Component {
     if (!lineItemsToRender) {
       return <h2>Your Shopping Cart is Empty!</h2>;
     } else {
-      let itemsTotalPrice = this.props.selectedLineItems
+      const itemsTotalPrice = this.props.selectedLineItems
         .map(
           (lineItem) =>
             this.props.products[lineItem.product_id].price * lineItem.quantity

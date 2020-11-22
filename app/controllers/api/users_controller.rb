@@ -1,4 +1,7 @@
 class Api::UsersController < ApplicationController
+  before_action :current_items, only: [:create]
+  after_action :transfer_items, only: [:create]
+
   def index
     @users = User.all
     render :index

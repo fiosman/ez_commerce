@@ -1,4 +1,7 @@
 class Api::SessionsController < ApplicationController
+  before_action :current_items, only: [:create]
+  after_action :transfer_items, only: [:create]
+
   def create
     @user =
       User.find_by_credentials(
