@@ -17,8 +17,8 @@ class Product < ApplicationRecord
   validates_numericality_of :category_id, only_integer: true
 
   belongs_to :category
-  has_many :reviews
-  has_many :line_items
+  has_many :reviews, dependent: :destroy
+  has_many :line_items, dependent: :destroy
   has_one_attached :image
 
   def average_rating

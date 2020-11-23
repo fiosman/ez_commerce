@@ -47,9 +47,9 @@ export const startLoadingAllProducts = () => ({
   type: START_LOADING_ALL_PRODUCTS,
 });
 
-export const wipeProduct = (productId) => ({
+export const wipeProduct = (product) => ({
   type: REMOVE_PRODUCT,
-  productId,
+  productId: product.product.id,
 });
 
 export const receiveSearchedProducts = (searchTerm) => ({
@@ -95,7 +95,7 @@ export const fetchSingleProduct = (productId) => (dispatch) => {
 
 export const removeProduct = (productId) => (dispatch) =>
   deleteProduct(productId).then((product) => {
-    dispatch(wipeProduct(product.id));
+    dispatch(wipeProduct(product));
   });
 
 export const modifyProduct = (product, productId) => (dispatch) =>
