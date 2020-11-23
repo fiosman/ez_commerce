@@ -27,8 +27,9 @@ class ApplicationController < ActionController::Base
   end
 
   def transfer_items
+    old_cart = @current_cart
     current_cart.add_line_items(@line_items)
-    # Cart.find_by(user_id: nil).destroy
+    LineItem.where(cart_id: old_cart.id).destroy_all
   end
 
   def log_out!

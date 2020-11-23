@@ -5,7 +5,4 @@ class Api::CartsController < ApplicationController
     @cart = @current_cart
     render :show
   end
-
-  def destroy
-  end
 end
