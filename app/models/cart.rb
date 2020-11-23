@@ -17,7 +17,7 @@ class Cart < ApplicationRecord
 
   def add_line_items(line_items)
     line_items.each do |line_item|
-      self.line_items.create(line_item.attributes)
+      self.line_items.create(line_item.attributes.except("id", "created_at", "updated_at"))
     end
   end
 
