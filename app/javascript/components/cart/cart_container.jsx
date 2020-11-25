@@ -8,13 +8,11 @@ import { connect } from "react-redux";
 import { selectLineItemIds } from "../../reducers/selectors";
 
 const mapStateToProps = (state) => {
-  const lineItems = state.entities.lineItems;
-  const lineItemIds =
-    state.entities.cart[Object.keys(state.entities.cart)[0]].lineItemIds;
+  const products = state.entities.products;
 
   return {
-    selectedLineItems: selectLineItemIds(lineItemIds, lineItems),
-    products: state.entities.products,
+    selectedLineItems: selectLineItemIds(state),
+    products,
   };
 };
 

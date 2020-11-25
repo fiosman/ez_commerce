@@ -46,9 +46,17 @@ export const selectProductReviews = (allReviews, product) => {
   return products.filter((product) => product != undefined);
 };
 
-export const selectLineItemIds = (lineItemIds, lineItems) => {
+export const selectLineItemIds = (state) => {
+  const lineItems = state.entities.lineItems;
+  const lineItemIds =
+    state.entities.cart[Object.keys(state.entities.cart)[0]].lineItemIds;
+  const products = state.entities.products;
   const allLineItems = lineItemIds.map((lineItemId) => lineItems[lineItemId]);
-  return allLineItems.filter((lineItem) => lineItem != undefined);
+
+  return allLineItems.filter(
+    (lineItem) =>
+      lineItem != undefined && products[lineItem.product_id] != undefined
+  );
 };
 
 export const areProductsEmpty = (products) => {
