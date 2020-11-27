@@ -1,7 +1,5 @@
 import {
   START_LOADING_ALL_CATEGORIES,
-  START_LOADING_SINGLE_CATEGORY,
-  RECEIVE_CATEGORY,
   RECEIVE_CATEGORIES,
 } from "../actions/category_actions";
 

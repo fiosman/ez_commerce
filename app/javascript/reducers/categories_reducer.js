@@ -4,10 +4,6 @@ import {
   REMOVE_CATEGORY,
 } from "../actions/category_actions";
 
-// const initialState = {
-//   id: "",
-//   tagging: "",
-// };
 const categoriesReducer = (state = {}, action) => {
   Object.freeze(state);
 
