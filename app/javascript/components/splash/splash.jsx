@@ -3,7 +3,7 @@ import GreetingContainer from "../greeting/greeting_container";
 import ProductListContainer from "../product/product_list_container";
 
 const Splash = () => (
-  <div>
+  <div className="container">
     <GreetingContainer />
     <ProductListContainer />
   </div>

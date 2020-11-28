@@ -17,21 +17,21 @@ class Greeting extends React.Component {
     let status;
     if (this.props.currentUser) {
       status = (
-        <section>
+        <div className="navBar">
           Welcome {this.props.currentUser.username}
           <button onClick={this.handleLogout}>Logout</button>
           <Link to="/cart">Cart</Link>
           <Link to="/admin">Admin Dash</Link>
-        </section>
+        </div>
       );
     } else {
       status = (
-        <section>
+        <div className="navBar">
           <p>This is the main page lol</p>
           <Link to="/signup">Sign up</Link>
           <Link to="/login">Log in</Link>
           <Link to="/cart">Cart</Link>
-        </section>
+        </div>
       );
     }
 

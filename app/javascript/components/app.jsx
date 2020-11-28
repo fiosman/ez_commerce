@@ -11,6 +11,7 @@ import InventoryIndexContainer from "../components/inventory/inventory_index_con
 import Splash from "../components/splash/splash";
 import ProductShowContainer from "../components/product/product_show_container";
 import CartContainer from "../components/cart/cart_container";
+import Logo from "../../assets/images/logo/aquire-light.png";
 
 class App extends React.Component {
   constructor(props) {
@@ -33,9 +34,9 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <header>
-            <h1>EzCommerce</h1>
-          </header>
+          <div className="logo">
+            <img src={Logo} />
+          </div>
           <Switch>
             <AdminRoute path="/admin" exact component={AdminDashContainer} />
             <AuthRoute path="/login" exact component={LoginFormContainer} />

@@ -15,29 +15,12 @@
  */
 
 /* CSS RESET */
-html,
-body,
-header,
-nav,
-h2,
-h1,
-ul,
-li,
-section,
-div,
-form,
-textarea,
-span,
-p {
+* {
   margin: 0;
   padding: 0;
-  border: 0;
-  outline: 0;
-  font: inherit;
-  color: inherit;
-  text-align: inherit;
-  text-decoration: inherit;
-  vertical-align: inherit;
-  box-sizing: inherit;
-  background: transparent;
+  box-sizing: border-box;
+}
+
+.logo > img {
+  width: 400px;
 }
