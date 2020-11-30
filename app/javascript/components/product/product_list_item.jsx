@@ -15,15 +15,13 @@ class ProductListItem extends React.Component {
     const productRating =
       product.avgRating > 0 ? product.avgRating : "No ratings";
     return (
-      <div>
-        <div>
-          <figure>
-            <img src={product.imageUrl} onClick={this.handleClick} />
-          </figure>
-          <h2>{product.title}</h2>
-          <h2>${product.price}</h2>
-          <h2>{productRating}</h2>
-        </div>
+      <div className="productCard">
+        <figure>
+          <img src={product.imageUrl} onClick={this.handleClick} />
+          <p>{product.title}</p>
+          <p>{product.price}</p>
+          <p>{productRating}</p>
+        </figure>
       </div>
     );
   }

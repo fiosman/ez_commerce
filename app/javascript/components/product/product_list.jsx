@@ -12,9 +12,9 @@ class ProductList extends React.Component {
       return <h2>Loading...</h2>;
     }
     return (
-      <section>
-        <div>
-          <Filter {...this.props} />
+      <div className="filterProductsContainer">
+        <Filter {...this.props} />
+        <div className="productsContainer">
           {this.props.filteredProducts.length > 0 ? (
             this.props.filteredProducts.map((product, index) => (
               <ProductListItem product={product} key={index} />
@@ -23,7 +23,7 @@ class ProductList extends React.Component {
             <h2>No products to display!</h2>
           )}
         </div>
-      </section>
+      </div>
     );
   }
 }

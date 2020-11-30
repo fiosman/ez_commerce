@@ -11,7 +11,8 @@ import InventoryIndexContainer from "../components/inventory/inventory_index_con
 import Splash from "../components/splash/splash";
 import ProductShowContainer from "../components/product/product_show_container";
 import CartContainer from "../components/cart/cart_container";
-import Logo from "../../assets/images/logo/aquire-light.png";
+import Logo from "../../assets/images/logo/ez-commerce.png";
+import GreetingContainer from "./greeting/greeting_container";
 
 class App extends React.Component {
   constructor(props) {
@@ -33,9 +34,10 @@ class App extends React.Component {
       return <h2>Loading Please wait...</h2>;
     } else {
       return (
-        <div>
-          <div className="logo">
-            <img src={Logo} />
+        <div className="container">
+          <div className="navBar">
+            <img className="logo" src={Logo} />
+            <GreetingContainer />
           </div>
           <Switch>
             <AdminRoute path="/admin" exact component={AdminDashContainer} />

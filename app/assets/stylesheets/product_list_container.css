@@ -1,0 +1,22 @@
+.productsContainer {
+  background: yellow;
+  display: flex;
+  padding: 50px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.productCard > figure {
+  width: 50%;
+  background: red;
+}
+
+.productCard {
+  background-color: green;
+  max-width: 30%;
+  margin: 10px;
+}
+
+.productCard > figure > img {
+  max-width: 100%;
+}

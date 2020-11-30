@@ -64,7 +64,7 @@ class Filter extends React.Component {
   render() {
     const { categories, products } = this.props;
     return (
-      <div>
+      <div className="filtersContainer">
         <section>
           <input
             type="text"

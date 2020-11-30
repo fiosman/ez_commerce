@@ -17,25 +17,36 @@ class Greeting extends React.Component {
     let status;
     if (this.props.currentUser) {
       status = (
-        <div className="navBar">
-          Welcome {this.props.currentUser.username}
-          <button onClick={this.handleLogout}>Logout</button>
-          <Link to="/cart">Cart</Link>
-          <Link to="/admin">Admin Dash</Link>
-        </div>
+        <ul>
+          <li>Welcome {this.props.currentUser.username}</li>
+          <li>
+            <button onClick={this.handleLogout}>Logout</button>
+          </li>
+          <li>
+            <Link to="/cart">Cart</Link>
+          </li>
+          <li>
+            <Link to="/admin">Admin Dash</Link>
+          </li>
+        </ul>
       );
     } else {
       status = (
-        <div className="navBar">
-          <p>This is the main page lol</p>
-          <Link to="/signup">Sign up</Link>
-          <Link to="/login">Log in</Link>
-          <Link to="/cart">Cart</Link>
-        </div>
+        <ul>
+          <li>
+            <Link to="/signup">Sign up</Link>
+          </li>
+          <li>
+            <Link to="/login">Log in</Link>
+          </li>
+          <li>
+            <Link to="/cart">My Cart</Link>
+          </li>
+        </ul>
       );
     }
 
-    return <div>{status}</div>;
+    return <nav className="navLinks">{status}</nav>;
   }
 }
 
