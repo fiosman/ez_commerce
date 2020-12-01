@@ -1,22 +1,27 @@
 .productsContainer {
-  background: yellow;
+  /* background: yellow;
   display: flex;
   padding: 50px;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
 }
 
 .productCard > figure {
-  width: 50%;
   background: red;
+  border: 2px solid black;
 }
 
 .productCard {
-  background-color: green;
-  max-width: 30%;
-  margin: 10px;
+  max-width: 75%;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+  border: 2px solid green;
 }
 
 .productCard > figure > img {
   max-width: 100%;
+  display: block;
 }
