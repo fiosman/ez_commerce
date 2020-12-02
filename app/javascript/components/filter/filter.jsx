@@ -64,7 +64,7 @@ class Filter extends React.Component {
   render() {
     const { categories, products } = this.props;
     return (
-      <div className="filtersContainer">
+      <section className="filtersContainer">
         <section>
           <input
             type="text"
@@ -138,7 +138,7 @@ class Filter extends React.Component {
         <section>
           <button onClick={this.clearProductFilters}> Clear Filters </button>
         </section>
-      </div>
+      </section>
     );
   }
 }

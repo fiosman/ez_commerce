@@ -14,7 +14,7 @@ class ProductList extends React.Component {
     return (
       <div className="filterProductsContainer">
         <Filter {...this.props} />
-        <div className="productsContainer">
+        <section className="productsContainer">
           {this.props.filteredProducts.length > 0 ? (
             this.props.filteredProducts.map((product, index) => (
               <ProductListItem product={product} key={index} />
@@ -22,7 +22,7 @@ class ProductList extends React.Component {
           ) : (
             <h2>No products to display!</h2>
           )}
-        </div>
+        </section>
       </div>
     );
   }
