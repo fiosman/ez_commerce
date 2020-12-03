@@ -24,6 +24,21 @@
 .filtersContainer {
   border: 2px black solid;
   grid-area: filtersContainer;
+  padding: 10px;
+}
+
+.filtersContainer > h2 {
+  padding-bottom: 15px;
+  font-size: 30px;
+}
+
+.filtersContainer h3 {
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+.filtersContainer section {
+  padding-bottom: 15px;
 }
 
 .productsContainer {
