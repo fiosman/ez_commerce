@@ -37,6 +37,10 @@
   font-size: 20px;
 }
 
+.productCard > figure p {
+  font-size: 20px;
+}
+
 .filtersContainer section {
   padding-bottom: 15px;
 }
