@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
 import Button from "react-bootstrap/Button";
-import MDBIcon from "mdbreact";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -22,21 +23,40 @@ class Greeting extends React.Component {
         <ul>
           <li>Welcome {this.props.currentUser.username}</li>
           <li>
+            <Link to="/">
+              <Button variant="custom">Home</Button>
+            </Link>
+          </li>
+          <li>
             <Button variant="custom" onClick={this.handleLogout}>
               Logout
             </Button>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/admin">
+              <Button variant="custom">Admin</Button>
+            </Link>
           </li>
           <li>
-            <Link to="/admin">Admin Dash</Link>
+            <Link to="/cart">
+              <FontAwesomeIcon
+                icon={faShoppingCart}
+                className="shopping-cart"
+                size="lg"
+                style={{ color: "#800080" }}
+              />
+            </Link>
           </li>
         </ul>
       );
     } else {
       status = (
         <ul>
+          <li>
+            <Link to="/">
+              <Button variant="custom">Home</Button>
+            </Link>
+          </li>
           <li>
             <Link to="/signup">
               <Button variant="custom">Sign up</Button>
@@ -48,7 +68,14 @@ class Greeting extends React.Component {
             </Link>
           </li>
           <li>
-            <Link to="/cart">Cart</Link>
+            <Link to="/cart">
+              <FontAwesomeIcon
+                icon={faShoppingCart}
+                className="shopping-cart"
+                size="lg"
+                style={{ color: "#800080" }}
+              />
+            </Link>
           </li>
         </ul>
       );

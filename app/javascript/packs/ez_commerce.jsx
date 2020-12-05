@@ -3,7 +3,6 @@ import ReactDOM from "react-dom";
 import { store } from "../store/store";
 import Root from "../components/root";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "mdbreact/dist/css/mdb.css";
 import "../../assets/stylesheets/application.css";
 
 document.addEventListener("DOMContentLoaded", () => {
