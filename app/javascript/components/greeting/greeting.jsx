@@ -43,7 +43,6 @@ class Greeting extends React.Component {
                 icon={faShoppingCart}
                 className="shopping-cart"
                 size="lg"
-                style={{ color: "#800080" }}
               />
             </Link>
           </li>

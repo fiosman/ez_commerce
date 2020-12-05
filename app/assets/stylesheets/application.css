@@ -19,3 +19,8 @@
   color: #fff;
   border-color: #800080;
 }
+
+.btn-custom:hover {
+  box-shadow: inset 0em 0em 0em 10em rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
