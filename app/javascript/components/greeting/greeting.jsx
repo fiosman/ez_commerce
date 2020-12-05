@@ -1,7 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
-import { Button } from "react-bootstrap";
+import Button from "react-bootstrap/Button";
+import MDBIcon from "mdbreact";
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -21,8 +22,9 @@ class Greeting extends React.Component {
         <ul>
           <li>Welcome {this.props.currentUser.username}</li>
           <li>
-            {/* <button onClick={this.handleLogout}>Logout</button> */}
-            <Button variant="primary">Test</Button>
+            <Button variant="custom" onClick={this.handleLogout}>
+              Logout
+            </Button>
           </li>
           <li>
             <Link to="/cart">Cart</Link>
@@ -36,13 +38,17 @@ class Greeting extends React.Component {
       status = (
         <ul>
           <li>
-            <Link to="/signup">Sign up</Link>
+            <Link to="/signup">
+              <Button variant="custom">Sign up</Button>
+            </Link>
           </li>
           <li>
-            <Link to="/login">Log in</Link>
+            <Link to="/login">
+              <Button variant="custom">Log in</Button>
+            </Link>
           </li>
           <li>
-            <Link to="/cart">My Cart</Link>
+            <Link to="/cart">Cart</Link>
           </li>
         </ul>
       );
