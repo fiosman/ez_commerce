@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router-dom";
+import { Button } from "react-bootstrap";
 
 class Greeting extends React.Component {
   constructor(props) {
@@ -20,7 +21,8 @@ class Greeting extends React.Component {
         <ul>
           <li>Welcome {this.props.currentUser.username}</li>
           <li>
-            <button onClick={this.handleLogout}>Logout</button>
+            {/* <button onClick={this.handleLogout}>Logout</button> */}
+            <Button variant="primary">Test</Button>
           </li>
           <li>
             <Link to="/cart">Cart</Link>
