@@ -67,6 +67,7 @@ class Filter extends React.Component {
       <section className="filtersContainer">
         <section>
           <input
+            className="product-search"
             type="text"
             placeholder="Search by product..."
             onChange={this.handleInput}

@@ -7,7 +7,6 @@
 }
 
 .navBar {
-  border: 2px yellow solid;
   grid-area: navBar;
 }
 
