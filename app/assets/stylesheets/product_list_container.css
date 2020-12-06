@@ -21,7 +21,6 @@
 }
 
 .filtersContainer {
-  border: 2px black solid;
   grid-area: filtersContainer;
   padding: 10px;
 }

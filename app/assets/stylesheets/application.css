@@ -24,3 +24,9 @@
   box-shadow: inset 0em 0em 0em 10em rgba(0, 0, 0, 0.3);
   color: #fff;
 }
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-left: 5px;
+  margin-right: 5px;
+}

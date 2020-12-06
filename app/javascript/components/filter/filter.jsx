@@ -1,5 +1,5 @@
 import React from "react";
-
+import Button from "react-bootstrap/Button";
 class Filter extends React.Component {
   constructor(props) {
     super(props);
@@ -75,7 +75,7 @@ class Filter extends React.Component {
           />
         </section>
         <h2>Filters</h2>
-        <section>
+        <section className="category-filter">
           <h3>Category</h3>
           {categories.map((category, idx) => {
             return (
@@ -93,7 +93,7 @@ class Filter extends React.Component {
           })}
         </section>
 
-        <section>
+        <section className="price-filter">
           <h3>Price</h3>
           <label>
             <input
@@ -136,9 +136,10 @@ class Filter extends React.Component {
             $100 and Over
           </label>
         </section>
-        <section>
-          <button onClick={this.clearProductFilters}> Clear Filters </button>
-        </section>
+        <Button variant="custom" onClick={this.clearProductFilters}>
+          {" "}
+          Clear Filters{" "}
+        </Button>
       </section>
     );
   }
