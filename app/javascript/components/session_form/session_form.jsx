@@ -1,5 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
@@ -26,28 +27,31 @@ class SessionForm extends React.Component {
     const typeValue = this.props.formType === "login" ? "Login" : "Sign up";
 
     return (
-      <form>
-        <h2>{typeValue}</h2>
-        <label>
-          Username:
-          <input
-            name="username"
+      <Form>
+        <Form.Group>
+          <Form.Label>Username</Form.Label>
+          <Form.Control
             type="text"
+            placeholder="Enter username"
+            name="username"
             onChange={this.handleInput}
             value={this.state.username}
           />
-        </label>
-        <label>
-          Password:
-          <input
-            name="password"
+        </Form.Group>
+
+        <Form.Group>
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             type="password"
+            placeholder="Password"
             onChange={this.handleInput}
             value={this.state.password}
           />
-        </label>
-        <button onClick={this.handleSubmit}>{typeValue}</button>
-      </form>
+        </Form.Group>
+        <Button onClick={this.handleSubmit} variant="custom" type="submit">
+          {typeValue}
+        </Button>
+      </Form>
     );
   }
 
@@ -69,8 +73,6 @@ class SessionForm extends React.Component {
     const errors = this.props.errors ? this.displayErrors() : "";
     return (
       <div>
-        {this.props.navLink}
-        <Link to="/">Home</Link>
         {this.formHeader()}
         {errors}
       </div>
