@@ -20,9 +20,7 @@ class AdminDash extends React.Component {
       <div>
         <section>
           <h2>Admin Dashboard</h2>
-          <GreetingContainer />
           <AdminNavBar />
-          {/* <Stats /> */}
         </section>
       </div>
     );
