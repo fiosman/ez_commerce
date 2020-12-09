@@ -1,15 +1,3 @@
-.container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-areas:
-    "navBar navBar navBar navBar"
-    "filterProductsContainer filterProductsContainer filterProductsContainer filterProductsContainer";
-}
-
-.navBar {
-  grid-area: navBar;
-}
-
 .filterProductsContainer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

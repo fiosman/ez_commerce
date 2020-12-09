@@ -17,11 +17,8 @@ class AdminDash extends React.Component {
       return <div>Loading...</div>;
     }
     return (
-      <div>
-        <section>
-          <h2>Admin Dashboard</h2>
-          <AdminNavBar />
-        </section>
+      <div className="admin-dash-container">
+        <AdminNavBar />
       </div>
     );
   }

@@ -1,5 +1,9 @@
 .inventory-icon,
 .upload-icon {
   font-size: 50px;
+}
+
+.center {
   text-align: center;
+  width: 100%;
 }

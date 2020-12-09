@@ -34,7 +34,7 @@ class App extends React.Component {
       return <h2>Loading Please wait...</h2>;
     } else {
       return (
-        <div className="container">
+        <div className="main">
           <div className="navBar">
             <img className="logo" src={Logo} />
             <GreetingContainer />

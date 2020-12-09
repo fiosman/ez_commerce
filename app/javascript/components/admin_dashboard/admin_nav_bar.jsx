@@ -21,33 +21,24 @@ const AdminNavBar = () => {
     <CardDeck>
       <Card>
         <Card.Header>
-          <FontAwesomeIcon className="inventory-icon" icon={faWarehouse} />
+          <FontAwesomeIcon
+            className="inventory-icon center"
+            icon={faWarehouse}
+          />
         </Card.Header>
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content. This content is a little bit longer.
-          </Card.Text>
+          <Card.Title>Manage Store Inventory</Card.Title>
+          <Card.Text></Card.Text>
         </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
       </Card>
       <Card>
         <Card.Header>
-          <FontAwesomeIcon className="upload-icon" icon={faUpload} />
+          <FontAwesomeIcon className="upload-icon center" icon={faUpload} />
         </Card.Header>
         <Card.Body>
-          <Card.Title>Card title</Card.Title>
-          <Card.Text>
-            This card has supporting text below as a natural lead-in to
-            additional content.{" "}
-          </Card.Text>
+          <Card.Title>Upload Products and Categories</Card.Title>
+          <Card.Text></Card.Text>
         </Card.Body>
-        <Card.Footer>
-          <small className="text-muted">Last updated 3 mins ago</small>
-        </Card.Footer>
       </Card>
     </CardDeck>
   );
