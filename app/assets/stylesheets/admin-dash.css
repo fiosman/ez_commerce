@@ -4,7 +4,17 @@
   color: #800080;
 }
 
-.center {
+.card-body {
+  margin: 0 auto;
+}
+
+.card-header .inventory-icon,
+.card-header .upload-icon {
   text-align: center;
   width: 100%;
+}
+
+a .btn-admin {
+  margin-left: 45px;
+  margin-right: 45px;
 }
