@@ -55,11 +55,10 @@ class ProductForm extends React.Component {
     const errors = this.props.errors.length > 0 ? this.displayErrors() : "";
 
     return (
-      <section>
-        <AdminNavBar />
+      <div>
         {errors}
         {form}
-      </section>
+      </div>
     );
   }
 }

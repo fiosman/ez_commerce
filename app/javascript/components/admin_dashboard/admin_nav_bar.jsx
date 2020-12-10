@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
@@ -20,11 +20,11 @@ const AdminNavBar = () => {
         <Card.Body>
           <Card.Title>Manage Store Inventory</Card.Title>
           <Card.Text>
-            <NavLink to="/admin/inventory">
+            <Link to="/admin/inventory">
               <Button variant="custom" className="btn-admin">
                 Go to Inventory
               </Button>
-            </NavLink>
+            </Link>
           </Card.Text>
         </Card.Body>
       </Card>
@@ -35,16 +35,16 @@ const AdminNavBar = () => {
         <Card.Body>
           <Card.Title>Upload Products and Categories</Card.Title>
           <Card.Text>
-            <NavLink to="/admin/product/new">
+            <Link to="/admin/product/new">
               <Button variant="custom" className="btn-admin">
                 Add Product
               </Button>
-            </NavLink>
-            <NavLink to="/admin/category/new">
+            </Link>
+            <Link to="/admin/category/new">
               <Button variant="custom" className="btn-admin">
                 Add Category
               </Button>
-            </NavLink>
+            </Link>
           </Card.Text>
         </Card.Body>
       </Card>
