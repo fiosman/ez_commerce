@@ -3,21 +3,12 @@ import { NavLink } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import CardDeck from "react-bootstrap/CardDeck";
 import Card from "react-bootstrap/Card";
-import UploadProductIcon from "../../../assets/images/admin-icon/upload-product.png";
-import InventoryIcon from "../../../assets/images/admin-icon/inventory.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faWarehouse } from "@fortawesome/free-solid-svg-icons";
 import { faUpload } from "@fortawesome/free-solid-svg-icons";
 
 const AdminNavBar = () => {
   return (
-    // <nav>
-    //   <NavLink to="/admin/product/new">Add Product </NavLink>
-    //   <NavLink to="/admin/inventory">Inventory </NavLink>
-    //   <NavLink to="/">Home </NavLink>
-    //   <NavLink to="/admin">Admin Dashboard</NavLink>
-    //   <NavLink to="/admin/category/new">Add Category </NavLink>
-    // </nav>
     <CardDeck>
       <Card>
         <Card.Header>
@@ -28,7 +19,13 @@ const AdminNavBar = () => {
         </Card.Header>
         <Card.Body>
           <Card.Title>Manage Store Inventory</Card.Title>
-          <Card.Text></Card.Text>
+          <Card.Text>
+            <NavLink to="/admin/inventory">
+              <Button variant="custom" className="btn-admin">
+                Go to Inventory
+              </Button>
+            </NavLink>
+          </Card.Text>
         </Card.Body>
       </Card>
       <Card>
@@ -37,7 +34,18 @@ const AdminNavBar = () => {
         </Card.Header>
         <Card.Body>
           <Card.Title>Upload Products and Categories</Card.Title>
-          <Card.Text></Card.Text>
+          <Card.Text>
+            <NavLink to="/admin/product/new">
+              <Button variant="custom" className="btn-admin">
+                Add Product
+              </Button>
+            </NavLink>
+            <NavLink to="/admin/category/new">
+              <Button variant="custom" className="btn-admin">
+                Add Category
+              </Button>
+            </NavLink>
+          </Card.Text>
         </Card.Body>
       </Card>
     </CardDeck>
