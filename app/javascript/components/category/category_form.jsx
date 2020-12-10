@@ -1,6 +1,6 @@
 import React from "react";
-import AdminNavBar from "../admin_dashboard/admin_nav_bar";
-
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
 class ProductForm extends React.Component {
   constructor(props) {
     super(props);
@@ -40,16 +40,21 @@ class ProductForm extends React.Component {
 
   render() {
     const form = (
-      <div>
-        <form>
-          <h2>Add a category!</h2>
-          <label>
-            Category Listing
-            <input type="text" name="tagging" onChange={this.handleInput} />
-          </label>
-          <button onClick={this.handleSubmit}>Submit</button>
-        </form>
-      </div>
+      <Form>
+        <Form.Group>
+          <Form.Label>Category Listing</Form.Label>
+          <Form.Control
+            type="text"
+            placeholder="Enter Listing"
+            name="tagging"
+            onChange={this.handleInput}
+            value={this.state.tagging}
+          />
+        </Form.Group>
+        <Button onClick={this.handleSubmit} variant="custom" type="submit">
+          Submit
+        </Button>
+      </Form>
     );
 
     const errors = this.props.errors.length > 0 ? this.displayErrors() : "";

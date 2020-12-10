@@ -1,5 +1,4 @@
 import React from "react";
-import GreetingContainer from "../greeting/greeting_container";
 import AdminNavBar from "../admin_dashboard/admin_nav_bar";
 class AdminDash extends React.Component {
   constructor(props) {
