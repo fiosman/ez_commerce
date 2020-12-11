@@ -99,31 +99,55 @@ class ProductForm extends React.Component {
         <h2>{formHeader}</h2>
         <Form.Group>
           <Form.Label>Title</Form.Label>
-          <Form.Control type="text" placeholder="Enter title" />
+          <Form.Control
+            type="text"
+            placeholder="Enter title"
+            name="title"
+            value={this.state.title}
+            onChange={this.handleInput}
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Description</Form.Label>
-          <Form.Control type="text" placeholder="Enter description" />
+          <Form.Control
+            as="textarea"
+            rows={4}
+            placeholder="Enter description"
+            name="body"
+            value={this.state.body}
+            onChange={this.handleInput}
+          />
         </Form.Group>
         <Form.Group>
           <Form.Label>Price</Form.Label>
-          <Form.Control type="text" placeholder="Enter price" />
+          <Form.Control
+            type="text"
+            placeholder="Enter price"
+            value={this.state.price}
+            onChange={this.handleInput}
+          />
         </Form.Group>
         <Form.Group>
-          <Form.Label>Example multiple select</Form.Label>
-          <Form.Control as="select" multiple>
-            <option default>Select</option>
+          <Form.Label>Select Category</Form.Label>
+          <Form.Control
+            as="select"
+            value={this.state.category_id}
+            onChange={this.handleInput}
+          >
+            <option default disabled>
+              Select Category
+            </option>
             {options}
           </Form.Control>
         </Form.Group>
         <Form.Group>
-          <Form.File id="exampleFormControlFile1" label="Example file input" />
+          <Form.File onChange={this.handleFile} />
         </Form.Group>
         <label>
           Image Preview
           {imagePreview}
         </label>
-        <Button variant="primary" type="submit">
+        <Button variant="custom" type="submit">
           Submit
         </Button>
       </Form>
