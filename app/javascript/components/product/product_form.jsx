@@ -93,71 +93,41 @@ class ProductForm extends React.Component {
 
     const formHeader =
       this.props.formType === "new" ? "Add Product" : "Edit Product";
+
     const form = (
       <Form onSubmit={this.handleSubmit}>
         <h2>{formHeader}</h2>
-        <label>
-          Title
-          <input
-            type="text"
-            name="title"
-            value={this.state.title}
-            onChange={this.handleInput}
-          />
-        </label>
-        <label>
-          Description
-          <input
-            type="text"
-            name="body"
-            value={this.state.body}
-            onChange={this.handleInput}
-          />
-        </label>
-        <label>
-          Price
-          <input
-            type="text"
-            name="price"
-            value={this.state.price}
-            onChange={this.handleInput}
-          />
-        </label>
-        <label>
-          Choose a category
-          <select
-            value={this.state.category_id}
-            onChange={this.handleInput}
-            name="category_id"
-          >
+        <Form.Group>
+          <Form.Label>Title</Form.Label>
+          <Form.Control type="text" placeholder="Enter title" />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Description</Form.Label>
+          <Form.Control type="text" placeholder="Enter description" />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Price</Form.Label>
+          <Form.Control type="text" placeholder="Enter price" />
+        </Form.Group>
+        <Form.Group>
+          <Form.Label>Example multiple select</Form.Label>
+          <Form.Control as="select" multiple>
             <option default>Select</option>
             {options}
-          </select>
-          <input type="file" onChange={this.handleFile} />
-        </label>
+          </Form.Control>
+        </Form.Group>
+        <Form.Group>
+          <Form.File id="exampleFormControlFile1" label="Example file input" />
+        </Form.Group>
         <label>
           Image Preview
           {imagePreview}
         </label>
-        <input type="submit" value="Submit" />
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
       </Form>
     );
-
-    <Form>
-      <Form.Group>
-        <Form.Label>Category Listing</Form.Label>
-        <Form.Control
-          type="text"
-          placeholder="Enter Listing"
-          name="tagging"
-          onChange={this.handleInput}
-          value={this.state.tagging}
-        />
-      </Form.Group>
-      <Button onClick={this.handleSubmit} variant="custom" type="submit">
-        Submit
-      </Button>
-    </Form>;
 
     const errors = this.props.errors.length > 0 ? this.displayErrors() : "";
 
