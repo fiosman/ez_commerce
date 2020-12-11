@@ -1,5 +1,8 @@
 import React from "react";
 import AdminNavBar from "../admin_dashboard/admin_nav_bar";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+
 class ProductForm extends React.Component {
   constructor(props) {
     super(props);
@@ -91,7 +94,7 @@ class ProductForm extends React.Component {
     const formHeader =
       this.props.formType === "new" ? "Add Product" : "Edit Product";
     const form = (
-      <form onSubmit={this.handleSubmit}>
+      <Form onSubmit={this.handleSubmit}>
         <h2>{formHeader}</h2>
         <label>
           Title
@@ -137,8 +140,24 @@ class ProductForm extends React.Component {
           {imagePreview}
         </label>
         <input type="submit" value="Submit" />
-      </form>
+      </Form>
     );
+
+    <Form>
+      <Form.Group>
+        <Form.Label>Category Listing</Form.Label>
+        <Form.Control
+          type="text"
+          placeholder="Enter Listing"
+          name="tagging"
+          onChange={this.handleInput}
+          value={this.state.tagging}
+        />
+      </Form.Group>
+      <Button onClick={this.handleSubmit} variant="custom" type="submit">
+        Submit
+      </Button>
+    </Form>;
 
     const errors = this.props.errors.length > 0 ? this.displayErrors() : "";
 
