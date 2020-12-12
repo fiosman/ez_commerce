@@ -1,7 +1,7 @@
 import React from "react";
-import AdminNavBar from "../admin_dashboard/admin_nav_bar";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 class ProductForm extends React.Component {
   constructor(props) {
@@ -80,9 +80,8 @@ class ProductForm extends React.Component {
   }
 
   render() {
-    const imagePreview = this.state.imgUrl ? (
-      <img src={this.state.imgUrl} />
-    ) : null;
+    const imagePreview = this.state.imgUrl ? this.state.imgUrl : null;
+
     let options = this.props.categories.map((category, idx) => {
       return (
         <option key={idx} value={category.id}>
@@ -143,11 +142,13 @@ class ProductForm extends React.Component {
         <Form.Group>
           <Form.File onChange={this.handleFile} />
         </Form.Group>
-        <label>
-          Image Preview
-          {imagePreview}
-        </label>
-        <Button variant="custom" type="submit">
+        <Card style={{ width: "20rem" }}>
+          <Card.Img variant="top" src={imagePreview} />
+          <Card.Body>
+            <Card.Title>Image Preview</Card.Title>
+          </Card.Body>
+        </Card>
+        <Button className="add-product-submit" variant="custom" type="submit">
           Submit
         </Button>
       </Form>
