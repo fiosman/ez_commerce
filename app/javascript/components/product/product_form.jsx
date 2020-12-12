@@ -122,6 +122,7 @@ class ProductForm extends React.Component {
           <Form.Control
             type="text"
             placeholder="Enter price"
+            name="price"
             value={this.state.price}
             onChange={this.handleInput}
           />
