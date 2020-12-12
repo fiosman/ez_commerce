@@ -133,10 +133,9 @@ class ProductForm extends React.Component {
             as="select"
             value={this.state.category_id}
             onChange={this.handleInput}
+            name="category_id"
           >
-            <option default disabled>
-              Select Category
-            </option>
+            <option default>Select Category</option>
             {options}
           </Form.Control>
         </Form.Group>
