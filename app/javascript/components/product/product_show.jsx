@@ -26,45 +26,39 @@ class ProductShow extends React.Component {
         ""
       );
     return (
-      <div>
-        <Link to="/">Return to main page</Link>
-        <Link to="/cart">Go to cart</Link>
-        <section>
-          <figure>
-            <img src={this.props.product.imageUrl} width="200" height="40" />
-          </figure>
+      <div className="product-show-container">
+        <figure className="product-image-container">
+          <img src={this.props.product.imageUrl} />
+        </figure>
+        <div className="product-description-container">
+          <h2>{this.props.product.title}</h2>
+          <h2>{this.props.product.price}</h2>
           <div>
-            <h2>{this.props.product.title}</h2>
-            <h2>{this.props.product.price}</h2>
-            <div>
-              {this.props.product.avgRating} stars (
-              {this.props.productReviews.length} reviews)
-            </div>
-            <AddCartItemContainer product={this.props.product} />
-            <section>
-              <h2>Description</h2>
-              <p>{this.props.product.body}</p>
-            </section>
+            {this.props.product.avgRating} stars (
+            {this.props.productReviews.length} reviews)
           </div>
-          <div>
-            <h2>{reviewStatus}</h2>
-            {this.props.location.pathname ===
-            `/products/${this.props.productId}/review` ? (
-              <ReviewFormContainer product={this.props.product} />
-            ) : (
-              ""
-            )}
-          </div>
-          <div>
-            <section>
-              <h2>Reviews</h2>
-              <ReviewIndex
-                product={this.props.product}
-                reviews={this.props.productReviews}
-              />
-            </section>
-          </div>
-        </section>
+          <AddCartItemContainer product={this.props.product} />
+          <section>
+            <h2>Description</h2>
+            <p>{this.props.product.body}</p>
+          </section>
+        </div>
+        <div className="product-review-container">
+          <h2>{reviewStatus}</h2>
+          {this.props.location.pathname ===
+          `/products/${this.props.productId}/review` ? (
+            <ReviewFormContainer product={this.props.product} />
+          ) : (
+            ""
+          )}
+          <section>
+            <h2>Reviews</h2>
+            <ReviewIndex
+              product={this.props.product}
+              reviews={this.props.productReviews}
+            />
+          </section>
+        </div>
       </div>
     );
   }
