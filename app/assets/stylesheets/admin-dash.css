@@ -22,3 +22,14 @@ a .btn-admin {
 .add-product-submit {
   margin-top: 15px;
 }
+
+select.select-admin,
+select.form-control,
+select.form-control-sm {
+  width: auto;
+  margin-top: 1em;
+}
+
+table td {
+  vertical-align: middle !important;
+}

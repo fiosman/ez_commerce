@@ -1,24 +1,29 @@
 import React from "react";
 import { withRouter } from "react-router";
+import Form from "react-bootstrap/Form";
 class InventoryIndexItem extends React.Component {
   constructor(props) {
     super(props);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(val) {
+    const { deleteProduct, deleteCategory, id, category } = this.props;
+    switch (val) {
+      case "updateProduct":
+        return this.props.history.push(`/admin/product/${id}/edit`);
+      case "deleteProduct":
+        return deleteProduct(id);
+      case "deleteCategory":
+        return deleteCategory(category.id);
+    }
   }
 
   render() {
-    const {
-      id,
-      price,
-      title,
-      createdAt,
-      category,
-      updatedAt,
-      deleteProduct,
-      deleteCategory,
-    } = this.props;
+    const { id, price, title, createdAt, category, updatedAt } = this.props;
 
     return (
-      <tr>
+      <tr className="table-row">
         <td>{id}</td>
         <td>{title}</td>
         <td>{price}</td>
@@ -26,16 +31,19 @@ class InventoryIndexItem extends React.Component {
         <td>{createdAt}</td>
         <td>{updatedAt}</td>
         <td>
-          <button onClick={() => deleteProduct(id)}>Delete Product</button>
-          <button onClick={() => deleteCategory(category.id)}>
-            Delete Category
-          </button>
-          <button
-            name="update"
-            onClick={() => this.props.history.push(`/admin/product/${id}/edit`)}
-          >
-            Update Product
-          </button>
+          <Form.Group>
+            <Form.Control
+              as="select"
+              className="select-admin"
+              size="sm"
+              onChange={(e) => this.handleChange(e.target.value)}
+            >
+              <option default>Select Action</option>
+              <option value="updateProduct">Update Product</option>
+              <option value="deleteProduct">Delete Product</option>
+              <option value="deleteCategory">Delete Category</option>
+            </Form.Control>
+          </Form.Group>
         </td>
       </tr>
     );

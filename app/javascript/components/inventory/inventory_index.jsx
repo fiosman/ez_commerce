@@ -1,5 +1,6 @@
 import React from "react";
 import InventoryIndexItem from "./inventory_index_item";
+import Table from "react-bootstrap/Table";
 class InventoryIndex extends React.Component {
   constructor(props) {
     super(props);
@@ -37,7 +38,7 @@ class InventoryIndex extends React.Component {
     return (
       <div>
         <h1>Store Inventory</h1>
-        <table>
+        <Table responsive="sm" bordered hover size="sm">
           <thead>
             <tr>
               <th>ID</th>
@@ -50,7 +51,7 @@ class InventoryIndex extends React.Component {
             </tr>
           </thead>
           <tbody>{this.renderTableData()}</tbody>
-        </table>
+        </Table>
       </div>
     );
   }
