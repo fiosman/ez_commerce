@@ -4,7 +4,6 @@
   grid-template-areas:
     "filtersContainer productsContainer productsContainer"
     "filtersContainer productsContainer productsContainer";
-  grid-area: filterProductsContainer;
   gap: 10px;
 }
 
