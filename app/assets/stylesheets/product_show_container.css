@@ -1,6 +1,6 @@
 .product-show-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 2fr;
   grid-template-areas:
     "productImage productDescription"
     "productReviews productReviews";
@@ -9,12 +9,18 @@
 
 .product-image-container {
   grid-area: productImage;
+  border: 1px solid black;
+  width: 100%;
+  height: 35em;
 }
 
 .product-description-container {
   grid-area: productDescription;
+  border: 1px solid green;
+  height: fit-content;
 }
 
 .product-review-container {
   grid-area: productReviews;
+  border: 1px solid blue;
 }

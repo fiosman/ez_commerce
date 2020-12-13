@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import ReviewFormContainer from "../reviews/review_form_container";
 import ReviewIndex from "../reviews/review_index";
 import AddCartItemContainer from "../add_cart_item/add_cart_item_container";
+import Image from "react-bootstrap/Image";
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
@@ -27,9 +28,10 @@ class ProductShow extends React.Component {
       );
     return (
       <div className="product-show-container">
-        <figure className="product-image-container">
-          <img src={this.props.product.imageUrl} />
-        </figure>
+        <Image
+          src={this.props.product.imageUrl}
+          className="product-image-container"
+        />
         <div className="product-description-container">
           <h2>{this.props.product.title}</h2>
           <h2>{this.props.product.price}</h2>
