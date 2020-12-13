@@ -4,6 +4,8 @@ import ReviewFormContainer from "../reviews/review_form_container";
 import ReviewIndex from "../reviews/review_index";
 import AddCartItemContainer from "../add_cart_item/add_cart_item_container";
 import Image from "react-bootstrap/Image";
+import Card from "react-bootstrap/Card";
+import StarRating from "./star_rating";
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
@@ -26,25 +28,37 @@ class ProductShow extends React.Component {
       ) : (
         ""
       );
+    const reviewBlob =
+      this.props.productReviews.length > 1 ? "Reviews" : "Review";
     return (
       <div className="product-show-container">
-        <Image
-          src={this.props.product.imageUrl}
-          className="product-image-container"
-        />
+        <Card style={{ background: "#f5f5f5" }}>
+          <Image
+            src={this.props.product.imageUrl}
+            className="product-image-container"
+          />
+        </Card>
         <div className="product-description-container">
-          <h2>{this.props.product.title}</h2>
-          <h2>{this.props.product.price}</h2>
-          <div>
-            {this.props.product.avgRating} stars (
-            {this.props.productReviews.length} reviews)
-          </div>
-          <AddCartItemContainer product={this.props.product} />
-          <section>
-            <h2>Description</h2>
-            <p>{this.props.product.body}</p>
-          </section>
+          <Card style={{ width: "60%" }}>
+            <Card.Header as="h2">
+              {this.props.product.title}
+              <Card.Text className="product-rating-reviews">
+                {this.props.productReviews.length} {reviewBlob} (
+                <StarRating rating={this.props.product.avgRating} />)
+              </Card.Text>
+            </Card.Header>
+            <Card.Body style={{ width: "100%" }}>
+              <Card.Text className="product-body-text">
+                {this.props.product.body}
+              </Card.Text>
+              <Card.Text className="product-body-price">
+                ${this.props.product.price}
+              </Card.Text>
+              <AddCartItemContainer product={this.props.product} />
+            </Card.Body>
+          </Card>
         </div>
+
         <div className="product-review-container">
           <h2>{reviewStatus}</h2>
           {this.props.location.pathname ===

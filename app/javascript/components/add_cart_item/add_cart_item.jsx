@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "react-bootstrap/Button";
 
 class AddCartItem extends React.Component {
   constructor(props) {
@@ -36,7 +37,9 @@ class AddCartItem extends React.Component {
     const errors = this.props.errors.length > 0 ? this.displayErrors() : "";
     const addToCartSection = (
       <div>
-        <button onClick={this.addToCart}>Add to Cart</button>
+        <Button variant="custom" onClick={this.addToCart}>
+          Add to Cart
+        </Button>
       </div>
     );
     return (

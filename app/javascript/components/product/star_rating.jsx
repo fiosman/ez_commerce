@@ -10,7 +10,7 @@ const StarRating = (props) => {
       return <FontAwesomeIcon key={idx} icon={faStar} className="star-full" />;
     }
   });
-  return <div>{stars}</div>;
+  return <span className="star-container">{stars}</span>;
 };
 
 export default StarRating;
