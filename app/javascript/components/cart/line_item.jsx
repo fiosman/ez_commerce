@@ -1,5 +1,7 @@
 import React from "react";
-
+import Button from "react-bootstrap/Button";
+import Image from "react-bootstrap/Image";
+import InputGroup from "react-bootstrap/InputGroup";
 class LineItem extends React.Component {
   constructor(props) {
     super(props);
@@ -42,29 +44,41 @@ class LineItem extends React.Component {
     return (
       <tr>
         <td>
-          <button onClick={this.handleRemove}>Delete</button>
+          <Button variant="custom" onClick={this.handleRemove}>
+            Delete
+          </Button>
         </td>
         <td>
-          <img src={this.props.product.imageUrl} width="30" height="30" />
+          <Image src={this.props.product.imageUrl} width="60" height="60" />
         </td>
         <td>{this.props.product.title}</td>
-        <td>{this.props.product.price}</td>
+        <td>${this.props.product.price}</td>
         <td>
-          <button name="increment" onClick={this.handleQuantity}>
+          <Button
+            variant="custom"
+            name="increment"
+            onClick={this.handleQuantity}
+            className="increment-button"
+          >
             +
-          </button>
+          </Button>
           <input
-            type="text"
+            as="input"
             value={this.state.quantity}
             onChange={this.handleQuantity}
             name="user-input"
-          ></input>
-          <button name="decrement" onClick={this.handleQuantity}>
+            style={{ width: "30%" }}
+          />
+          <Button
+            variant="custom"
+            name="decrement"
+            onClick={this.handleQuantity}
+            className="decrement-button"
+          >
             -
-          </button>
+          </Button>
         </td>
-
-        <td>{this.props.product.price * this.props.item.quantity}</td>
+        <td>${this.props.product.price * this.props.item.quantity}</td>
       </tr>
     );
   }

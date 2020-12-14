@@ -1,6 +1,7 @@
 import React from "react";
 import LineItem from "./line_item";
-import { Link } from "react-router-dom";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
 
 class Cart extends React.Component {
   constructor(props) {
@@ -25,8 +26,7 @@ class Cart extends React.Component {
         .reduce((total, currAmount) => total + currAmount);
       return (
         <div>
-          <Link to="/">Return to main page</Link>
-          <table>
+          <Table striped bordered hover responsive size="sm">
             <tbody>
               <tr>
                 <th></th>
@@ -48,9 +48,9 @@ class Cart extends React.Component {
                 );
               })}
             </tbody>
-          </table>
-          <table>
-            <tbody>
+          </Table>
+          <Table striped bordered hover responsive>
+            <tbody className="totals">
               <tr>
                 <td>Subtotal</td>
                 <td>${itemsTotalPrice}</td>
@@ -60,8 +60,10 @@ class Cart extends React.Component {
                 <td>${itemsTotalPrice}</td>
               </tr>
             </tbody>
-          </table>
-          <button disabled>Proceed to checkout</button>
+          </Table>
+          <Button variant="custom" disabled>
+            Proceed to checkout
+          </Button>
         </div>
       );
     }
