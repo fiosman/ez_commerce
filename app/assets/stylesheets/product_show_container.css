@@ -22,7 +22,6 @@
 
 .product-review-container {
   grid-area: productReviews;
-  border: 1px solid blue;
   height: fit-content;
 }
 
@@ -42,4 +41,25 @@
 
 .star-container {
   display: inline-block;
+}
+
+div.list-group-item {
+  display: block;
+  text-align: left;
+  padding: 5px;
+  border: none;
+}
+
+div.list-group:not(:last-child):after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 1px;
+  border-bottom: 2px solid #800080;
+  margin-left: 5px;
+  border-radius: 60%;
+}
+
+.product-review-container .card {
+  border: none !important;
 }

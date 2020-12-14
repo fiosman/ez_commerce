@@ -60,20 +60,22 @@ class ProductShow extends React.Component {
         </div>
 
         <div className="product-review-container">
-          <h2>{reviewStatus}</h2>
           {this.props.location.pathname ===
           `/products/${this.props.productId}/review` ? (
             <ReviewFormContainer product={this.props.product} />
           ) : (
             ""
           )}
-          <section>
+          <Card style={{ width: "60%" }}>
+            <h2>{reviewStatus}</h2>
             <h2>Reviews</h2>
-            <ReviewIndex
-              product={this.props.product}
-              reviews={this.props.productReviews}
-            />
-          </section>
+            <div className="review-posts-container">
+              <ReviewIndex
+                product={this.props.product}
+                reviews={this.props.productReviews}
+              />
+            </div>
+          </Card>
         </div>
       </div>
     );
