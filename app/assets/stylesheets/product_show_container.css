@@ -43,7 +43,7 @@
   display: inline-block;
 }
 
-div.list-group-item {
+.review-posts-container .list-group-item {
   display: block;
   text-align: left;
   padding: 5px;
@@ -54,7 +54,7 @@ div.list-group:not(:last-child):after {
   content: "";
   display: block;
   width: 50%;
-  height: 1px;
+  height: 5px;
   border-bottom: 2px solid #800080;
   margin-left: 5px;
   border-radius: 60%;
@@ -62,4 +62,8 @@ div.list-group:not(:last-child):after {
 
 .product-review-container .card {
   border: none !important;
+}
+
+.review-form-submit {
+  margin-right: 10px;
 }

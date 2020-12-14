@@ -29,7 +29,10 @@ class ProductShow extends React.Component {
         ""
       );
     const reviewBlob =
-      this.props.productReviews.length > 1 ? "Reviews" : "Review";
+      this.props.productReviews.length > 1 ||
+      this.props.productReviews.length === 0
+        ? "Reviews"
+        : "Review";
     return (
       <div className="product-show-container">
         <Card style={{ background: "#f5f5f5" }}>
@@ -68,7 +71,6 @@ class ProductShow extends React.Component {
           )}
           <Card style={{ width: "60%" }}>
             <h2>{reviewStatus}</h2>
-            <h2>Reviews</h2>
             <div className="review-posts-container">
               <ReviewIndex
                 product={this.props.product}

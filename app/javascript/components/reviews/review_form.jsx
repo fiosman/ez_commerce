@@ -1,5 +1,8 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -52,27 +55,32 @@ class ReviewForm extends React.Component {
   render() {
     const errors = this.props.errors.length > 0 ? this.displayErrors() : "";
     const reviewForm = (
-      <form onSubmit={this.handleSubmit}>
-        <label>
-          Rating
-          <input
+      <Form onSubmit={this.handleSubmit}>
+        <Form.Group>
+          <Form.Control
+            placeholder="Rating"
             type="number"
             name="rating"
             value={this.state.rating}
             onChange={this.handleChange}
           />
-        </label>
-        <label>
-          Comment
-          <textarea
+        </Form.Group>
+        <Form.Group>
+          <Form.Control
+            as="textarea"
+            placeholder="Review"
             value={this.state.body}
             name="body"
             onChange={this.handleChange}
-          ></textarea>
-        </label>
-        <input type="submit" />
-        <button onClick={this.handleNavigation}>Cancel</button>
-      </form>
+          />
+        </Form.Group>
+        <Button type="submit" variant="custom" className="review-form-submit">
+          Submit
+        </Button>
+        <Button onClick={this.handleNavigation} variant="custom">
+          Cancel
+        </Button>
+      </Form>
     );
     return (
       <section>
