@@ -6,6 +6,7 @@ import AddCartItemContainer from "../add_cart_item/add_cart_item_container";
 import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import StarRating from "./star_rating";
+import Button from "react-bootstrap/Button";
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
@@ -22,8 +23,7 @@ class ProductShow extends React.Component {
     const reviewStatus =
       this.props.location.pathname === `/products/${this.props.productId}` ? (
         <Link to={`/products/${this.props.productId}/review`}>
-          {" "}
-          Leave a Review
+          <Button variant="custom">Review this product</Button>
         </Link>
       ) : (
         ""
