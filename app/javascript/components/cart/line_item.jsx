@@ -78,7 +78,9 @@ class LineItem extends React.Component {
             -
           </Button>
         </td>
-        <td>${this.props.product.price * this.props.item.quantity}</td>
+        <td>
+          ${(this.props.product.price * this.props.item.quantity).toFixed(2)}
+        </td>
       </tr>
     );
   }

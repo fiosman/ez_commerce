@@ -36,8 +36,8 @@ class Cart extends React.Component {
           >
             <tbody>
               <tr>
-                <th></th>
-                <th></th>
+                <th className="delete-header"></th>
+                <th className="image-header"></th>
                 <th>Product</th>
                 <th>Price</th>
                 <th>Quantity</th>
@@ -60,11 +60,11 @@ class Cart extends React.Component {
             <tbody className="totals">
               <tr>
                 <td>Subtotal</td>
-                <td>${itemsTotalPrice}</td>
+                <td>${itemsTotalPrice.toFixed(2)}</td>
               </tr>
               <tr>
                 <td>Total</td>
-                <td>${itemsTotalPrice}</td>
+                <td>${itemsTotalPrice.toFixed(2)}</td>
               </tr>
             </tbody>
           </Table>
