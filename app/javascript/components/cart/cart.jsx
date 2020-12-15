@@ -26,7 +26,14 @@ class Cart extends React.Component {
         .reduce((total, currAmount) => total + currAmount);
       return (
         <div>
-          <Table striped bordered hover responsive size="sm">
+          <Table
+            className="cart-table"
+            striped
+            bordered
+            hover
+            responsive
+            size="sm"
+          >
             <tbody>
               <tr>
                 <th></th>
@@ -49,7 +56,7 @@ class Cart extends React.Component {
               })}
             </tbody>
           </Table>
-          <Table striped bordered hover responsive>
+          <Table className="cart-table" striped bordered hover responsive>
             <tbody className="totals">
               <tr>
                 <td>Subtotal</td>

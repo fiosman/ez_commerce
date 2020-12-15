@@ -5,3 +5,8 @@
 .increment-button {
   margin-right: 10px;
 }
+
+.cart-table td {
+  width: 1em;
+  white-space: nowrap;
+}
