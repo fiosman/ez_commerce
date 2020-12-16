@@ -7,6 +7,7 @@ import Image from "react-bootstrap/Image";
 import Card from "react-bootstrap/Card";
 import StarRating from "./star_rating";
 import Button from "react-bootstrap/Button";
+import LoadingSpinner from "../loading_spinner/loading_spinner";
 class ProductShow extends React.Component {
   constructor(props) {
     super(props);
@@ -18,7 +19,7 @@ class ProductShow extends React.Component {
 
   render() {
     if (this.props.loadingProduct || this.props.loadingReviews) {
-      return <h2>Loading Product...</h2>;
+      return <LoadingSpinner />;
     }
     const reviewStatus =
       this.props.location.pathname === `/products/${this.props.productId}` ? (

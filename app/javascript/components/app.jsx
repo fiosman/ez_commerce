@@ -13,6 +13,7 @@ import ProductShowContainer from "../components/product/product_show_container";
 import CartContainer from "../components/cart/cart_container";
 import Logo from "../../assets/images/logo/ez-commerce.png";
 import GreetingContainer from "./greeting/greeting_container";
+import LoadingSpinner from "./loading_spinner/loading_spinner";
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class App extends React.Component {
 
   render() {
     if (this.props.productsEmpty || this.props.categoriesEmpty) {
-      return <h2>Loading Please wait...</h2>;
+      return <LoadingSpinner />;
     } else {
       return (
         <div className="main">

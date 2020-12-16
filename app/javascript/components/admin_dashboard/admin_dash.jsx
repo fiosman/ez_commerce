@@ -1,5 +1,6 @@
 import React from "react";
 import AdminNavBar from "../admin_dashboard/admin_nav_bar";
+import LoadingSpinner from "../loading_spinner/loading_spinner";
 class AdminDash extends React.Component {
   constructor(props) {
     super(props);
@@ -13,7 +14,7 @@ class AdminDash extends React.Component {
   render() {
     const { loadingCategories, loadingProducts } = this.props;
     if (loadingCategories || loadingProducts) {
-      return <div>Loading...</div>;
+      return <LoadingSpinner />;
     }
     return (
       <div className="admin-dash-container">
