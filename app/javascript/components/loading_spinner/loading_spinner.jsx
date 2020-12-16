@@ -3,9 +3,10 @@ import Spinner from "react-bootstrap/Spinner";
 
 const LoadingSpinner = () => {
   return (
-    <Spinner animation="border" role="status">
-      <span className="sr-only">Loading...</span>
-    </Spinner>
+    <div className="loading">
+      <Spinner className="centered" animation="border" role="status"></Spinner>
+      <p>Loading...</p>
+    </div>
   );
 };
 
