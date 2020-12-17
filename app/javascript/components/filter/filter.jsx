@@ -47,7 +47,7 @@ class Filter extends React.Component {
       (this.state.category.length === 0 && prevState.category.length != 0) ||
       (this.state.searchTerm == "" &&
         prevState.searchTerm != "" &&
-        this.state.price != "" &&
+        this.state.price === "" &&
         this.state.category.length < 1)
     ) {
       return this.props.clearAllFilters();
