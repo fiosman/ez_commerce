@@ -62,7 +62,7 @@ class Filter extends React.Component {
     }
   }
   render() {
-    const { categories, products } = this.props;
+    const { categories } = this.props;
     return (
       <section className="filtersContainer">
         <section>

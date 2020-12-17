@@ -31,7 +31,6 @@ class App extends React.Component {
   }
 
   render() {
-    return <LoadingSpinner />;
     if (this.props.productsEmpty || this.props.categoriesEmpty) {
       return <LoadingSpinner />;
     } else {
