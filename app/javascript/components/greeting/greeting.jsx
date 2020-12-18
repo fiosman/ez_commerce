@@ -32,11 +32,15 @@ class Greeting extends React.Component {
               Logout
             </Button>
           </li>
-          <li>
-            <Link to="/admin">
-              <Button variant="custom">Admin</Button>
-            </Link>
-          </li>
+          {this.props.currentUser.isAdmin ? (
+            <li>
+              <Link to="/admin">
+                <Button variant="custom">Admin</Button>
+              </Link>
+            </li>
+          ) : (
+            ""
+          )}
           <li>
             <Link to="/cart">
               <FontAwesomeIcon
