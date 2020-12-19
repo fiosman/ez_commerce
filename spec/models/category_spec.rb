@@ -20,4 +20,8 @@ RSpec.describe Category, type: :model do
     it { should validate_presence_of(:tagging) }
     it { should validate_uniqueness_of(:tagging) }
   end
+
+  describe "associations" do
+    it { should have_many(:products) }
+  end
 end
