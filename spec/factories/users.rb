@@ -14,9 +14,12 @@
 #  index_users_on_session_token  (session_token) UNIQUE
 #  index_users_on_username       (username) UNIQUE
 #
-FactoryBot.define do 
-  factory :user do 
-    username { 'iamyou' } 
-    password { 'password' } 
+FactoryBot.define do
+  factory :user do
+    username { "iamyou" }
+    password { "password" }
+  end
+  factory :category do
+    tagging { "outdoors" }
   end
 end
