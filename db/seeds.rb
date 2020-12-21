@@ -32,5 +32,3 @@ Product.create!([
   { title: "Harry Potter", body: "Great book", price: 10.99, category_id: Category.find_by_tagging("books").id },
   { title: "Seat Covers", body: "Universal use", price: 23.99, category_id: Category.find_by_tagging("auto parts").id },
 ])
-
-Product.create!()
