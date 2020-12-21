@@ -27,7 +27,10 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:password_digest) }
   end
 
-  describe "associations"
+  describe "associations" do
+    it { should have_many(:reviews) }
+    it { should have_one(:cart) }
+  end
 
   describe "class methods" do
     describe "::find_by_credentials" do
