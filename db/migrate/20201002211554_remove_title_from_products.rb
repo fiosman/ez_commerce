@@ -1,5 +1,5 @@
 class RemoveTitleFromProducts < ActiveRecord::Migration[6.0]
-  # def change
-  #   remove_column :products, :title
-  # end
+  def change
+    remove_column :products, :title
+  end
 end

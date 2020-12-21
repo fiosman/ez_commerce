@@ -25,7 +25,6 @@ development:
   <<: *default
   database: ez_commerce_development
 
-
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
@@ -81,6 +80,6 @@ test:
 #
 production:
   <<: *default
-  database: ez_commerce_production
-  username: ez_commerce
-  password: <%= ENV['EZ_COMMERCE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['DATABASE_URL'] %>
+  # username: ez_commerce
+  # password: <%= ENV['EZ_COMMERCE_DATABASE_PASSWORD'] %>
