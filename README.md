@@ -14,4 +14,16 @@ You can visit the latest deployed version of the application [here](https://ez-e
 
 ## Technologies Used
 
+### Backend
+
+- Ruby on Rails
+- PostgreSQL
+
+### Frontend
+
+- React
+- Redux
+- HTML
+- CSS
+
 ## Future Work
