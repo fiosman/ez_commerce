@@ -1,4 +1,4 @@
-# [logo]: https://i.postimg.cc/gkJB0VjT/ez-commerce-7faccfc8.png
+# ![alt text](https://i.postimg.cc/gkJB0VjT/ez-commerce-7faccfc8.png "Logo")
 
 EzCommerce is an e-commerce web application that offers swift shopping experience.
 
