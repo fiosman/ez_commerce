@@ -1,7 +1,7 @@
 #
 
 <p align="center">
-  <img src="https://i.postimg.cc/8cHRd05V/Untitled-Design-2.jpg">
+  <img src="https://i.postimg.cc/BssFrZdH/Screen-Shot-2020-12-24-at-11-24-49-PM.png">
 </p>
 EzCommerce is an e-commerce web application that offers swift shopping experience.
 
