@@ -1,7 +1,5 @@
-#
-<p align="left">
-  <img width="200" height="200" src="https://i.postimg.cc/gkJB0VjT/ez-commerce-7faccfc8.png">
-</p>
+# EzCommerce
+
 EzCommerce is an e-commerce web application that offers swift shopping experience.
 
 Development by Fares Osman. This project is not meant to "clone" any well known applications. This is a demo site to showcase my programming knowledge, primarily in backend and frontend web development.
