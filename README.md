@@ -27,3 +27,13 @@ You can visit the latest deployed version of the application [here](https://ez-e
 - CSS
 
 ## Future Work
+
+The below are features I would like to implement in the future
+
+- Functional billing system
+- Add analytics (e.g. number of registered users, number of completed/pending orders) to admin dashboard
+- Set up mailer
+- Add featured products to splash page
+- Sorting products by more filters (e.g. alphabetical order, rating)
+- Add profile settings to user accounts
+- Write more end to end and integration tests
