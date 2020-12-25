@@ -1,6 +1,5 @@
 #
-
-<p align="center">
+<p align="left">
   <img width="250" height="150" src="https://i.postimg.cc/gkJB0VjT/ez-commerce-7faccfc8.png">
 </p>
 
