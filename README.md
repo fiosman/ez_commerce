@@ -1,7 +1,7 @@
 #
 
 <p align="left">
-  <img width="150" height="150" src="https://i.postimg.cc/gkJB0VjT/ez-commerce-7faccfc8.png">
+  <img width="200" height="150" src="https://i.postimg.cc/gkJB0VjT/ez-commerce-7faccfc8.png">
 </p>
 
 EzCommerce is an e-commerce web application that offers swift shopping experience.
