@@ -124,7 +124,7 @@ The methods `current_items` and `transfer_items` are both defined in the Applica
   end
 ```
 
-- When Rails receives a POST request to create a session (i.e. log in ) or create a user (i.e. sign up), before the `create` action controller is run, `current_items` is first run to store any items within the current cart in an instance variable that is accessible within the `ApplicationController` class.
+- When Rails receives a POST request to create a session (i.e. log in ) or create a user (i.e. sign up), before the `create` controller action is run, `current_items` is first executed to store any items within the current cart in an instance variable that is accessible within the `ApplicationController` class.
 
 ```ruby
   def current_items
@@ -132,7 +132,7 @@ The methods `current_items` and `transfer_items` are both defined in the Applica
   end
 ```
 
-- After the `create` action controller is run, the `transfer_items` callback is executed which takes the current cart (i.e. guest cart) items and adds them to the logged in user's cart.
+- After the `create` controller action is run, the `transfer_items` callback is executed which takes the current cart (i.e. guest cart) items and adds them to the logged in user's cart.
 
 ```ruby
   def transfer_items
