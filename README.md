@@ -36,6 +36,20 @@ Users have the ability to upload products via an interactive form through the ad
   <img align="center" src="https://i.ibb.co/2d5fC5H/Screen-Shot-2020-12-26-at-12-26-02-AM.png">
 </details>
 
+#### Store Inventory
+
+Users can keep track of their uploaded products with the ability to modify and/or delete them.
+
+<details>
+  <summary>Product Actions</summary>
+  <img align="center" src="https://i.ibb.co/k37ntZ7/Screen-Shot-2020-12-26-at-12-55-48-AM.png">
+</details>
+
+<details>
+  <summary>Delete Product</summary>
+  <img align="center" src="https://i.ibb.co/wzP04d2/ezgif-1-12b469a1e062.gif">
+</details>
+
 ### Review Products
 
 ### Shopping Cart
