@@ -52,6 +52,13 @@ Users can keep track of their uploaded products with the ability to modify and/o
 
 ### Review Products
 
+Logged in users are able to review products via rating and leaving comments.
+
+<details>
+  <summary>Review Product</summary>
+  <img align="center" src="https://i.ibb.co/SsW0vHJ/ezgif-6-e0288b756d06.gif">
+</details>
+
 ### Shopping Cart
 
 ### Product Filtering System
