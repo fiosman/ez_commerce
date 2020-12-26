@@ -142,6 +142,44 @@ The methods `current_items` and `transfer_items` are both defined in the Applica
   end
 ```
 
+### Frontend Authentication
+
+Functional React components were created to render routes (i.e. React Router) conditionally. For example, we do not want signed in users to be able to visit the sign up page. We also do not want signed users to visit the admin page.
+
+```javascript
+import React from "react";
+import { connect } from "react-redux";
+import { Redirect, Route, withRouter } from "react-router-dom";
+
+const mapStateToProps = (state) => ({
+  //state here is taken from the Redux store
+  loggedIn: Boolean(state.session.id),
+  isAdmin: state.session.id
+    ? state.entities.users[state.session.id].isAdmin
+    : null,
+});
+
+const Auth = ({ loggedIn, path, component: Component }) => (
+  <Route
+    path={path}
+    render={(props) =>
+      loggedIn ? <Redirect to="/" /> : <Component {...props} />
+    }
+  />
+);
+
+export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
+```
+
+AuthRoute becomes a reusable component, with which routes that require conditional rendering can be wrapped. For instance, not allowing logged in users to view the signup page.
+
+```javascript
+import { AuthRoute, AdminRoute } from "../util/route_util";
+import SignupFormContainer from "../components/session_form/signup_form_container";
+
+<AuthRoute path="/signup" exact component={SignupFormContainer} />;
+```
+
 ## Technologies Used
 
 ### Backend
