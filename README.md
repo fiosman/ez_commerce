@@ -59,8 +59,6 @@ Logged in users are able to review products via rating and leaving comments.
   <img align="center" src="https://i.ibb.co/SsW0vHJ/ezgif-6-e0288b756d06.gif">
 </details>
 
-### Shopping Cart
-
 ### Product Filtering System
 
 Users are able to search for products by keyword and filter by category and/or price.
@@ -68,6 +66,17 @@ Users are able to search for products by keyword and filter by category and/or p
 <details>
   <summary>Product Filtering</summary>
   <img align="center" src="https://i.ibb.co/FxpyD39/ezgif-6-fa3d7c5bcae2.gif">
+</details>
+
+### Shopping Cart
+
+Users, registered and non-registered, have the ability to add items to their shopping cart.
+
+Items in a guest's shopping cart are transferred over once they sign up.
+
+<details>
+  <summary>Shopping Cart</summary>
+  <img align="center" src="https://i.ibb.co/Jzw4dc9/ezgif-6-5cd7441f269e.gif">
 </details>
 
 ## Technologies Used
