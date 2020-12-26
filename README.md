@@ -144,7 +144,7 @@ The methods `current_items` and `transfer_items` are both defined in the Applica
 
 ### Frontend Authentication
 
-Functional React components were created to render routes (i.e. React Router) conditionally. For example, we do not want signed in users to be able to visit the sign up page. We also do not want signed users to visit the admin page.
+Functional React components were created to render routes (i.e. React Router) conditionally. For example, we do not want signed in users to be able to visit the sign up page.
 
 ```javascript
 import React from "react";
