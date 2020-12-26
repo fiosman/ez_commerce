@@ -63,6 +63,13 @@ Logged in users are able to review products via rating and leaving comments.
 
 ### Product Filtering System
 
+Users are able to search for products by keyword and filter by category and/or price.
+
+<details>
+  <summary>Product Filtering</summary>
+  <img align="center" src="https://i.ibb.co/FxpyD39/ezgif-6-fa3d7c5bcae2.gif">
+</details>
+
 ## Technologies Used
 
 ### Backend
