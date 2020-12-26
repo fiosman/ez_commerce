@@ -23,7 +23,7 @@ Users have the ability to upload products via an interactive form through the ad
 
 <details>
   <summary>Add Product</summary>
-  <img align="center" src="https://i.ibb.co/4dCnWR7/Screen-Shot-2020-12-25-at-10-12-17-PM.png">
+  <img align="center" src="https://i.ibb.co/cT0QQq9/Screen-Shot-2020-12-26-at-12-24-16-AM.png">
 </details>
 
 <details>
@@ -33,7 +33,7 @@ Users have the ability to upload products via an interactive form through the ad
 
 <details>
   <summary>Form Errors</summary>
-  <img align="center" src="https://i.ibb.co/kSFstLZ/Screen-Shot-2020-12-25-at-11-41-18-PM.png">
+  <img align="center" src="https://i.ibb.co/2d5fC5H/Screen-Shot-2020-12-26-at-12-26-02-AM.png">
 </details>
 
 ### Review Products
