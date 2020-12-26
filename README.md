@@ -79,6 +79,69 @@ Items in a guest's shopping cart are transferred over once they sign up.
   <img align="center" src="https://i.ibb.co/Jzw4dc9/ezgif-6-5cd7441f269e.gif">
 </details>
 
+The transfer of items in a shopping cart is handled by Rails' Active Record callbacks within the users controller, for example as per below when a user attempts to sign up:
+
+```ruby
+class Api::UsersController < ApplicationController
+  before_action :current_items, only: [:create]
+  after_action :transfer_items, only: [:create]
+
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      log_in!(@user)
+      Cart.create!(user_id: @user.id)
+      render :show
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
+  end
+
+  private
+
+  def user_params
+    params.require(:user).permit(:username, :password)
+  end
+end
+```
+
+The methods `current_items` and `transfer_items` are both defined in the ApplicationController class, which all controllers including the users controller inherit from.
+
+- ApplicationController always keeps track of the current cart for an individual session, whether the guest is logged in or not, as show in `current_cart` below.
+
+```ruby
+  def current_cart
+    if logged_in?
+      @current_cart = current_user.cart
+    else
+      if session[:cart_token]
+        @current_cart = Cart.find_by(cart_token: session[:cart_token])
+      else
+        @current_cart = Cart.create
+        session[:cart_token] = @current_cart.cart_token
+      end
+    end
+  end
+```
+
+- When Rails receives a POST request to create a session (i.e. log in ) or create a user (i.e. sign up), before the `create` action controller is run, `current_items` is first run to store any items within the current cart in an instance variable that is accessible within the `ApplicationController` class.
+
+```ruby
+  def current_items
+    @line_items = @current_cart.line_items
+  end
+```
+
+- After the `create` action controller is run, the `transfer_items` callback is executed which takes the current cart (i.e. guest cart) items and adds them to the logged in user's cart.
+
+```ruby
+  def transfer_items
+    old_cart = @current_cart
+    current_cart.add_line_items(@line_items)
+    LineItem.where(cart_id: old_cart.id).destroy_all
+  end
+```
+
 ## Technologies Used
 
 ### Backend
