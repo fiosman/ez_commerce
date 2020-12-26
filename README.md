@@ -17,10 +17,24 @@ You can visit the latest deployed version of the application [here](https://ez-e
 
 ### Admin Dashboard
 
+- Add, Update Product Forms
+
 Users have the ability to upload products via an interactive form through the admin dash. User friendly error messages are also integrated in case of an invalid form field input.
 
-<img align="center" alt="Screen Shot 2020-12-25 at 10 12 17 PM" src="https://i.ibb.co/4dCnWR7/Screen-Shot-2020-12-25-at-10-12-17-PM.png">
-<img align="center" alt="Screen Shot 2020-12-25 at 10 13 07 PM" src="https://i.ibb.co/MCG8VWq/Screen-Shot-2020-12-25-at-11-38-05-PM.png">
+<details>
+  <summary>Add Product</summary>
+  <img align="center" alt="Screen Shot 2020-12-25 at 10 12 17 PM" src="https://i.ibb.co/4dCnWR7/Screen-Shot-2020-12-25-at-10-12-17-PM.png">
+</details>
+
+<details>
+  <summary>Update Product</summary>
+  <img align="center" alt="Screen Shot 2020-12-25 at 10 13 07 PM" src="https://i.ibb.co/kSFstLZ/Screen-Shot-2020-12-25-at-11-41-18-PM.png">
+</details>
+
+<details>
+  <summary>Form Errors</summary>
+  <img align="center" alt="Screen Shot 2020-12-25 at 10 13 07 PM" src="https://i.ibb.co/kSFstLZ/Screen-Shot-2020-12-25-at-11-41-18-PM.png">
+</details>
 
 ### Review Products
 
