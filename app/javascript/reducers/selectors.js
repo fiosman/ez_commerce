@@ -20,21 +20,13 @@ export const selectAllProducts = (state) => {
   return arr;
 };
 
-export const selectSearchedProducts = (state) => {
-  const products = selectAllProducts(state);
-
-  return products.filter((product) =>
-    product.title.includes(state.filters.search)
-  );
-};
-
 export const selectFilteredProducts = (state) => {
   const products = selectAllProducts(state);
   const categories = state.entities.categories;
   const filters = state.filters;
   return products.filter((product) => {
     return (
-      product.title.includes(filters.search) &&
+      product.title.toLowerCase().includes(filters.search) &&
       byCategory(categories[product.category_id].tagging, filters.categories) &&
       byPrice(product.price, filters.price)
     );

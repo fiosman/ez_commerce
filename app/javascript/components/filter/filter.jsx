@@ -5,7 +5,7 @@ class Filter extends React.Component {
     super(props);
     this.state = {
       category: this.props.filters.categories,
-      search: this.props.filters.search,
+      searchTerm: this.props.filters.search,
       price: this.props.filters.price,
     };
     this.categoryFilter = this.categoryFilter.bind(this);
@@ -61,7 +61,9 @@ class Filter extends React.Component {
     }
 
     if (this.state.searchTerm != prevState.searchTerm) {
-      return this.props.fetchSearchedProducts(this.state.searchTerm);
+      return this.props.fetchSearchedProducts(
+        this.state.searchTerm.toLowerCase()
+      );
     }
   }
   render() {
