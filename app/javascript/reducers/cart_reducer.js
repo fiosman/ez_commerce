@@ -10,7 +10,6 @@ const cartReducer = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CART:
       return { [action.cart.id]: action.cart };
-    case EMPTY_CART:
     case RECEIVE_LINE_ITEM:
       const currentCart = state[action.item.cart_id];
       const currentItemIds = currentCart.lineItemIds;
