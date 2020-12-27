@@ -1,7 +1,7 @@
 import React from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-class ProductForm extends React.Component {
+class CategoryForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -68,4 +68,4 @@ class ProductForm extends React.Component {
   }
 }
 
-export default ProductForm;
+export default CategoryForm;
