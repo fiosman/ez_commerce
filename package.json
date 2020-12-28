@@ -27,7 +27,7 @@
     "redux-thunk": "^2.3.0"
   },
   "scripts": { 
-    "test": "jest --coverage"
+    "test": "jest --coverage --watch"
   },
   "version": "0.1.0",
   "devDependencies": {

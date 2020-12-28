@@ -1,4 +1,5 @@
 import usersReducer from "../reducers/users_reducer";
+import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 describe("Users Reducer", () => {
   it("has a default state", () => {
@@ -7,5 +8,20 @@ describe("Users Reducer", () => {
         type: "non valid action type",
       })
     ).toEqual({});
+  });
+
+  it("can handle RECEIVE_CURRENT_USER", () => {
+    expect(
+      usersReducer(undefined, {
+        type: RECEIVE_CURRENT_USER,
+        currentUser: { id: 2, username: "test", isAdmin: false },
+      })
+    ).toEqual({
+      2: {
+        id: 2,
+        username: "test",
+        isAdmin: false,
+      },
+    });
   });
 });
