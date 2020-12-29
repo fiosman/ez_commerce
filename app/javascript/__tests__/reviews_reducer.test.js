@@ -1,8 +1,4 @@
-import {
-  RECEIVE_REVIEW,
-  REMOVE_REVIEW,
-  RECEIVE_ALL_REVIEWS,
-} from "../actions/review_actions";
+import { RECEIVE_REVIEW, REMOVE_REVIEW } from "../actions/review_actions";
 import reviewsReducer from "../reducers/reviews_reducer";
 
 describe("Reviews Reducer", () => {
@@ -12,13 +8,22 @@ describe("Reviews Reducer", () => {
       body: "bad review",
       id: 1,
       product_id: 2,
-      rating: 5,
+      rating: 1,
+    },
+    2: {
+      author: "badman",
+      body: "good review",
+      id: 2,
+      product_id: 6,
+      rating: 4,
     },
   };
-  test("handles default state", () => {
+
+  it("handles default state", () => {
     expect(reviewsReducer(state, { type: "none" })).toEqual(state);
   });
-  test("handles RECEIVE_REVIEW", () => {
+
+  it("handles RECEIVE_REVIEW", () => {
     const payLoad = {
       review: {
         id: 3,
@@ -34,5 +39,14 @@ describe("Reviews Reducer", () => {
         review: payLoad.review,
       })
     ).toEqual({ ...state, [payLoad.review.id]: payLoad.review });
+  });
+
+  it("handles REMOVE_REVIEW", () => {
+    expect(
+      reviewsReducer(state, {
+        type: REMOVE_REVIEW,
+        reviewId: state["1"].id,
+      })
+    ).toEqual({ [state["2"].id]: state["2"] });
   });
 });
