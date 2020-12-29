@@ -42,33 +42,22 @@ describe("LineItems Reducer", () => {
     ).toEqual({ ...state, [payLoad.item.id]: payLoad.item });
   });
 
-  //   it("handles REMOVE_REVIEW", () => {
-  //     expect(
-  //       reviewsReducer(state, {
-  //         type: REMOVE_REVIEW,
-  //         reviewId: state["1"].id,
-  //       })
-  //     ).toEqual({ [state["2"].id]: state["2"] });
-  //   });
+  it("handles REMOVE_LINE_ITEM", () => {
+    expect(
+      lineItemsReducer(state, {
+        type: REMOVE_LINE_ITEM,
+        item: state["1"],
+      })
+    ).toEqual({ [state["2"].id]: state["2"] });
+  });
+
+  it("handles UPDATE_LINE_ITEM", () => {
+    state["1"].quantity += 4;
+    expect(
+      lineItemsReducer(state, {
+        type: UPDATE_LINE_ITEM,
+        item: state["1"],
+      })
+    ).toEqual(state);
+  });
 });
-
-// const lineItemsReducer = (state = {}, action) => {
-//   Object.freeze(state);
-
-//   switch (action.type) {
-//     case RECEIVE_LINE_ITEM:
-//       return Object.assign({}, state, { [action.item.id]: action.item });
-//     case RECEIVE_ALL_LINE_ITEMS:
-//       return Object.assign({}, state, action.items);
-//     case REMOVE_LINE_ITEM:
-//       let newState = Object.assign({}, state);
-//       delete newState[action.item.id];
-//       return newState;
-//     case UPDATE_LINE_ITEM:
-//       let updatedState = Object.assign({}, state);
-//       updatedState[action.item.id] = action.item;
-//       return updatedState;
-//     default:
-//       return state;
-//   }
-// };
