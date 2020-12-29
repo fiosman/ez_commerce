@@ -2,7 +2,7 @@ import usersReducer from "../reducers/users_reducer";
 import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
 
 describe("Users Reducer", () => {
-  it("has a default state", () => {
+  test("has a default state", () => {
     expect(
       usersReducer(undefined, {
         type: "non valid action type",
@@ -10,7 +10,7 @@ describe("Users Reducer", () => {
     ).toEqual({});
   });
 
-  it("can handle RECEIVE_CURRENT_USER", () => {
+  test("can handle RECEIVE_CURRENT_USER", () => {
     expect(
       usersReducer(undefined, {
         type: RECEIVE_CURRENT_USER,
