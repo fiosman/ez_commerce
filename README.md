@@ -194,6 +194,11 @@ import SignupFormContainer from "../components/session_form/signup_form_containe
 - HTML
 - CSS
 
+### Testing Frameworks
+
+- RSpec
+- Jest
+
 ## Future Work
 
 The below are features I would like to implement in the future
@@ -204,4 +209,4 @@ The below are features I would like to implement in the future
 - Add featured products to splash page
 - Sorting products by more filters (e.g. alphabetical order, rating)
 - Add profile settings to user accounts
-- Write more end to end and integration tests
+- Write more frontend integration tests
