@@ -11,7 +11,8 @@ Development period was from September 6, 2020 - December 20, 2020. I worked on t
 
 ## Design Documents
 
-All design documents during planning stages can be found [here](https://github.com/fiosman/ez_commerce/wiki).
+All design documents created during planning stages can be found [here](https://github.com/fiosman/ez_commerce/wiki).
+
 ## Live Link
 
 You can visit the latest deployed version of the application [here](https://ez-ecomm.herokuapp.com/#/).
