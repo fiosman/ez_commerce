@@ -210,3 +210,4 @@ The below are features I would like to implement in the future
 - Sorting products by more filters (e.g. alphabetical order, rating)
 - Add profile settings to user accounts
 - Write more frontend integration tests
+- Add more responsiveness to the layout
