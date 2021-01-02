@@ -9,6 +9,9 @@ Development by Fares Osman. This project is not meant to "clone" any well known 
 
 Development period was from September 6, 2020 - December 20, 2020. I worked on this project part time, while being committed to a full time job in a different industry.
 
+## Design Documents
+
+All design documents during planning stages can be found [here](https://github.com/fiosman/ez_commerce/wiki).
 ## Live Link
 
 You can visit the latest deployed version of the application [here](https://ez-ecomm.herokuapp.com/#/).
